@@ -1,0 +1,203 @@
+<section class="actualites">
+
+  <h2 class="section-title">ACTUALITÉS</h2>
+
+  <div class="layout">
+
+    <!-- ===== LEFT: FEATURED ARTICLE ===== -->
+    <article class="featured">
+      <div class="featured-image">
+        <!-- Temporary placeholder: conference scene -->
+        <svg viewBox="0 0 620 360" xmlns="http://www.w3.org/2000/svg">
+          <!-- Room background -->
+          <rect width="620" height="360" fill="#c8b89a"/>
+          <!-- Wall -->
+          <rect width="620" height="240" fill="#d4c4aa"/>
+          <!-- Flag on wall -->
+          <rect x="490" y="20" width="4" height="80" fill="#8a7a6a"/>
+          <rect x="494" y="22" width="35" height="55" fill="#007fff"/>
+          <path d="M494,22 L529,22 L529,49 L494,49 Z" fill="#cc0000"/>
+          <polygon points="500,24 503,30 509,30 504,34 506,40 500,36 494,40 496,34 491,30 497,30" fill="#f5c000"/>
+          <!-- Conference banner -->
+          <rect x="50" y="15" width="380" height="35" fill="#1a3a6b"/>
+          <text x="240" y="38" text-anchor="middle" fill="white" font-size="11" font-family="Arial">CONFÉRENCE GÉNÉRALE DES NATIONS DES PEUPLES</text>
+          <!-- Table -->
+          <rect x="80" y="200" width="460" height="18" fill="#b8860b" rx="2"/>
+          <rect x="60" y="215" width="500" height="10" fill="#a07820" rx="1"/>
+          <!-- Chair back (golden) -->
+          <rect x="195" y="130" width="90" height="75" fill="#c8960a" rx="8"/>
+          <rect x="200" y="135" width="80" height="65" fill="#d4a020" rx="6"/>
+          <!-- Person (man in suit) -->
+          <circle cx="240" cy="135" r="28" fill="#8b6914"/>
+          <!-- Head shaved/bald -->
+          <ellipse cx="240" cy="120" rx="22" ry="20" fill="#6b4f10"/>
+          <!-- Face -->
+          <ellipse cx="240" cy="128" rx="16" ry="14" fill="#7a5a18"/>
+          <!-- Suit jacket -->
+          <path d="M200,185 Q210,155 240,150 Q270,155 280,185 L285,220 L195,220 Z" fill="#2c3e6b"/>
+          <!-- White shirt/tie -->
+          <rect x="233" y="155" width="14" height="40" fill="white"/>
+          <path d="M237,158 L240,180 L243,158 Z" fill="#1a5f3a"/>
+          <!-- Laptop -->
+          <rect x="170" y="178" width="120" height="80" fill="#c0c0c0" rx="4"/>
+          <rect x="175" y="183" width="110" height="70" fill="#1a1a2a" rx="2"/>
+          <!-- Laptop screen glow -->
+          <rect x="176" y="184" width="108" height="68" fill="#1e3a5f" rx="1"/>
+          <text x="230" y="222" text-anchor="middle" fill="#7ab8e8" font-size="14" font-weight="bold">IGF</text>
+          <!-- Laptop base -->
+          <rect x="165" y="258" width="130" height="6" fill="#a0a0a0" rx="2"/>
+          <!-- Documents/red book -->
+          <rect x="300" y="195" width="55" height="15" fill="#cc2200" rx="1"/>
+          <rect x="300" y="208" width="55" height="8" fill="#aa1a00" rx="1"/>
+          <!-- Water bottle -->
+          <rect x="355" y="175" width="18" height="45" fill="#5599cc" rx="4" opacity="0.85"/>
+          <rect x="358" y="172" width="12" height="6" fill="#4488bb" rx="2"/>
+          <rect x="356" y="185" width="14" height="3" fill="white" opacity="0.4"/>
+          <rect x="356" y="192" width="14" height="3" fill="white" opacity="0.4"/>
+          <!-- Second water bottle -->
+          <rect x="378" y="182" width="16" height="38" fill="#3377aa" rx="4" opacity="0.8"/>
+          <!-- Microphone -->
+          <rect x="255" y="160" width="4" height="50" fill="#888"/>
+          <ellipse cx="257" cy="158" rx="8" ry="10" fill="#666"/>
+          <!-- People in background (blurred) -->
+          <ellipse cx="420" cy="140" rx="25" ry="30" fill="#7a6a5a" opacity="0.5"/>
+          <ellipse cx="380" cy="150" rx="20" ry="25" fill="#6a5a4a" opacity="0.4"/>
+          <ellipse cx="460" cy="135" rx="22" ry="28" fill="#8a7a6a" opacity="0.5"/>
+          <!-- Bottom bar with logos -->
+          <rect x="0" y="340" width="620" height="20" fill="#1a2a3a" opacity="0.85"/>
+          <text x="80" y="354" fill="#88aacc" font-size="8" font-family="Arial">GOUVERNANCE GÉNÉRALE DES FINANCES PUBLIQUES</text>
+          <text x="300" y="354" fill="#88aacc" font-size="8" font-family="Arial">MAIRIE DE COLLINES</text>
+          <text x="450" y="354" fill="#88aacc" font-size="8" font-family="Arial">VICTORIA NGUESSO</text>
+        </svg>
+      </div>
+
+      <div class="featured-body">
+        <h3 class="featured-title">{{ featured.title }}</h3>
+        <p class="featured-excerpt">{{ featured.excerpt }}</p>
+      </div>
+    </article>
+
+    <!-- ===== RIGHT: SIDEBAR ===== -->
+    <aside class="sidebar">
+      <button class="scroll-btn" (click)="scrollUp()" [disabled]="!canScrollUp()" aria-label="Remonter">
+        &#8679;
+      </button>
+
+      <div class="sidebar-list">
+        @for (article of visibleSidebar(); track article.id) {
+          <div class="sidebar-card">
+            <div class="card-date-badge">
+              <span class="badge-day">{{ article.date }}</span>
+              <span class="badge-month">{{ article.month }}</span>
+            </div>
+
+            <div class="card-image">
+              @switch (article.imageType) {
+
+                @case ('flag-people') {
+                  <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="120" fill="#b0c4d8"/>
+                    <rect x="120" y="5" width="4" height="60" fill="#8a7a6a"/>
+                    <rect x="124" y="7" width="30" height="42" fill="#007fff"/>
+                    <path d="M124,7 L154,7 L154,28 L124,28 Z" fill="#cc0000"/>
+                    <polygon points="129,9 131,14 136,14 132,17 134,22 129,19 124,22 126,17 122,14 127,14" fill="#f5c000"/>
+                    <ellipse cx="65" cy="55" rx="18" ry="20" fill="#6b4a30"/>
+                    <path d="M35,100 Q50,65 65,60 Q80,65 95,100 L100,120 L30,120 Z" fill="#1a3a7a"/>
+                    <ellipse cx="145" cy="50" rx="16" ry="18" fill="#c4956a"/>
+                    <path d="M118,105 Q130,68 145,62 Q160,68 172,105 L175,120 L115,120 Z" fill="#cc4400"/>
+                    <rect x="140" y="60" width="18" height="8" fill="white" opacity="0.8"/>
+                  </svg>
+                }
+
+                @case ('group') {
+                  <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="120" fill="#e8d8c0"/>
+                    <rect x="0" y="75" width="200" height="45" fill="#d4c0a0"/>
+                    <!-- Group of people -->
+                    @for (p of [20, 50, 80, 110, 140, 168]; track p) {
+                      <ellipse [attr.cx]="p" cy="62" rx="14" ry="16" fill="#8a6a4a"/>
+                      <ellipse [attr.cx]="p" cy="52" rx="10" ry="11" fill="#7a5a3a"/>
+                      <path [attr.d]="'M' + (p-16) + ',95 Q' + (p-8) + ',70 ' + p + ',65 Q' + (p+8) + ',70 ' + (p+16) + ',95 Z'" fill="#3a5a8a" opacity="0.8"/>
+                    }
+                    <!-- Banner in background -->
+                    <rect x="30" y="10" width="140" height="28" fill="#cc2200" opacity="0.8"/>
+                    <text x="100" y="28" text-anchor="middle" fill="white" font-size="9" font-family="Arial" font-weight="bold">CÉRÉMONIE OFFICIELLE</text>
+                  </svg>
+                }
+
+                @case ('duo') {
+                  <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="120" fill="#f0e8e0"/>
+                    <!-- Bookshelf background -->
+                    <rect x="0" y="0" width="200" height="120" fill="#d4c8b8"/>
+                    @for (shelf of [0, 30, 60, 90]; track shelf) {
+                      <rect x="0" [attr.y]="shelf" width="200" height="2" fill="#b8a890"/>
+                    }
+                    @for (book of [10, 22, 33, 42, 54, 65, 76, 86, 100, 112, 125, 136, 148, 160, 172, 183]; track book) {
+                      <rect [attr.x]="book" y="2" width="10" height="28" fill="#c0392b" opacity="0.7" rx="1"/>
+                      <rect [attr.x]="book + 11" y="2" width="8" height="28" fill="#2980b9" opacity="0.7" rx="1"/>
+                    }
+                    <!-- Man -->
+                    <ellipse cx="68" cy="52" rx="18" ry="20" fill="#4a3520"/>
+                    <ellipse cx="68" cy="42" rx="13" ry="12" fill="#3a2510"/>
+                    <path d="M42,105 Q52,68 68,62 Q84,68 94,105 L96,120 L40,120 Z" fill="#1a1a2a"/>
+                    <!-- Glasses -->
+                    <ellipse cx="63" cy="43" rx="6" ry="4" fill="none" stroke="#888" stroke-width="1.5"/>
+                    <ellipse cx="74" cy="43" rx="6" ry="4" fill="none" stroke="#888" stroke-width="1.5"/>
+                    <line x1="69" y1="43" x2="68" y2="43" stroke="#888" stroke-width="1.5"/>
+                    <!-- Woman -->
+                    <ellipse cx="132" cy="50" rx="17" ry="19" fill="#c4956a"/>
+                    <ellipse cx="132" cy="40" rx="12" ry="11" fill="#b4855a"/>
+                    <path d="M106,105 Q116,66 132,60 Q148,66 158,105 L160,120 L104,120 Z" fill="#cc4422"/>
+                    <!-- Hair -->
+                    <path d="M120,35 Q132,22 144,35 Q148,28 132,24 Q116,28 120,35 Z" fill="#2a1a0a"/>
+                  </svg>
+                }
+
+                @case ('outdoor') {
+                  <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="120" fill="#87ceeb"/>
+                    <ellipse cx="100" cy="130" rx="110" ry="45" fill="#2d8a4e"/>
+                    <path d="M0,80 Q50,60 100,75 Q150,60 200,80 L200,120 L0,120 Z" fill="#3aad5e"/>
+                    <circle cx="160" cy="25" r="18" fill="#f5d020"/>
+                    <path d="M30,75 Q40,40 55,50 Q45,25 70,20 Q95,25 85,50 Q100,40 110,75 Z" fill="#2ecc71"/>
+                    <ellipse cx="55" cy="55" rx="22" ry="18" fill="#2d8a4e"/>
+                  </svg>
+                }
+
+                @case ('event') {
+                  <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="120" fill="#1a1a3a"/>
+                    <path d="M40,0 L20,120 L70,120 Z" fill="#f5c518" opacity="0.15"/>
+                    <path d="M160,0 L140,120 L190,120 Z" fill="#f5c518" opacity="0.15"/>
+                    <path d="M100,0 L80,120 L120,120 Z" fill="white" opacity="0.08"/>
+                    <rect x="0" y="90" width="200" height="30" fill="#3d2b1f"/>
+                    <circle cx="100" cy="65" r="14" fill="#111"/>
+                    <ellipse cx="100" cy="88" rx="18" ry="25" fill="#111"/>
+                    <circle cx="30" cy="15" r="3" fill="#f5c518"/>
+                    <circle cx="100" cy="12" r="3" fill="#f5c518"/>
+                    <circle cx="170" cy="15" r="3" fill="#f5c518"/>
+                    <circle cx="60" cy="30" r="2" fill="white" opacity="0.6"/>
+                    <circle cx="140" cy="30" r="2" fill="white" opacity="0.6"/>
+                    <path d="M0,95 Q30,85 60,92 Q90,99 120,92 Q150,85 180,92 Q195,96 200,95" fill="none" stroke="#8e44ad" stroke-width="2" opacity="0.6"/>
+                  </svg>
+                }
+
+              }
+            </div>
+
+            <div class="card-overlay">
+              <p class="card-title">{{ article.title }}</p>
+              <p class="card-excerpt">{{ article.excerpt }}</p>
+            </div>
+          </div>
+        }
+      </div>
+
+      <button class="scroll-btn" (click)="scrollDown()" [disabled]="!canScrollDown()" aria-label="Descendre">
+        &#8681;
+      </button>
+    </aside>
+
+  </div>
+</section>

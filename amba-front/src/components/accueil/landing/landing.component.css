@@ -1,0 +1,225 @@
+/* ========================================
+   PAGE WRAPPER
+======================================== */
+.page {
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 28px;
+  background-color: #1e0e04;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.logo-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  background-color: #3a2810;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-circle img,
+.logo-circle svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo-text {
+  font-size: 7px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Navigation */
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  padding: 4px 8px;
+}
+
+.nav-item {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.nav-item.active {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ========================================
+   HERO
+======================================== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  /* Temporary placeholder: replace with background-image: url('hero.jpg') */
+  background: linear-gradient(
+    135deg,
+    #6b3a05 0%,
+    #c47a10 25%,
+    #a85c08 45%,
+    #7a3d02 65%,
+    #3d1e02 100%
+  );
+  background-size: cover;
+  background-position: center 30%;
+  overflow: hidden;
+}
+
+/* Warm brown/golden tint overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(90, 45, 5, 0.35) 0%,
+    rgba(110, 60, 0, 0.20) 60%,
+    transparent 100%
+  );
+}
+
+/* Wave SVG at the bottom of the hero */
+.hero-wave {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 140px;
+}
+
+.hero-wave svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ========================================
+   SERVICES SECTION
+======================================== */
+.services-section {
+  padding: 32px 40px;
+  background-color: #ffffff;
+}
+
+/* ========================================
+   CONTENT SECTION
+======================================== */
+.content {
+  background-color: #ffffff;
+  padding: 40px 60px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle water-ripple background decoration */
+.content::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background-image:
+    repeating-linear-gradient(
+      transparent,
+      transparent 18px,
+      rgba(114, 212, 224, 0.08) 18px,
+      rgba(114, 212, 224, 0.08) 20px
+    );
+  mask-image: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  pointer-events: none;
+}
+
+.content-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 900px;
+  position: relative;
+}
+
+/* Text */
+.text-block {
+  flex: 1;
+}
+
+.main-title {
+  font-family: 'Dancing Script', 'Brush Script MT', cursive;
+  font-size: 46px;
+  font-weight: 700;
+  color: #1a2ea8;
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #888888;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Floating globe icon */
+.floating-globe {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-top: 8px;
+  background-color: #3a85b5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-globe img,
+.floating-globe svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
