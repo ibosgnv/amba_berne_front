@@ -1,17 +1,17 @@
-<div class="page">
+<div class="min-h-screen bg-white">
 
   <!-- ===== HEADER ===== -->
-  <header class="header">
-    <div class="logo-section">
-      <div class="logo-circle">
+  <header class="flex items-center gap-6 px-7 py-2.5 bg-[#1e0e04] sticky top-0 z-[100]">
+    <div class="flex items-center gap-2.5 shrink-0">
+      <div class="w-[52px] h-[52px] rounded-full overflow-hidden border-2 border-white/35 bg-[#3a2810] flex items-center justify-center">
         <!-- Temporary placeholder: DRC flag-inspired emblem -->
-        <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-full" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
           <circle cx="26" cy="26" r="26" fill="#007fff"/>
           <path d="M0,32 L52,20 L52,32 L0,44 Z" fill="#cc0000" stroke="#f5c000" stroke-width="2"/>
           <polygon points="8,10 10,16 16,16 11,20 13,26 8,22 3,26 5,20 0,16 6,16" fill="#f5c000"/>
         </svg>
       </div>
-      <p class="logo-text">
+      <p class="text-[7px] text-white/85 leading-[1.4] tracking-[0.03em] m-0 uppercase">
         AMBASSADE<br>
         DE LA RÉPUBLIQUE<br>
         DÉMOCRATIQUE<br>
@@ -20,25 +20,29 @@
       </p>
     </div>
 
-    <nav class="nav-pill">
-      <a class="nav-item"
+    <nav class="flex items-center gap-1 border-[1.5px] border-white/30 rounded-[50px] px-2 py-1">
+      <a class="inline-block px-4 py-1.5 rounded-[50px] text-[13px] text-white/85 no-underline whitespace-nowrap transition-colors duration-200 hover:bg-white/[0.12] hover:text-white"
          routerLink="/"
-         routerLinkActive="active"
+         routerLinkActive="nav-active"
          [routerLinkActiveOptions]="{ exact: true }">
         Accueil
       </a>
-      <a class="nav-item" routerLink="/passeports" routerLinkActive="active">PASSEPORTS</a>
-      <a class="nav-item" routerLink="/visas" routerLinkActive="active">VISAS ET VIVRE AU CONGO</a>
-      <a class="nav-item" routerLink="/rdc-suisse" routerLinkActive="active">La RDC en Suisse</a>
-      <a class="nav-item" routerLink="/autres-services" routerLinkActive="active">AUTRES SERVICES</a>
+      <a class="inline-block px-4 py-1.5 rounded-[50px] text-[13px] text-white/85 no-underline whitespace-nowrap transition-colors duration-200 hover:bg-white/[0.12] hover:text-white"
+         routerLink="/passeports" routerLinkActive="nav-active">PASSEPORTS</a>
+      <a class="inline-block px-4 py-1.5 rounded-[50px] text-[13px] text-white/85 no-underline whitespace-nowrap transition-colors duration-200 hover:bg-white/[0.12] hover:text-white"
+         routerLink="/visas" routerLinkActive="nav-active">VISAS ET VIVRE AU CONGO</a>
+      <a class="inline-block px-4 py-1.5 rounded-[50px] text-[13px] text-white/85 no-underline whitespace-nowrap transition-colors duration-200 hover:bg-white/[0.12] hover:text-white"
+         routerLink="/rdc-suisse" routerLinkActive="nav-active">La RDC en Suisse</a>
+      <a class="inline-block px-4 py-1.5 rounded-[50px] text-[13px] text-white/85 no-underline whitespace-nowrap transition-colors duration-200 hover:bg-white/[0.12] hover:text-white"
+         routerLink="/autres-services" routerLinkActive="nav-active">AUTRES SERVICES</a>
     </nav>
   </header>
 
   <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-wave">
-      <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <section class="relative w-full h-80 bg-[linear-gradient(135deg,#6b3a05_0%,#c47a10_25%,#a85c08_45%,#7a3d02_65%,#3d1e02_100%)] bg-cover bg-[center_30%] overflow-hidden">
+    <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(90,45,5,0.35)_0%,rgba(110,60,0,0.20)_60%,transparent_100%)]"></div>
+    <div class="absolute -bottom-0.5 left-0 w-full h-[140px]">
+      <svg class="w-full h-full block" viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M0,45 C80,100 220,10 400,60 C580,110 760,15 960,55 C1120,85 1300,35 1440,55 L1440,140 L0,140 Z"
           fill="#72d4e0" opacity="0.65" />
@@ -50,7 +54,7 @@
   </section>
 
   <!-- ===== APERÇU SERVICES ===== -->
-  <section class="services-section">
+  <section class="px-10 py-8 bg-white">
     <app-apercu-service />
   </section>
 
@@ -61,18 +65,18 @@
   <app-infos-utiles />
 
   <!-- ===== CONTENT ===== -->
-  <section class="content">
-    <div class="content-inner">
-      <div class="text-block">
-        <h1 class="main-title">
+  <section class="content-wave bg-white px-[60px] pt-10 pb-[60px] relative overflow-hidden">
+    <div class="flex items-start justify-between max-w-[900px] relative">
+      <div class="flex-1">
+        <h1 class="font-dancing text-[46px] font-bold text-[#1a2ea8] leading-[1.2] m-0 mb-4">
           l'Ambassade du Dhhr Congo<br>en Suisse
         </h1>
-        <p class="subtitle">de personnes à travers le monde n'oublient pas de venir ici.</p>
+        <p class="text-sm text-[#888888] m-0 leading-relaxed">de personnes à travers le monde n'oublient pas de venir ici.</p>
       </div>
 
-      <div class="floating-globe">
+      <div class="w-[46px] h-[46px] rounded-full overflow-hidden shrink-0 mt-2 bg-[#3a85b5] flex items-center justify-center">
         <!-- Temporary placeholder: globe icon -->
-        <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-full" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg">
           <circle cx="23" cy="23" r="23" fill="#2a7ab5"/>
           <ellipse cx="23" cy="23" rx="9" ry="23" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
           <line x1="0" y1="23" x2="46" y2="23" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
