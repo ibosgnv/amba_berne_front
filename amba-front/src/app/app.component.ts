@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from "@angular/core";
+import { Accueil } from "../components/accueil/accueil.component";
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  selector: "app-root",
+  imports: [Accueil],
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.css",
 })
 export class App {
-  protected readonly title = signal('amba-front');
+  protected readonly title = signal("amba-front");
 }

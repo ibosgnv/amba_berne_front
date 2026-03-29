@@ -6,9 +6,9 @@
 
     <!-- ===== LEFT: FEATURED ARTICLE ===== -->
     <article class="flex-1 min-w-0">
-      <div class="w-full rounded-lg overflow-hidden leading-none [&_svg]:w-full [&_svg]:h-auto [&_svg]:block">
+      <div class="w-full rounded-lg overflow-hidden leading-none">
         <!-- Temporary placeholder: conference scene -->
-        <svg viewBox="0 0 620 360" xmlns="http://www.w3.org/2000/svg">
+        <svg width="100%" viewBox="0 0 620 360" xmlns="http://www.w3.org/2000/svg">
           <!-- Room background -->
           <rect width="620" height="360" fill="#c8b89a"/>
           <!-- Wall -->
@@ -92,11 +92,11 @@
               <span class="block text-[10px]">{{ article.month }}</span>
             </div>
 
-            <div class="w-full [&_svg]:w-full [&_svg]:h-auto [&_svg]:block">
+            <div class="w-full">
               @switch (article.imageType) {
 
                 @case ('flag-people') {
-                  <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="100%" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
                     <rect width="200" height="120" fill="#b0c4d8"/>
                     <rect x="120" y="5" width="4" height="60" fill="#8a7a6a"/>
                     <rect x="124" y="7" width="30" height="42" fill="#007fff"/>
@@ -111,7 +111,7 @@
                 }
 
                 @case ('group') {
-                  <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="100%" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
                     <rect width="200" height="120" fill="#e8d8c0"/>
                     <rect x="0" y="75" width="200" height="45" fill="#d4c0a0"/>
                     <!-- Group of people -->
@@ -127,7 +127,7 @@
                 }
 
                 @case ('duo') {
-                  <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="100%" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
                     <rect width="200" height="120" fill="#f0e8e0"/>
                     <!-- Bookshelf background -->
                     <rect x="0" y="0" width="200" height="120" fill="#d4c8b8"/>
@@ -156,7 +156,7 @@
                 }
 
                 @case ('outdoor') {
-                  <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="100%" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
                     <rect width="200" height="120" fill="#87ceeb"/>
                     <ellipse cx="100" cy="130" rx="110" ry="45" fill="#2d8a4e"/>
                     <path d="M0,80 Q50,60 100,75 Q150,60 200,80 L200,120 L0,120 Z" fill="#3aad5e"/>
@@ -167,7 +167,7 @@
                 }
 
                 @case ('event') {
-                  <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="100%" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
                     <rect width="200" height="120" fill="#1a1a3a"/>
                     <path d="M40,0 L20,120 L70,120 Z" fill="#f5c518" opacity="0.15"/>
                     <path d="M160,0 L140,120 L190,120 Z" fill="#f5c518" opacity="0.15"/>

@@ -20,11 +20,11 @@
       <article class="bg-white rounded-xl overflow-hidden shadow-[0_2px_14px_rgba(0,0,0,0.09)] flex flex-col">
 
         <!-- Image + announcement banner -->
-        <div class="relative leading-none [&_svg]:w-full [&_svg]:h-auto [&_svg]:block">
+        <div class="relative leading-none">
           @switch (article.imageType) {
 
             @case ('craftsman') {
-              <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+              <svg width="100%" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
                 <rect width="360" height="220" fill="#2a2018"/>
                 <!-- Workshop background -->
                 <rect x="0" y="140" width="360" height="80" fill="#3a2c1a"/>
@@ -68,7 +68,7 @@
             }
 
             @case ('citywoman') {
-              <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+              <svg width="100%" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
                 <!-- Sky gradient -->
                 <defs>
                   <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
@@ -125,7 +125,7 @@
             }
 
             @case ('eurostreet') {
-              <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+              <svg width="100%" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
                 <rect width="360" height="220" fill="#d4c4a8"/>
                 <!-- Sky -->
                 <rect width="360" height="100" fill="#b8ccd8"/>
@@ -179,7 +179,7 @@
             }
 
             @case ('meeting') {
-              <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+              <svg width="100%" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
                 <rect width="360" height="220" fill="#f0f0ec"/>
                 <!-- Conference room wall -->
                 <rect width="360" height="140" fill="#e8e0d4"/>
@@ -210,7 +210,7 @@
             }
 
             @case ('party') {
-              <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+              <svg width="100%" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
                 <rect width="360" height="220" fill="#1a0a2e"/>
                 <!-- Stage lighting beams -->
                 <path d="M60,0 L0,220 L80,220 Z" fill="#e040fb" opacity="0.12"/>
@@ -247,7 +247,7 @@
             }
 
             @case ('factory') {
-              <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+              <svg width="100%" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
                 <rect width="360" height="220" fill="#b0b8c0"/>
                 <!-- Sky -->
                 <rect width="360" height="100" fill="#8090a0"/>
@@ -282,7 +282,7 @@
             }
 
             @case ('guide') {
-              <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+              <svg width="100%" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
                 <rect width="360" height="220" fill="#d4e8d0"/>
                 <!-- Outdoor park/tourist scene -->
                 <rect width="360" height="130" fill="#87ceeb"/>
@@ -319,7 +319,7 @@
             }
 
             @case ('capitol') {
-              <svg viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+              <svg width="100%" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
                 <rect width="360" height="220" fill="#d8e8f0"/>
                 <!-- Sky -->
                 <rect width="360" height="130" fill="#b8d4e8"/>
