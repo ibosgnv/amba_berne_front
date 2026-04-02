@@ -11,142 +11,15 @@
       <div class="flex flex-col items-center gap-3 flex-1">
         <h3 class="text-sm font-semibold text-[#222222] m-0 text-center whitespace-nowrap">{{ service.title }}</h3>
 
-        <div class="w-[140px] h-[140px] rounded-full overflow-hidden shrink-0 shadow-[0_2px_12px_rgba(0,0,0,0.12)]">
-          <!-- Temporary placeholder illustrations -->
-          @switch (service.type) {
-
-            @case ('city') {
-              <svg width="100%" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                <rect width="160" height="160" fill="#1a1a2e"/>
-                <rect x="10" y="80" width="20" height="80" fill="#16213e"/>
-                <rect x="14" y="70" width="12" height="12" fill="#e94560"/>
-                <rect x="35" y="60" width="28" height="100" fill="#0f3460"/>
-                <rect x="39" y="50" width="8" height="12" fill="#e94560"/>
-                <rect x="51" y="50" width="8" height="12" fill="#e94560"/>
-                <rect x="39" y="66" width="8" height="8" fill="#f5a623"/>
-                <rect x="51" y="66" width="8" height="8" fill="#f5a623"/>
-                <rect x="70" y="45" width="35" height="115" fill="#16213e"/>
-                <rect x="75" y="35" width="10" height="12" fill="#e94560"/>
-                <rect x="90" y="35" width="10" height="12" fill="#e94560"/>
-                <rect x="75" y="52" width="10" height="8" fill="#f5a623"/>
-                <rect x="90" y="52" width="10" height="8" fill="#f5a623"/>
-                <rect x="75" y="65" width="10" height="8" fill="#f5a623"/>
-                <rect x="90" y="65" width="10" height="8" fill="#e94560" opacity="0.8"/>
-                <!-- Music poster -->
-                <rect x="108" y="55" width="40" height="55" fill="#e94560" rx="3"/>
-                <text x="128" y="72" text-anchor="middle" fill="white" font-size="8" font-weight="bold">MUSIC</text>
-                <text x="128" y="83" text-anchor="middle" fill="#ffd700" font-size="6">FESTIVAL</text>
-                <line x1="115" y1="90" x2="141" y2="90" stroke="white" stroke-width="1" opacity="0.6"/>
-                <line x1="115" y1="96" x2="135" y2="96" stroke="white" stroke-width="1" opacity="0.6"/>
-                <line x1="115" y1="102" x2="138" y2="102" stroke="white" stroke-width="1" opacity="0.6"/>
-                <rect x="113" y="108" width="30" height="2" fill="#ffd700"/>
-                <circle cx="30" cy="20" r="3" fill="#ffd700" opacity="0.8"/>
-                <circle cx="60" cy="15" r="2" fill="white" opacity="0.6"/>
-                <circle cx="100" cy="18" r="2.5" fill="#ffd700" opacity="0.7"/>
-                <circle cx="140" cy="12" r="2" fill="white" opacity="0.5"/>
-              </svg>
-            }
-
-            @case ('sport') {
-              <svg width="100%" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                <rect width="160" height="160" fill="#2c3e50"/>
-                <!-- Pool table felt -->
-                <rect x="10" y="55" width="140" height="75" fill="#1a6b3c" rx="6"/>
-                <rect x="15" y="60" width="130" height="65" fill="#27ae60" rx="4"/>
-                <!-- Table border/cushion -->
-                <rect x="10" y="55" width="140" height="8" fill="#8B4513" rx="3"/>
-                <rect x="10" y="122" width="140" height="8" fill="#8B4513" rx="3"/>
-                <rect x="10" y="55" width="8" height="75" fill="#8B4513" rx="3"/>
-                <rect x="142" y="55" width="8" height="75" fill="#8B4513" rx="3"/>
-                <!-- Pockets -->
-                <circle cx="18" cy="63" r="5" fill="#111"/>
-                <circle cx="142" cy="63" r="5" fill="#111"/>
-                <circle cx="80" cy="63" r="4" fill="#111"/>
-                <circle cx="18" cy="122" r="5" fill="#111"/>
-                <circle cx="142" cy="122" r="5" fill="#111"/>
-                <circle cx="80" cy="122" r="4" fill="#111"/>
-                <!-- Billiard balls -->
-                <circle cx="85" cy="92" r="8" fill="#f1c40f"/>
-                <circle cx="68" cy="88" r="8" fill="#e74c3c"/>
-                <circle cx="100" cy="88" r="8" fill="#3498db"/>
-                <circle cx="76" cy="103" r="8" fill="#9b59b6"/>
-                <circle cx="93" cy="103" r="8" fill="#e67e22"/>
-                <!-- Cue ball -->
-                <circle cx="50" cy="92" r="8" fill="white"/>
-                <!-- Cue stick -->
-                <line x1="20" y1="75" x2="58" y2="92" stroke="#d4a76a" stroke-width="3" stroke-linecap="round"/>
-                <!-- People silhouette -->
-                <ellipse cx="80" cy="30" rx="12" ry="15" fill="#34495e"/>
-                <circle cx="80" cy="18" r="8" fill="#5d4037"/>
-              </svg>
-            }
-
-            @case ('food') {
-              <svg width="100%" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                <rect width="160" height="160" fill="#fdf6ec"/>
-                <!-- Table -->
-                <rect x="20" y="100" width="120" height="8" fill="#c8a97a" rx="2"/>
-                <rect x="45" y="108" width="8" height="40" fill="#b8956a" rx="2"/>
-                <rect x="107" y="108" width="8" height="40" fill="#b8956a" rx="2"/>
-                <!-- Wine glasses -->
-                <path d="M55,55 Q55,85 65,90 L57,100 L73,100 L65,90 Q75,85 75,55 Z" fill="none" stroke="#aaa" stroke-width="2"/>
-                <ellipse cx="65" cy="55" rx="10" ry="4" fill="none" stroke="#aaa" stroke-width="2"/>
-                <ellipse cx="65" cy="78" rx="7" ry="12" fill="#e74c3c" opacity="0.4"/>
-                <path d="M88,55 Q88,85 98,90 L90,100 L106,100 L98,90 Q108,85 108,55 Z" fill="none" stroke="#aaa" stroke-width="2"/>
-                <ellipse cx="98" cy="55" rx="10" ry="4" fill="none" stroke="#aaa" stroke-width="2"/>
-                <ellipse cx="98" cy="78" rx="7" ry="12" fill="#f5cba7" opacity="0.4"/>
-                <!-- Plate -->
-                <circle cx="80" cy="100" r="18" fill="white" stroke="#ddd" stroke-width="2"/>
-                <circle cx="80" cy="100" r="14" fill="#fdf2e9"/>
-                <!-- People silhouettes -->
-                <circle cx="45" cy="35" r="12" fill="#d4a574"/>
-                <ellipse cx="45" cy="58" rx="14" ry="18" fill="#d4a574" opacity="0.8"/>
-                <circle cx="115" cy="35" r="12" fill="#c4956a"/>
-                <ellipse cx="115" cy="58" rx="14" ry="18" fill="#c4956a" opacity="0.8"/>
-                <!-- Candlelight -->
-                <rect x="78" y="82" width="4" height="12" fill="#e8c06e"/>
-                <ellipse cx="80" cy="82" rx="3" ry="5" fill="#f39c12" opacity="0.8"/>
-                <ellipse cx="80" cy="80" rx="2" ry="3" fill="#f1c40f"/>
-              </svg>
-            }
-
-            @case ('nature') {
-              <svg width="100%" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                <rect width="160" height="160" fill="#87ceeb"/>
-                <ellipse cx="80" cy="170" rx="90" ry="50" fill="#27ae60"/>
-                <path d="M20,130 Q40,80 60,100 Q50,60 80,40 Q110,60 100,100 Q120,80 140,130 Z" fill="#2ecc71"/>
-                <path d="M50,130 Q60,95 75,105 Q65,75 80,55 Q95,75 85,105 Q100,95 110,130 Z" fill="#27ae60"/>
-                <circle cx="30" cy="35" r="18" fill="white" opacity="0.9"/>
-                <circle cx="50" cy="28" r="22" fill="white" opacity="0.85"/>
-                <circle cx="75" cy="25" r="20" fill="white" opacity="0.9"/>
-              </svg>
-            }
-
-            @case ('culture') {
-              <svg width="100%" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                <rect width="160" height="160" fill="#2c1654"/>
-                <!-- Stage curtains -->
-                <path d="M0,0 Q30,80 10,160 L0,160 Z" fill="#8e1a1a"/>
-                <path d="M160,0 Q130,80 150,160 L160,160 Z" fill="#8e1a1a"/>
-                <!-- Stage floor -->
-                <rect x="0" y="120" width="160" height="40" fill="#3d2b1f"/>
-                <!-- Spotlight beams -->
-                <path d="M30,0 L10,120 L60,120 Z" fill="#f5c518" opacity="0.12"/>
-                <path d="M130,0 L100,120 L150,120 Z" fill="#f5c518" opacity="0.12"/>
-                <path d="M80,0 L55,120 L105,120 Z" fill="white" opacity="0.08"/>
-                <!-- Performer silhouette -->
-                <circle cx="80" cy="85" r="10" fill="#111"/>
-                <ellipse cx="80" cy="108" rx="13" ry="20" fill="#111"/>
-                <!-- Stars -->
-                <circle cx="40" cy="20" r="2" fill="#f5c518"/>
-                <circle cx="80" cy="15" r="2.5" fill="#f5c518"/>
-                <circle cx="120" cy="20" r="2" fill="#f5c518"/>
-                <circle cx="60" cy="35" r="1.5" fill="white" opacity="0.7"/>
-                <circle cx="100" cy="35" r="1.5" fill="white" opacity="0.7"/>
-              </svg>
-            }
-
-          }
+        <!-- Placeholder: service image (replace with actual photo) -->
+        <div class="w-[140px] h-[140px] rounded-full shrink-0 shadow-[0_2px_12px_rgba(0,0,0,0.12)]"
+          [ngClass]="{
+            'bg-[#1a1a2e]': service.type === 'city',
+            'bg-[#2c3e50]': service.type === 'sport',
+            'bg-[#fdf6ec]': service.type === 'food',
+            'bg-[#87ceeb]': service.type === 'nature',
+            'bg-[#2c1654]': service.type === 'culture'
+          }">
         </div>
       </div>
     }

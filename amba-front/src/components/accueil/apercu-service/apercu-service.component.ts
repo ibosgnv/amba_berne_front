@@ -1,4 +1,5 @@
 import { Component, signal, computed } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 export interface ServiceItem {
   title: string;
@@ -8,6 +9,7 @@ export interface ServiceItem {
 @Component({
   selector: 'app-apercu-service',
   standalone: true,
+  imports: [NgClass],
   templateUrl: './apercu-service.component.html',
   styleUrl: './apercu-service.component.css'
 })

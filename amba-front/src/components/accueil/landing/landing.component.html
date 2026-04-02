@@ -4,22 +4,42 @@
   <app-navbar />
 
   <!-- ===== HERO ===== -->
-  <section class="relative w-full h-80 bg-[linear-gradient(135deg,#6b3a05_0%,#c47a10_25%,#a85c08_45%,#7a3d02_65%,#3d1e02_100%)] bg-cover bg-[center_30%] overflow-hidden">
-    <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(90,45,5,0.35)_0%,rgba(110,60,0,0.20)_60%,transparent_100%)]"></div>
-    <div class="absolute -bottom-0.5 left-0 w-full h-[140px]">
-      <svg class="w-full h-full block" viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <section class="relative w-full h-[450px] overflow-hidden">
+    <!-- Placeholder: hero image (replace with actual leopard photo) -->
+    <div class="absolute inset-0 bg-[#8B6914]"></div>
+
+    <!-- Wave divider — organic blob shape -->
+    <div class="absolute -bottom-1 left-0 w-full h-[180px]">
+      <svg class="w-full h-full block" viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cyan wave layer (thick, irregular) -->
         <path
-          d="M0,45 C80,100 220,10 400,60 C580,110 760,15 960,55 C1120,85 1300,35 1440,55 L1440,140 L0,140 Z"
-          fill="#72d4e0" opacity="0.65" />
+          d="M0,60 C120,10 280,90 480,50 C680,10 850,80 1050,40 C1200,10 1350,55 1440,35 L1440,180 L0,180 Z"
+          fill="#72d4e0" />
+        <!-- White wave layer (sits on top, offset lower) -->
         <path
-          d="M0,70 C100,125 260,35 460,82 C660,130 840,38 1040,76 C1200,105 1350,58 1440,78 L1440,140 L0,140 Z"
+          d="M0,90 C150,40 320,110 520,75 C720,40 880,100 1080,65 C1240,35 1380,75 1440,60 L1440,180 L0,180 Z"
           fill="white" />
       </svg>
     </div>
   </section>
 
   <!-- ===== CONTENT ===== -->
-  <section class="content-wave bg-white px-[60px] pt-10 pb-[60px] relative overflow-hidden">
+  <section class="bg-white px-[60px] pt-10 pb-[60px] relative overflow-hidden">
+
+    <!-- Wavy decorative lines background -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <svg class="w-full h-full" viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,120 C120,140 240,100 360,120 C480,140 600,100 720,120 C840,140 960,100 1080,120 C1200,140 1320,100 1440,120"
+          fill="none" stroke="#c0c0c0" stroke-width="1.5" opacity="0.3" />
+        <path d="M0,150 C100,170 220,130 340,150 C460,170 580,130 700,150 C820,170 940,130 1060,150 C1180,170 1300,130 1440,150"
+          fill="none" stroke="#c0c0c0" stroke-width="1.5" opacity="0.25" />
+        <path d="M0,180 C140,200 260,160 380,180 C500,200 620,160 740,180 C860,200 980,160 1100,180 C1220,200 1340,160 1440,180"
+          fill="none" stroke="#c0c0c0" stroke-width="1.5" opacity="0.2" />
+        <path d="M0,210 C110,230 230,190 350,210 C470,230 590,190 710,210 C830,230 950,190 1070,210 C1190,230 1310,190 1440,210"
+          fill="none" stroke="#c0c0c0" stroke-width="1.5" opacity="0.15" />
+      </svg>
+    </div>
+
     <div class="flex items-start justify-between max-w-[900px] relative">
       <div class="flex-1">
         <h1 class="font-dancing text-[46px] font-bold text-[#1a2ea8] leading-[1.2] m-0 mb-4">
@@ -28,17 +48,8 @@
         <p class="text-sm text-[#888888] m-0 leading-relaxed">de personnes à travers le monde n'oublient pas de venir ici.</p>
       </div>
 
-      <div class="w-[46px] h-[46px] rounded-full overflow-hidden shrink-0 mt-2 bg-[#3a85b5] flex items-center justify-center">
-        <!-- Temporary placeholder: globe icon -->
-        <svg class="w-full h-full" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="23" cy="23" r="23" fill="#2a7ab5"/>
-          <ellipse cx="23" cy="23" rx="9" ry="23" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
-          <line x1="0" y1="23" x2="46" y2="23" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
-          <line x1="0" y1="14" x2="46" y2="14" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-          <line x1="0" y1="32" x2="46" y2="32" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-          <circle cx="23" cy="23" r="22" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
-        </svg>
-      </div>
+      <!-- Placeholder: globe/earth icon (replace with actual image) -->
+      <div class="w-[46px] h-[46px] rounded-full shrink-0 mt-10 bg-[#2a7ab5]"></div>
     </div>
   </section>
 
