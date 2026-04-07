@@ -1,0 +1,47 @@
+<div class="body">
+  <h1>First page</h1>
+
+
+    <!-- The visible webpage elements -->
+    <div class="banner-wrapper">
+      <div class="curved-div"></div>
+    </div>
+
+    <div >
+      <section class="content-section">
+         <div class="profile-float"></div>
+
+         <h1 class="headline">
+           l’Ambassade du Dhhr Congo <br> en Suisse
+         </h1>
+         <p class="subtext">
+           de personnes à travers le monde n'oublient pas de venir ici.
+         </p>
+       </section>
+    </div>
+
+    <!--
+      4. THE SVG PATH
+      This SVG doesn't render anything visually by itself. It just
+      holds the mathematical coordinates for our curves.
+      'objectBoundingBox' means the coordinates are decimals from 0 to 1,
+      allowing the wave to perfectly stretch and shrink with the div.
+    -->
+    <svg width="0" height="0" style="position: absolute;">
+      <defs>
+        <clipPath id="wavy-clip" clipPathUnits="objectBoundingBox">
+          <path d="
+            M 0,0.1
+            C 0.15,-0.05 0.35,0.15 0.5,0.05
+            C 0.7,-0.05 0.85,0.15 1,0.05
+            L 1,0.85
+            C 0.8,1.05 0.6,0.65 0.4,0.85
+            C 0.25,1.0 0.1,0.9 0,0.7
+            Z">
+          </path>
+        </clipPath>
+      </defs>
+    </svg>
+
+
+</div>

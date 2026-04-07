@@ -1,0 +1,123 @@
+/* Reset and basic body styling for presentation */
+.ody {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+/* 1. THE WRAPPER & THE BORDER EFFECT
+      We use a wrapper to apply a drop-shadow. Because the child div
+      is clipped, the drop-shadow perfectly follows the wavy curves,
+      giving us that bright cyan accent border seen in your image.
+    */
+.banner-wrapper {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  /* The cyan glow/border along the bottom curve */
+  filter: drop-shadow(0px 10px 0px #5de0e6);
+}
+
+/* 2. THE IMAGE CONTAINER
+      This div holds the background image and receives the clip-path.
+      background-image: url("https://images.unsplash.com/photo-1518526157563-b1ee37a05129?q=80&w=1000&auto=format&fit=crop");
+
+    */
+.curved-div {
+  width: 100%;
+  height: 100%;
+  /* Using a placeholder leopard image to match your theme */
+  background-image: url("/assets/leopard_final.png");
+  background-size: cover;
+  background-position: center 30%;
+  border-radius: 20px; /* Base rounding before the clip */
+
+  /* 3. THE MAGIC: CLIP-PATH
+        This tells the browser to only show the parts of the div
+        that fall inside the SVG path we defined below.
+      */
+  clip-path: url(#wavy-clip);
+  -webkit-clip-path: url(#wavy-clip); /* Safari support */
+}
+
+/* --- SECTION 2: THE CONTENT AREA (Your new screenshot) --- */
+.content-section {
+  position: relative;
+  width: 100%;
+  background: white;
+  padding: 60px 40px;
+  text-align: center;
+  border-radius: 0;
+  overflow: hidden; /* Clips the background patterns */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* The Decorative Side Patterns */
+.content-section::before,
+.content-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  opacity: 0.08; /* Very subtle like in your image */
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Left Pattern */
+.content-section::before {
+  left: -50px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M44.7,-76.4C58.3,-69.2,70.1,-57.4,77.6,-43.3C85.1,-29.2,88.2,-14.6,86.4,-0.9C84.7,12.7,78.1,25.4,70.3,38.9C62.4,52.4,53.3,66.6,40.5,73.8C27.7,81,11.2,81.1,-4.2,78.4C-19.6,75.7,-33.9,70.1,-46.8,62.1C59.7,54,-71.2,43.5,-78.1,30.6C-85,17.7,-87.3,2.4,-84.1,-11.9C-80.9,-26.2,-72.3,-39.5,-60.9,-49.1C-49.5,-58.7,-35.3,-64.6,-21.5,-71.7C-7.7,-78.7,5.6,-86.8,21.5,-86.6C37.4,-86.4,44.7,-76.4Z' transform='translate(100 100)' /%3E%3C/svg%3E");
+  background-position: left center;
+}
+
+/* Right Pattern */
+.content-section::after {
+  right: -50px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M39.9,-65.7C51.2,-58.5,59.5,-46.8,65.3,-34.1C71.1,-21.4,74.5,-7.7,72.4,5.1C70.3,17.9,62.8,29.8,53.8,39.6C44.7,49.4,34.1,57,22.2,61.8C10.3,66.7,-2.9,68.8,-15.7,66.5C-28.5,64.2,-40.8,57.5,-50.8,47.9C-60.8,38.4,-68.5,25.9,-71.6,12.4C-74.6,-1.1,-73,-15.7,-66.6,-28.4C-60.2,-41.1,-49.1,-51.9,-36.8,-58.6C-24.5,-65.3,-12.3,-67.9,0.7,-69.1C13.6,-70.3,28.6,-72.8,39.9,-65.7Z' transform='translate(100 100)' /%3E%3C/svg%3E");
+  background-position: right center;
+}
+
+.headline {
+  color: #1a0b4d;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subtext {
+  color: #555;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* The floating profile icon from your screenshot */
+.profile-float {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  width: 60px;
+  height: 60px;
+  background: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop")
+    center/cover;
+  border-radius: 50%;
+  border: 3px solid #3b82f6;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  z-index: 10;
+}
