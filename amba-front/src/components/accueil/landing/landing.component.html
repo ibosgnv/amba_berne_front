@@ -1,43 +1,46 @@
 <div class="bg-white">
 
-  <!-- ===== HEADER ===== -->
-  <app-navbar />
 
-  <!-- ===== HERO ===== -->
+  <!-- ===== HERO with blob clip-path ===== -->
   <section class="relative w-full h-[450px] overflow-hidden">
-    <!-- Placeholder: hero image (replace with actual leopard photo) -->
-    <div class="absolute inset-0 bg-[#8B6914]"></div>
 
-    <!-- Wave divider — organic blob shape -->
-    <div class="absolute -bottom-1 left-0 w-full h-[180px]">
-      <svg class="w-full h-full block" viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Cyan wave layer (thick, irregular) -->
-        <path
-          d="M0,60 C120,10 280,90 480,50 C680,10 850,80 1050,40 C1200,10 1350,55 1440,35 L1440,180 L0,180 Z"
-          fill="#72d4e0" />
-        <!-- White wave layer (sits on top, offset lower) -->
-        <path
-          d="M0,90 C150,40 320,110 520,75 C720,40 880,100 1080,65 C1240,35 1380,75 1440,60 L1440,180 L0,180 Z"
-          fill="white" />
-      </svg>
+    <!-- SVG clip-path definition -->
+    <svg class="absolute w-0 h-0" aria-hidden="true">
+      <defs>
+        <!-- Cyan border: full width left/top, curves on right + bottom -->
+        <clipPath id="blob-border" clipPathUnits="objectBoundingBox">
+          <path d="M0,0 L0.75,0 C0.85,0 0.92,0.05 0.95,0.15 C1,0.3 0.88,0.45 0.95,0.6 C1,0.7 0.98,0.75 0.92,0.82 C0.82,0.92 0.68,0.65 0.5,0.8 C0.35,0.93 0.2,0.68 0.08,0.82 C0.03,0.88 0,0.82 0,0.75 Z" />
+        </clipPath>
+        <!-- Image: same shape, slightly inset -->
+        <clipPath id="blob-image" clipPathUnits="objectBoundingBox">
+          <path d="M0,0 L0.74,0 C0.84,0 0.9,0.06 0.93,0.16 C0.98,0.3 0.86,0.45 0.93,0.59 C0.98,0.68 0.96,0.73 0.9,0.79 C0.8,0.88 0.67,0.63 0.5,0.77 C0.35,0.89 0.2,0.66 0.09,0.79 C0.04,0.85 0.01,0.79 0.01,0.72 Z" />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <!-- Cyan border layer -->
+    <div class="absolute inset-0 bg-[#72d4e0]" style="clip-path: url(#blob-border);"></div>
+
+    <!-- Image layer (replace src with actual leopard image) -->
+    <div class="absolute inset-0" style="clip-path: url(#blob-image);">
+      <img
+        src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?w=1440&q=80"
+        alt="Leopard"
+        class="w-full h-full object-cover"
+      />
     </div>
   </section>
 
   <!-- ===== CONTENT ===== -->
   <section class="bg-white px-[60px] pt-10 pb-[60px] relative overflow-hidden">
 
-    <!-- Wavy decorative lines background -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <svg class="w-full h-full" viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,120 C120,140 240,100 360,120 C480,140 600,100 720,120 C840,140 960,100 1080,120 C1200,140 1320,100 1440,120"
-          fill="none" stroke="#c0c0c0" stroke-width="1.5" opacity="0.3" />
-        <path d="M0,150 C100,170 220,130 340,150 C460,170 580,130 700,150 C820,170 940,130 1060,150 C1180,170 1300,130 1440,150"
-          fill="none" stroke="#c0c0c0" stroke-width="1.5" opacity="0.25" />
-        <path d="M0,180 C140,200 260,160 380,180 C500,200 620,160 740,180 C860,200 980,160 1100,180 C1220,200 1340,160 1440,180"
-          fill="none" stroke="#c0c0c0" stroke-width="1.5" opacity="0.2" />
-        <path d="M0,210 C110,230 230,190 350,210 C470,230 590,190 710,210 C830,230 950,190 1070,210 C1190,230 1310,190 1440,210"
-          fill="none" stroke="#c0c0c0" stroke-width="1.5" opacity="0.15" />
-      </svg>
+    <!-- Pattern — left corner (original) -->
+    <div class="absolute bottom-0 left-0 pointer-events-none"
+         style="background-image: url('/assets/patterns_amba.png'); background-repeat: no-repeat; background-size: contain; width: 300px; height: 300px;">
+    </div>
+    <!-- Pattern — right corner (mirrored) -->
+    <div class="absolute bottom-0 right-0 pointer-events-none"
+         style="background-image: url('/assets/patterns_amba.png'); background-repeat: no-repeat; background-size: contain; width: 300px; height: 300px; transform: scaleX(-1);">
     </div>
 
     <div class="flex items-start justify-between max-w-[900px] relative">
