@@ -1,59 +1,87 @@
-<section class="wave-section px-10 py-8 pb-10 bg-white relative overflow-hidden">
+<section style="margin: 32px; padding: 24px 32px;">
 
-  <h2 class="font-anton text-[34px] font-black text-[#dd1111] tracking-[4px] text-center m-0 mb-7 uppercase relative">ACTUALITÉS</h2>
+  <!-- Title (outside the outer rounded box) -->
+  <h2 style="color: #111111; font-size: 25px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin: 0 0 16px 4px; text-align: center">
+    ACTUALITÉS
+  </h2>
 
-  <div class="flex gap-6 items-start relative">
+  <!-- Outer rounded container -->
+  <div style=" border-radius: 36px; padding: 24px; ">
 
-    <!-- ===== LEFT: FEATURED ARTICLE ===== -->
-    <article class="flex-1 min-w-0">
-      <!-- Placeholder: featured article image (replace with actual photo) -->
-      <div class="w-full h-[360px] rounded-lg bg-[#c8b89a]"></div>
+    <!-- Two-column layout: main (left) + sidebar (right) -->
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; align-items: stretch; min-height: 600px;">
 
-      <div class="pt-4">
-        <h3 class="text-[17px] font-bold text-[#1a4a9e] m-0 mb-2.5 leading-snug">{{ featured.title }}</h3>
-        <p class="text-[13px] text-[#555555] leading-relaxed m-0">{{ featured.excerpt }}</p>
+      <!-- LEFT: DIV Actualités principales -->
+      <div style="border-radius: 28px; padding: 20px;  display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #444; margin: 0 0 0 4px;">
+           <!--DIV Actualités principales -->
+        </p>
+
+        <!-- DIV image principale — takes most of the space -->
+        <div style="border: 1px solid rgba(0,0,0,0.4); border-radius: 22px; flex: 3; overflow: hidden;">
+          <img src="/assets/crise_est.jpg" alt="Crise à l'Est"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+        </div>
+
+        <!-- DIV texte — summary of the article -->
+        <div style="border-radius: 22px;  flex: 1; padding: 12px 20px; display: flex; flex-direction: column; justify-content: center; gap: 6px;">
+          <h3 style="margin: 0; color: #1a2ea8; font-size: 30px; font-weight: 700; line-height: 1.3;">
+            L'UE débloque 81 M€ d'aide humanitaire pour l'est de la RDC
+          </h3>
+          <p style="margin: 0; color: #444444; font-size: 25px; line-height: 1.5;">
+            L'Union européenne a annoncé le 17 février un financement de 81 millions d'euros — dont 68 M€ pour l'intérieur de la RDC et 13,2 M€ pour la région des Grands Lacs — face à l'aggravation de la crise humanitaire. L'est du pays, ravagé depuis plus de trente ans, subit la résurgence du M23 soutenu par le Rwanda, qui s'est emparé de Goma et Bukavu début 2025.
+          </p>
+        </div>
       </div>
-    </article>
 
-    <!-- ===== RIGHT: SIDEBAR ===== -->
-    <aside class="w-[220px] shrink-0 flex flex-col items-center gap-2">
-      <button class="bg-transparent border-[1.5px] border-[#dddddd] rounded-full w-8 h-8 text-xl leading-none text-[#555555] cursor-pointer flex items-center justify-center p-0 shrink-0 transition-colors duration-200 hover:border-[#1a4a9e] hover:text-[#1a4a9e] disabled:text-[#cccccc] disabled:border-[#eeeeee] disabled:cursor-default"
-        (click)="scrollUp()" [disabled]="!canScrollUp()" aria-label="Remonter">
-        &#8679;
-      </button>
+      <!-- RIGHT: Div autres actualités -->
+      <div style=" border-radius: 28px; padding: 20px;  display: flex; flex-direction: column; gap: 16px;">
+        <p style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #444; margin: 0 0 0 4px;">
+         <!-- Div autres actualités -->
+        </p>
 
-      <div class="flex flex-col gap-2.5 w-full">
-        @for (article of visibleSidebar(); track article.id) {
-          <div class="sidebar-card relative rounded-[10px] overflow-hidden cursor-pointer leading-none">
-            <div class="absolute top-0 left-0 bg-[#dd1111] text-white px-[7px] pt-[3px] pb-1 rounded-[10px_0_8px_0] z-[2] text-[11px] leading-[1.2]">
-              <span class="block font-bold text-[13px]">{{ article.date }}</span>
-              <span class="block text-[10px]">{{ article.month }}</span>
-            </div>
+        <div style="position: relative; border: 1px solid rgba(0,0,0,0.4); border-radius: 22px; flex: 1; overflow: hidden;">
+          <img src="/assets/ONU_Femme.jpg" alt="Actualité ONU Femme"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;" />
 
-            <!-- Placeholder: sidebar article image (replace with actual photo) -->
-            <div class="w-full h-[120px]"
-              [style.background-color]="
-                article.imageType === 'flag-people' ? '#b0c4d8' :
-                article.imageType === 'group' ? '#e8d8c0' :
-                article.imageType === 'duo' ? '#d4c8b8' :
-                article.imageType === 'outdoor' ? '#87ceeb' :
-                '#1a1a3a'
-              ">
-            </div>
-
-            <div class="card-overlay-gradient absolute bottom-0 left-0 right-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.65)_0%,transparent_100%)] px-2 pt-[18px] pb-[7px] leading-[1.3] transition-[background] duration-200">
-              <p class="text-[11px] font-bold text-white m-0 mb-0.5 leading-[1.3]">{{ article.title }}</p>
-              <p class="text-[9.5px] text-white/85 m-0 leading-[1.3]">{{ article.excerpt }}</p>
-            </div>
+          <!-- Gradient + caption overlay -->
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 16px 14px;
+                      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%);">
+            <p style="margin: 0; color: #ffffff; font-size: 15px; font-weight: 600; line-height: 1.4;">
+              Est de la RDC : l'ONU Femmes appelle à une inclusion effective des femmes dans les processus de paix.
+            </p>
           </div>
-        }
+        </div>
+
+        <div style="position: relative; border: 1px solid rgba(0,0,0,0.4); border-radius: 22px; flex: 1; overflow: hidden;">
+          <img src="/assets/economie_nationale.jpg" alt="Économie nationale"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+
+          <!-- Gradient + caption overlay -->
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 16px 14px;
+                      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%);">
+            <p style="margin: 0; color: #ffffff; font-size: 15px; font-weight: 600; line-height: 1.4;">
+              RDC : le gouvernement révise les prix des carburants dans les zones d'approvisionnement face à la conjoncture internationale.
+            </p>
+          </div>
+        </div>
+
+        <div style="position: relative; border: 1px solid rgba(0,0,0,0.4); border-radius: 22px; flex: 1; overflow: hidden;">
+          <img src="/assets/m23_pourpalers.jpg" alt="Pourparlers M23"
+            style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+
+          <!-- Gradient + caption overlay -->
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 16px 14px;
+                      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%);">
+            <p style="margin: 0; color: #ffffff; font-size: 15px; font-weight: 600; line-height: 1.4;">
+              Près de Montreux (VD), 9<sup>e</sup> série de pourparlers entre Kinshasa et le M23 — organisée en Suisse pour la première fois en raison des tensions au Moyen-Orient.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <button class="bg-transparent border-[1.5px] border-[#dddddd] rounded-full w-8 h-8 text-xl leading-none text-[#555555] cursor-pointer flex items-center justify-center p-0 shrink-0 transition-colors duration-200 hover:border-[#1a4a9e] hover:text-[#1a4a9e] disabled:text-[#cccccc] disabled:border-[#eeeeee] disabled:cursor-default"
-        (click)="scrollDown()" [disabled]="!canScrollDown()" aria-label="Descendre">
-        &#8681;
-      </button>
-    </aside>
+    </div>
 
   </div>
+
 </section>
