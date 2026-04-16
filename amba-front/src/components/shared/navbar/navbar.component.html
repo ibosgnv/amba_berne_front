@@ -1,23 +1,18 @@
-<div>
-      <header class="header">
-        <div class="logo-container">
-          <div class="logo">
-            <div class="emblem"></div>
-            <div class="logo-text">
-              <div class="logo-title">AMBASSADE</div>
-              <div class="logo-subtitle">DE LA RÉPUBLIQUE</div>
-              <div class="logo-subtitle">DÉMOCRATIQUE DU CONGO</div>
-              <div class="logo-subtitle">EN SUISSE - FRANCE</div>
-            </div>
-          </div>
-        </div>
-        <nav class="navigation">
-          <a href="#" class="nav-item active">Accueil</a>
-          <a href="#" class="nav-item">PASSEPORTS</a>
-          <a href="#" class="nav-item">VISAS ET VIVRE AU CONGO</a>
-          <a href="#" class="nav-item">La RDC en Suisse</a>
-          <a href="#" class="nav-item">AUTRES SERVICES</a>
-        </nav>
-      </header>
+<header class="navbar">
+  <a routerLink="/" class="navbar-brand" aria-label="Ambassade de la République Démocratique du Congo">
+    <img src="/assets/logo.png" alt="Armoiries de la RDC" class="navbar-logo" />
+    <span class="navbar-brand-text">
+      <span class="navbar-brand-title">Ambassade</span>
+      <span class="navbar-brand-subtitle">République Démocratique du Congo</span>
+      <span class="navbar-brand-subtitle">en Suisse &middot; France</span>
+    </span>
+  </a>
 
-</div>
+  <nav class="navbar-nav" aria-label="Navigation principale">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="navbar-link">Accueil</a>
+    <a routerLink="/passeports" routerLinkActive="active" class="navbar-link">Passeports</a>
+    <a routerLink="/visas" routerLinkActive="active" class="navbar-link">Visas &amp; Vivre au Congo</a>
+    <a routerLink="/rdc-suisse" routerLinkActive="active" class="navbar-link">La RDC en Suisse</a>
+    <a routerLink="/autres-services" routerLinkActive="active" class="navbar-link">Autres services</a>
+  </nav>
+</header>
