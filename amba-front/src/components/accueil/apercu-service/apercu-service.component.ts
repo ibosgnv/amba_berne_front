@@ -1,15 +1,14 @@
 import { Component, signal, computed } from '@angular/core';
-import { NgClass } from '@angular/common';
 
 export interface ServiceItem {
   title: string;
-  type: 'city' | 'sport' | 'food' | 'nature' | 'culture';
+  imageUrl: string;
 }
 
 @Component({
   selector: 'app-apercu-service',
   standalone: true,
-  imports: [NgClass],
+  imports: [],
   templateUrl: './apercu-service.component.html',
   styleUrl: './apercu-service.component.css'
 })
@@ -17,11 +16,11 @@ export class ApercuService {
   readonly visibleCount = 3;
 
   services: ServiceItem[] = [
-    { title: 'Guide touristique', type: 'city' },
-    { title: 'Guide touristique', type: 'sport' },
-    { title: 'Guide touristique', type: 'food' },
-    { title: 'Guide touristique', type: 'nature' },
-    { title: 'Guide touristique', type: 'culture' },
+    { title: 'Guide touristique', imageUrl: 'https://picsum.photos/seed/city/300/300' },
+    { title: 'Guide touristique', imageUrl: 'https://picsum.photos/seed/sport/300/300' },
+    { title: 'Guide touristique', imageUrl: 'https://picsum.photos/seed/food/300/300' },
+    { title: 'Guide touristique', imageUrl: 'https://picsum.photos/seed/nature/300/300' },
+    { title: 'Guide touristique', imageUrl: 'https://picsum.photos/seed/culture/300/300' },
   ];
 
   currentIndex = signal(0);

@@ -1,0 +1,35 @@
+.nav-arrow {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: #222222;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-arrow svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.nav-arrow:hover:not(:disabled) {
+  background: #f2f2f2;
+  color: #000000;
+  transform: translateX(-2px);
+}
+
+.nav-arrow:last-of-type:hover:not(:disabled) {
+  transform: translateX(2px);
+}
+
+.nav-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
