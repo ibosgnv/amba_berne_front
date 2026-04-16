@@ -5,14 +5,17 @@ export interface InfoCategory {
   label: string;
 }
 
-export interface InfoArticle {
+export interface InfoCard {
   id: number;
   category: string;
-  imageType: 'craftsman' | 'citywoman' | 'eurostreet' | 'meeting' | 'party' | 'factory' | 'guide' | 'capitol';
   title: string;
-  excerpt: string;
-  author: string;
-  commentsCount: number;
+  text: string;
+  cardBg: string;
+  pictureBg: string;
+  pictureColor: string;
+  textBg: string;
+  textColor: string;
+  imageUrl?: string;
 }
 
 @Component({
@@ -23,45 +26,50 @@ export interface InfoArticle {
 })
 export class InfosUtiles {
   categories: InfoCategory[] = [
-    { id: 'tourist',     label: 'TOURIST' },
-    { id: 'guide',       label: 'GUIDE' },
-    { id: 'government',  label: 'GOVERNMENT' },
-    { id: 'conference',  label: 'CONFERENCE' },
-    { id: 'celebration', label: 'CELEBRATION' },
-    { id: 'industry',    label: 'INDUSTRY' },
+    { id: 'gouvernement', label: 'Gouvernement' },
+    { id: 'tourisme',     label: 'Tourisme' },
+    { id: 'conference',   label: 'Conférence' },
+    { id: 'celebration',  label: 'Célébration' },
   ];
 
-  articles: InfoArticle[] = [
-    // TOURIST
-    { id: 1,  category: 'tourist',     imageType: 'craftsman',  title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich, bulletin concierge airport classic, comme des garçons cozy sharp the best bulletin sunspot discerning classic.', author: 'admin', commentsCount: 11 },
-    { id: 2,  category: 'tourist',     imageType: 'citywoman',  title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich, bulletin concierge airport classic, comme des garçons cozy sharp the best bulletin sunspot discerning classic.', author: 'admin', commentsCount: 11 },
-    { id: 3,  category: 'tourist',     imageType: 'eurostreet', title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich, bulletin concierge airport classic, comme des garçons cozy sharp the best bulletin sunspot discerning classic.', author: 'admin', commentsCount: 11 },
-    // GUIDE
-    { id: 4,  category: 'guide',       imageType: 'guide',      title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 5 },
-    { id: 5,  category: 'guide',       imageType: 'eurostreet', title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 7 },
-    { id: 6,  category: 'guide',       imageType: 'citywoman',  title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 3 },
-    // GOVERNMENT
-    { id: 7,  category: 'government',  imageType: 'capitol',    title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 9 },
-    { id: 8,  category: 'government',  imageType: 'meeting',    title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 4 },
-    { id: 9,  category: 'government',  imageType: 'craftsman',  title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 2 },
-    // CONFERENCE
-    { id: 10, category: 'conference',  imageType: 'meeting',    title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 14 },
-    { id: 11, category: 'conference',  imageType: 'capitol',    title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 6 },
-    { id: 12, category: 'conference',  imageType: 'guide',      title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 8 },
-    // CELEBRATION
-    { id: 13, category: 'celebration', imageType: 'party',      title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 20 },
-    { id: 14, category: 'celebration', imageType: 'eurostreet', title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 15 },
-    { id: 15, category: 'celebration', imageType: 'citywoman',  title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 11 },
-    // INDUSTRY
-    { id: 16, category: 'industry',    imageType: 'factory',    title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 3 },
-    { id: 17, category: 'industry',    imageType: 'craftsman',  title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 7 },
-    { id: 18, category: 'industry',    imageType: 'meeting',    title: 'enter postcode to view services & facilities in your area.', excerpt: 'monrovia lorem dolor sit amet elegant bulletin melbourne sharp, ryolan conversation business class essential scandinavian zürich.', author: 'admin', commentsCount: 5 },
+  cards: InfoCard[] = [
+    // Gouvernement
+    { id: 1, category: 'gouvernement', title: 'Institutions de la RDC',
+      text: 'Découvrez la Présidence, l\'Assemblée nationale et le Sénat, piliers de la République démocratique du Congo. Informez-vous sur leur rôle, leur organisation et leurs missions auprès des citoyens.',
+      imageUrl: 'https://picsum.photos/seed/drc-parliament/600/400',
+      cardBg: '#ffc9de', pictureBg: '#c3b1e1', pictureColor: '#3a2a5a', textBg: '#fff5f8', textColor: '#2a0e1c' },
+    { id: 2, category: 'gouvernement', title: 'Démarches administratives',
+      text: 'Guide des principales démarches auprès des services gouvernementaux : documents officiels, passeports, permis et procédures pour les ressortissants congolais en Suisse.',
+      imageUrl: 'https://picsum.photos/seed/drc-government/600/400',
+      cardBg: '#d9f0c7', pictureBg: '#f4a6b4', pictureColor: '#5a1e2a', textBg: '#f6fbee', textColor: '#1a2e10' },
+
+    // Tourisme
+    { id: 4, category: 'tourisme', title: 'Découvrir la RDC',
+      text: 'Parc national des Virunga, fleuve Congo, massif du Ruwenzori, savanes du Katanga : la République démocratique du Congo offre une diversité naturelle exceptionnelle. Sites à visiter, hébergements recommandés, safaris et randonnées — préparez votre séjour au cœur de l\'Afrique centrale.',
+      imageUrl: 'https://picsum.photos/seed/drc-tourism/600/400',
+      cardBg: '#fff3b0', pictureBg: '#a0c4ff', pictureColor: '#1a3a6b', textBg: '#fffbe6', textColor: '#4a3e00' },
+
+    // Conférence
+    { id: 7, category: 'conference', title: 'Sommets et forums diplomatiques',
+      text: 'Agenda des grandes rencontres internationales impliquant la RDC : sommets de l\'Union africaine, forums économiques, conférences sur la paix dans la région des Grands Lacs et rencontres bilatérales avec la Suisse. Programmes officiels et comptes-rendus à consulter.',
+      imageUrl: 'https://picsum.photos/seed/drc-conference/600/400',
+      cardBg: '#e0bbff', pictureBg: '#ffb3c1', pictureColor: '#5a1e2e', textBg: '#f7eeff', textColor: '#2e1a4d' },
+
+    // Célébration
+    { id: 10, category: 'celebration', title: 'Fête nationale du 30 juin',
+      text: 'Chaque année, la communauté congolaise de Suisse célèbre l\'indépendance de la RDC proclamée le 30 juin 1960. Cérémonie officielle à l\'ambassade, hommage au drapeau, discours et moments culturels rassemblant les ressortissants et leurs amis suisses.',
+      imageUrl: 'https://picsum.photos/seed/drc-independence/600/400',
+      cardBg: '#ffafcc', pictureBg: '#cdb4db', pictureColor: '#3a2a5a', textBg: '#fff0f5', textColor: '#3a0a1e' },
+    { id: 11, category: 'celebration', title: 'Événements culturels',
+      text: 'Agenda des festivités organisées par l\'ambassade : concerts de rumba congolaise, expositions d\'art, soirées gastronomiques, projections de films et rencontres littéraires mettant à l\'honneur la richesse culturelle de la RDC.',
+      imageUrl: 'https://picsum.photos/seed/drc-culture/600/400',
+      cardBg: '#ffd6a5', pictureBg: '#caffbf', pictureColor: '#1e4d1a', textBg: '#fff8ec', textColor: '#4a3000' },
   ];
 
-  activeCategory = signal('tourist');
+  activeCategory = signal<string>('gouvernement');
 
-  filteredArticles = computed(() =>
-    this.articles.filter(a => a.category === this.activeCategory())
+  filteredCards = computed(() =>
+    this.cards.filter(c => c.category === this.activeCategory())
   );
 
   setCategory(id: string): void {

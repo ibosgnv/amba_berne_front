@@ -1,61 +1,74 @@
-<section class="wave-section px-10 py-9 pb-12 bg-[#f8f8f8] relative overflow-hidden">
+<section style="margin: 32px; padding: 24px 32px;">
 
-  <h2 class="font-anton text-[36px] font-black text-[#1a2080] tracking-[5px] text-center uppercase m-0 mb-[30px] relative">INFOS UTILES</h2>
+  <!-- Title (outside the outer rounded box) -->
+  <h2 style="color: #111111; font-size: 25px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin: 0 0 16px 4px; text-align: center;">
+    INFOS UTILES
+  </h2>
 
-  <!-- ===== CATEGORY TABS ===== -->
-  <nav class="flex justify-center gap-2 flex-wrap mb-9 relative">
-    @for (cat of categories; track cat.id) {
-      <button
-        class="tab-btn bg-transparent border-none text-sm font-bold tracking-[1px] text-[#333333] cursor-pointer px-4 py-1.5 uppercase relative transition-colors duration-200 hover:text-[#1a2080]"
-        [class.active]="activeCategory() === cat.id"
-        (click)="setCategory(cat.id)">
-        {{ cat.label }}
-      </button>
-    }
-  </nav>
+  <!-- Outer rounded container -->
+  <div style=" border-radius: 36px; padding: 24px;">
 
-  <!-- ===== CARDS GRID ===== -->
-  <div class="grid grid-cols-3 gap-6 relative">
-    @for (article of filteredArticles(); track article.id) {
-      <article class="bg-white rounded-xl overflow-hidden shadow-[0_2px_14px_rgba(0,0,0,0.09)] flex flex-col">
+    <!-- Div principale -->
+    <div style=" border-radius: 30px; padding: 20px; display: flex; flex-direction: column; gap: 18px;">
+      <p style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #444; margin: 0 0 0 4px;">
+        <!--Div principale -->
+      </p>
 
-        <!-- Image + announcement banner -->
-        <div class="relative leading-none">
-          <!-- Placeholder: article image (replace with actual photo) -->
-          <div class="w-full h-[220px]"
-            [style.background-color]="
-              article.imageType === 'craftsman' ? '#2a2018' :
-              article.imageType === 'citywoman' ? '#87ceeb' :
-              article.imageType === 'eurostreet' ? '#d4c4a8' :
-              article.imageType === 'meeting' ? '#e8e0d4' :
-              article.imageType === 'party' ? '#1a0a2e' :
-              article.imageType === 'factory' ? '#8090a0' :
-              article.imageType === 'guide' ? '#5aaa50' :
-              '#b8d4e8'
-            ">
-          </div>
+      <!-- DIV for title
+      <div style="border: 1px solid rgba(0,0,0,0.4); border-radius: 20px; background-color: #ffd6a5; padding: 22px; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #7a3e00; font-size: 18px; font-weight: 600;">DIV for title</span>
+      </div> -->
 
-          <!-- ANNOUNCEMENT banner -->
-          <div class="absolute bottom-0 left-0 right-0 bg-[#111111] text-white text-[11px] font-bold tracking-[1.5px] uppercase py-[7px] px-3 flex items-center gap-1.5 leading-none">
-            <span class="text-white text-[10px]">&#9733;</span>
-            <span>ANNOUNCEMENT</span>
-          </div>
+      <!-- DIV for categories -->
+      <div style="border: 1px solid rgba(0,0,0,0.4); border-radius: 20px; background-color: #bde0fe; padding: 14px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        @for (cat of categories; track cat.id) {
+          <button
+            (click)="setCategory(cat.id)"
+            [style.background-color]="activeCategory() === cat.id ? '#0d3b66' : '#ffffff'"
+            [style.color]="activeCategory() === cat.id ? '#ffffff' : '#0d3b66'"
+            [style.border]="'1px solid ' + (activeCategory() === cat.id ? '#0d3b66' : 'rgba(0,0,0,0.3)')"
+            style="padding: 10px 22px; border-radius: 999px; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease;">
+            {{ cat.label }}
+          </button>
+        }
+      </div>
+
+      <!-- Div for infos -->
+      <div style=" border-radius: 22px; padding: 18px;  display: flex; flex-direction: column; gap: 10px;">
+        <p style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #444; margin: 0 0 0 4px;">
+          <!--Div for infos-->
+        </p>
+
+        <!-- Cards row — centers when fewer than 3, fills evenly otherwise -->
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: stretch;">
+          @for (card of filteredCards(); track card.id) {
+            <article class="info-card">
+
+              <!-- Picture -->
+              <div class="info-card-picture">
+                @if (card.imageUrl) {
+                  <img [src]="card.imageUrl" [alt]="card.title" />
+                } @else {
+                  <span class="info-card-picture-placeholder">{{ card.title }}</span>
+                }
+              </div>
+
+              <!-- Text -->
+              <div class="info-card-text">
+                @if (card.imageUrl) {
+                  <h3 class="info-card-title">{{ card.title }}</h3>
+                  <p class="info-card-body">{{ card.text }}</p>
+                } @else {
+                  <p class="info-card-body" style="text-align: center;">{{ card.text }}</p>
+                }
+              </div>
+            </article>
+          }
         </div>
+      </div>
 
-        <!-- Card body -->
-        <div class="p-4 pb-2.5 flex-1">
-          <a class="block text-[13px] font-bold text-[#dd2200] leading-[1.45] mb-2 cursor-pointer no-underline hover:underline">{{ article.title }}</a>
-          <p class="text-[11.5px] text-[#666666] leading-[1.65] m-0">{{ article.excerpt }}</p>
-        </div>
+    </div>
 
-        <!-- Card footer -->
-        <div class="flex justify-between items-center px-4 py-2 pb-3 border-t border-[#f0f0f0]">
-          <span class="text-[11px] text-[#999999]">{{ article.author }}</span>
-          <span class="text-[11px] text-[#999999]">{{ article.commentsCount }} comments</span>
-        </div>
-
-      </article>
-    }
   </div>
 
 </section>
