@@ -1,3 +1,10 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
 /* ===== DRC palette =====
    Sky blue  #007FFF  — flag background
    Yellow    #FCD116  — flag star / accent
@@ -13,8 +20,6 @@
   background: linear-gradient(90deg, #007FFF 0%, #0b1a5c 100%);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   border-bottom: 3px solid #FCD116;
-  position: relative;
-  z-index: 10;
 }
 
 .navbar-brand {
