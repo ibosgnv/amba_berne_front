@@ -1,18 +1,4 @@
-/* Wave texture background decoration */
-.wave-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    transparent,
-    transparent 22px,
-    rgba(114, 212, 224, 0.06) 22px,
-    rgba(114, 212, 224, 0.06) 24px
-  );
-  pointer-events: none;
-}
-
-/* Sidebar card hover: darken gradient overlay */
-.sidebar-card:hover .card-overlay-gradient {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.1) 100%);
+:host {
+  display: block;
+  width: 100%;
 }

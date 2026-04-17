@@ -1,0 +1,36 @@
+<section class="bg-gradient-to-br from-gray-50 via-white to-[#007FFF]/5 py-20 px-6">
+  <div class="max-w-7xl mx-auto">
+
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="inline-block bg-[#FCD116]/20 text-[#0b1a5c] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        🌍 La RDC en Suisse
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-4">
+        Un pont entre deux nations
+      </h2>
+      <p class="text-gray-600 text-lg leading-relaxed">
+        L'Ambassade agit comme un pont entre la RDC et la Suisse, favorisant le dialogue, les échanges
+        économiques, la valorisation de la culture congolaise et l'intégration de la diaspora.
+      </p>
+    </div>
+
+    <!-- Timeline horizontale -->
+    <div class="relative">
+      <!-- Ligne décorative -->
+      <div class="hidden lg:block absolute top-[38px] left-0 right-0 h-0.5 bg-gradient-to-r from-[#007FFF] via-[#FCD116] to-[#0b1a5c]"></div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+        @for (p of piliers; track p.title) {
+          <div class="text-center">
+            <div class="relative mx-auto w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center text-4xl mb-5 border-4 border-[#FCD116]">
+              {{ p.icon }}
+            </div>
+            <h3 class="text-lg font-bold text-[#0b1a5c] mb-2">{{ p.title }}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">{{ p.desc }}</p>
+          </div>
+        }
+      </div>
+    </div>
+
+  </div>
+</section>

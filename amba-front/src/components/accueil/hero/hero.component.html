@@ -1,0 +1,36 @@
+<section class="relative w-full h-[80vh] min-h-[520px] overflow-hidden">
+  <!-- Background image -->
+  <img src="/assets/leopard_final.png" alt="Ambassade RDC" class="absolute inset-0 w-full h-full object-cover" />
+
+  <!-- Gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0b1a5c]/85 via-[#0b1a5c]/60 to-[#007FFF]/40"></div>
+
+  <!-- Decorative pattern -->
+  <img src="/assets/patterns_amba.png" alt="" aria-hidden="true" class="absolute bottom-0 left-0 w-64 opacity-30 pointer-events-none" />
+  <img src="/assets/patterns_amba.png" alt="" aria-hidden="true" class="absolute top-0 right-0 w-64 opacity-20 pointer-events-none scale-x-[-1]" />
+
+  <!-- Content -->
+  <div class="relative z-10 h-full max-w-5xl mx-auto px-6 flex flex-col justify-center text-white">
+    <span class="inline-block self-start bg-[#FCD116] text-[#0b1a5c] px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6 shadow-lg">
+      République Démocratique du Congo · Suisse
+    </span>
+    <h1 class="font-dancing text-5xl md:text-7xl text-[#FCD116] leading-tight mb-6 drop-shadow-lg">
+      Bienvenue à l'Ambassade
+    </h1>
+    <p class="text-lg md:text-2xl max-w-3xl leading-relaxed mb-10 drop-shadow">
+      « Porte d'entrée officielle de la République Démocratique du Congo en Suisse :
+      au service des citoyens, des partenaires et des opportunités d'avenir. »
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a routerLink="/services" class="bg-[#FCD116] text-[#0b1a5c] px-7 py-3.5 rounded-full font-bold shadow-lg hover:bg-[#ffd938] hover:scale-105 transition text-center">
+        Découvrir les services →
+      </a>
+      <a routerLink="/contact" class="border-2 border-white text-white px-7 py-3.5 rounded-full font-semibold hover:bg-white hover:text-[#0b1a5c] transition text-center">
+        Nous contacter
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 animate-bounce text-2xl">↓</div>
+</section>

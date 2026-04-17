@@ -1,0 +1,39 @@
+<section class="relative bg-gradient-to-br from-[#0b1a5c] via-[#007FFF] to-[#0b1a5c] text-white py-20 px-6 overflow-hidden">
+
+  <!-- Decorative -->
+  <img src="/assets/patterns_amba.png" alt="" aria-hidden="true" class="absolute -bottom-10 -left-10 w-80 opacity-10 pointer-events-none" />
+  <img src="/assets/patterns_amba.png" alt="" aria-hidden="true" class="absolute -top-10 -right-10 w-80 opacity-10 pointer-events-none scale-x-[-1]" />
+
+  <div class="relative max-w-5xl mx-auto text-center">
+    <span class="inline-block bg-[#FCD116] text-[#0b1a5c] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 shadow">
+      🧾 Nos services
+    </span>
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-5 leading-tight">
+      Des services modernes, <span class="text-[#FCD116]">accessibles</span> et au service des citoyens
+    </h1>
+    <p class="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto mb-10">
+      Accédez à l'ensemble des prestations consulaires et d'accompagnement proposées par
+      l'Ambassade de la RDC à Berne. Information claire, procédures transparentes, démarches en ligne sécurisées.
+    </p>
+
+    <!-- Barre de recherche -->
+    <div class="max-w-2xl mx-auto">
+      <div class="flex items-center bg-white rounded-full shadow-xl overflow-hidden">
+        <span class="pl-6 text-gray-400 text-xl">🔍</span>
+        <input
+          type="text"
+          [value]="query()"
+          (input)="query.set($any($event.target).value)"
+          placeholder="Rechercher une démarche ou un service…"
+          class="flex-1 px-4 py-4 text-[#0b1a5c] placeholder-gray-400 focus:outline-none"
+        />
+        <button class="bg-[#FCD116] text-[#0b1a5c] font-bold px-6 py-4 hover:bg-[#ffd938] transition">
+          Chercher
+        </button>
+      </div>
+      <p class="text-white/60 text-xs mt-3">
+        Exemples : « prix visa », « transcription naissance », « rendez-vous passeport »
+      </p>
+    </div>
+  </div>
+</section>

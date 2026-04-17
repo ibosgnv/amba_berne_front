@@ -1,13 +1,13 @@
-import { Component, signal } from "@angular/core";
+import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { Navbar } from "../components/shared/navbar/navbar.component";
+import { NavbarComponent } from "../components/shared/navbar/navbar.component";
+import { FooterComponent } from "../components/shared/footer/footer.component";
 
 @Component({
   selector: "app-root",
-  imports: [RouterOutlet, Navbar],
+  standalone: true,
+  imports: [RouterOutlet, NavbarComponent, FooterComponent],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
 })
-export class App {
-  protected readonly title = signal("amba-front");
-}
+export class App {}

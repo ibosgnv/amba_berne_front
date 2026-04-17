@@ -1,0 +1,94 @@
+<section id="services-visas" class="bg-gradient-to-b from-gray-50 to-white py-20 px-6 scroll-mt-24">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Intro -->
+    <div class="flex items-start gap-5 mb-12">
+      <div class="w-14 h-14 rounded-2xl bg-[#FCD116]/20 flex items-center justify-center text-3xl shrink-0">🛂</div>
+      <div>
+        <span class="inline-block bg-[#FCD116]/20 text-[#0b1a5c] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+          Visas & Passeports
+        </span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-3">
+          Préparez votre voyage en toute sérénité
+        </h2>
+        <p class="text-gray-600 text-lg leading-relaxed max-w-3xl">
+          Toutes les informations nécessaires à l'obtention de votre visa ou de vos documents de voyage.
+        </p>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <h3 class="text-xl font-bold text-[#0b1a5c] mb-6">📍 Procédure en 4 étapes</h3>
+    <div class="relative mb-16">
+      <!-- Ligne -->
+      <div class="hidden lg:block absolute top-8 left-8 right-8 h-0.5 bg-gradient-to-r from-[#007FFF] to-[#FCD116]"></div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        @for (s of steps; track s.num) {
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 relative">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#007FFF] to-[#0b1a5c] text-white font-extrabold text-xl flex items-center justify-center mb-4 shadow-lg">
+              {{ s.num }}
+            </div>
+            <h4 class="font-bold text-[#0b1a5c] mb-2">{{ s.title }}</h4>
+            <p class="text-sm text-gray-600 leading-relaxed">{{ s.desc }}</p>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Types de visas -->
+    <h3 class="text-xl font-bold text-[#0b1a5c] mb-6">🌍 Types de visas</h3>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+      @for (v of visaTypes; track v.name) {
+        <button
+          (click)="selectVisa(v.name)"
+          [class]="'text-left bg-white rounded-2xl p-6 border-2 transition-all hover:-translate-y-1 ' +
+            (selectedVisa() === v.name
+              ? 'border-[#FCD116] shadow-xl ring-4 ring-[#FCD116]/20'
+              : 'border-gray-200 hover:border-[#007FFF] hover:shadow-lg')"
+        >
+          <div class="text-4xl mb-4">{{ v.icon }}</div>
+          <h4 class="font-bold text-[#0b1a5c] text-lg mb-1">{{ v.name }}</h4>
+          <div class="text-xs text-gray-500 uppercase tracking-wider mb-3">{{ v.duration }}</div>
+          <p class="text-sm text-gray-600 mb-4 leading-relaxed">{{ v.desc }}</p>
+          <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+            <span class="text-2xl font-extrabold text-[#007FFF]">{{ v.price }}</span>
+            <span class="text-xs text-[#0b1a5c] font-semibold">Choisir →</span>
+          </div>
+        </button>
+      }
+    </div>
+
+    <!-- Tarification -->
+    <h3 class="text-xl font-bold text-[#0b1a5c] mb-5">💰 Tarification transparente</h3>
+    <div class="overflow-x-auto mb-14">
+      <table class="w-full bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200">
+        <thead class="bg-[#0b1a5c] text-white">
+          <tr>
+            <th class="px-6 py-4 text-left font-semibold">Type de visa</th>
+            <th class="px-6 py-4 text-left font-semibold">Durée</th>
+            <th class="px-6 py-4 text-right font-semibold">Frais consulaires</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (v of visaTypes; track v.name) {
+            <tr class="border-t border-gray-100 hover:bg-gray-50">
+              <td class="px-6 py-4 font-semibold text-[#0b1a5c]">{{ v.icon }} {{ v.name }}</td>
+              <td class="px-6 py-4 text-gray-600">{{ v.duration }}</td>
+              <td class="px-6 py-4 text-right font-bold text-[#007FFF]">{{ v.price }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-gradient-to-r from-[#FCD116] to-[#ffd938] rounded-2xl p-8 text-center">
+      <h3 class="text-2xl font-extrabold text-[#0b1a5c] mb-2">Prêt à entamer votre demande ?</h3>
+      <p class="text-[#0b1a5c]/80 mb-6">Le formulaire s'adapte au type de visa choisi.</p>
+      <button class="bg-[#0b1a5c] text-white px-8 py-3.5 rounded-full font-bold shadow-lg hover:bg-[#007FFF] transition">
+        Faire une demande de visa →
+      </button>
+    </div>
+  </div>
+</section>

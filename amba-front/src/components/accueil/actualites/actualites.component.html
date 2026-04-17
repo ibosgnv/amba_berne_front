@@ -1,87 +1,53 @@
-<section style="margin: 32px; padding: 24px 32px;">
+<section class="bg-[#0b1a5c] py-20 px-6 relative overflow-hidden">
 
-  <!-- Title (outside the outer rounded box) -->
-  <h2 style="color: #111111; font-size: 25px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin: 0 0 16px 4px; text-align: center">
-    ACTUALITÉS
-  </h2>
+  <!-- Decorative pattern -->
+  <img src="/assets/patterns_amba.png" alt="" aria-hidden="true" class="absolute -top-20 -right-20 w-96 opacity-5" />
 
-  <!-- Outer rounded container -->
-  <div style=" border-radius: 36px; padding: 24px; ">
+  <div class="max-w-7xl mx-auto relative">
 
-    <!-- Two-column layout: main (left) + sidebar (right) -->
-    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; align-items: stretch; min-height: 600px;">
-
-      <!-- LEFT: DIV Actualités principales -->
-      <div style="border-radius: 28px; padding: 20px;  display: flex; flex-direction: column; gap: 16px;">
-        <p style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #444; margin: 0 0 0 4px;">
-           <!--DIV Actualités principales -->
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+      <div>
+        <span class="inline-block bg-[#FCD116]/20 text-[#FCD116] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+          📢 Actualités
+        </span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-3">
+          Restez informé en temps réel
+        </h2>
+        <p class="text-white/70 text-lg max-w-2xl">
+          Actualités officielles, opportunités, événements culturels et interventions de l'Ambassadeur.
         </p>
-
-        <!-- DIV image principale — takes most of the space -->
-        <div style="border: 1px solid rgba(0,0,0,0.4); border-radius: 22px; flex: 3; overflow: hidden;">
-          <img src="/assets/crise_est.jpg" alt="Crise à l'Est"
-            style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-        </div>
-
-        <!-- DIV texte — summary of the article -->
-        <div style="border-radius: 22px;  flex: 1; padding: 12px 20px; display: flex; flex-direction: column; justify-content: center; gap: 6px;">
-          <h3 style="margin: 0; color: #1a2ea8; font-size: 30px; font-weight: 700; line-height: 1.3;">
-            L'UE débloque 81 M€ d'aide humanitaire pour l'est de la RDC
-          </h3>
-          <p style="margin: 0; color: #444444; font-size: 25px; line-height: 1.5;">
-            L'Union européenne a annoncé le 17 février un financement de 81 millions d'euros — dont 68 M€ pour l'intérieur de la RDC et 13,2 M€ pour la région des Grands Lacs — face à l'aggravation de la crise humanitaire. L'est du pays, ravagé depuis plus de trente ans, subit la résurgence du M23 soutenu par le Rwanda, qui s'est emparé de Goma et Bukavu début 2025.
-          </p>
-        </div>
       </div>
-
-      <!-- RIGHT: Div autres actualités -->
-      <div style=" border-radius: 28px; padding: 20px;  display: flex; flex-direction: column; gap: 16px;">
-        <p style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #444; margin: 0 0 0 4px;">
-         <!-- Div autres actualités -->
-        </p>
-
-        <div style="position: relative; border: 1px solid rgba(0,0,0,0.4); border-radius: 22px; flex: 1; overflow: hidden;">
-          <img src="/assets/ONU_Femme.jpg" alt="Actualité ONU Femme"
-            style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-
-          <!-- Gradient + caption overlay -->
-          <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 16px 14px;
-                      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%);">
-            <p style="margin: 0; color: #ffffff; font-size: 15px; font-weight: 600; line-height: 1.4;">
-              Est de la RDC : l'ONU Femmes appelle à une inclusion effective des femmes dans les processus de paix.
-            </p>
-          </div>
-        </div>
-
-        <div style="position: relative; border: 1px solid rgba(0,0,0,0.4); border-radius: 22px; flex: 1; overflow: hidden;">
-          <img src="/assets/economie_nationale.jpg" alt="Économie nationale"
-            style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-
-          <!-- Gradient + caption overlay -->
-          <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 16px 14px;
-                      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%);">
-            <p style="margin: 0; color: #ffffff; font-size: 15px; font-weight: 600; line-height: 1.4;">
-              RDC : le gouvernement révise les prix des carburants dans les zones d'approvisionnement face à la conjoncture internationale.
-            </p>
-          </div>
-        </div>
-
-        <div style="position: relative; border: 1px solid rgba(0,0,0,0.4); border-radius: 22px; flex: 1; overflow: hidden;">
-          <img src="/assets/m23_pourpalers.jpg" alt="Pourparlers M23"
-            style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-
-          <!-- Gradient + caption overlay -->
-          <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 16px 14px;
-                      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 100%);">
-            <p style="margin: 0; color: #ffffff; font-size: 15px; font-weight: 600; line-height: 1.4;">
-              Près de Montreux (VD), 9<sup>e</sup> série de pourparlers entre Kinshasa et le M23 — organisée en Suisse pour la première fois en raison des tensions au Moyen-Orient.
-            </p>
-          </div>
-        </div>
-      </div>
-
+      <a href="#" class="shrink-0 text-[#FCD116] font-semibold hover:underline">
+        Voir toutes les actualités →
+      </a>
     </div>
 
-  </div>
+    <!-- Live banner -->
+    <div class="bg-gradient-to-r from-red-500/20 to-red-500/5 border border-red-500/30 rounded-xl p-4 mb-10 flex items-center gap-3">
+      <span class="flex items-center gap-2 shrink-0">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+        <span class="text-red-400 font-bold text-xs uppercase tracking-widest">En direct</span>
+      </span>
+      <span class="text-white text-sm">Intervention de Son Excellence l'Ambassadeur — prochainement sur cette page.</span>
+    </div>
 
+    <!-- News cards -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (n of news; track n.title) {
+        <article class="group bg-white rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all cursor-pointer">
+          <div class="relative h-48 overflow-hidden">
+            <img [src]="n.image" [alt]="n.title" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+            <span class="absolute top-3 left-3 bg-[#FCD116] text-[#0b1a5c] px-3 py-1 rounded-full text-xs font-bold uppercase">{{ n.category }}</span>
+          </div>
+          <div class="p-5">
+            <time class="text-xs text-gray-500 uppercase tracking-wider">{{ n.date }}</time>
+            <h3 class="font-bold text-[#0b1a5c] mt-2 mb-2 leading-snug line-clamp-2">{{ n.title }}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed line-clamp-2">{{ n.excerpt }}</p>
+            <span class="inline-block mt-3 text-[#007FFF] text-sm font-semibold group-hover:text-[#0b1a5c] transition">Lire →</span>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
 </section>

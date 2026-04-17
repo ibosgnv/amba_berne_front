@@ -1,89 +1,41 @@
-import { Component, signal, computed } from '@angular/core';
-
-export interface Article {
-  id: number;
-  date: string;
-  month: string;
-  title: string;
-  excerpt: string;
-  imageType: 'conference' | 'flag-people' | 'group' | 'duo' | 'outdoor' | 'event';
-}
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-actualites',
+  selector: "app-accueil-actualites",
   standalone: true,
-  templateUrl: './actualites.component.html',
-  styleUrl: './actualites.component.css'
+  imports: [],
+  templateUrl: "./actualites.component.html",
+  styleUrl: "./actualites.component.css",
 })
-export class Actualites {
-  readonly visibleCount = 3;
-
-  featured: Article = {
-    id: 1,
-    date: '20',
-    month: 'janvier',
-    title: 'Nous dénonçons avec une juste indignation et une profonde aversion. Maire, « Jordan Cooper',
-    excerpt: 'Nous dénonçons avec une juste indignation et une profonde aversion les hommes qui, séduits et démoralisés par les charmes du plaisir, se laissent aller à des pratiques déraisonnables.',
-    imageType: 'conference'
-  };
-
-  sidebarArticles: Article[] = [
+export class AccueilActualitesComponent {
+  protected readonly news = [
     {
-      id: 2,
-      date: '20',
-      month: 'janvier',
-      title: 'charmes du plaisir',
-      excerpt: 'se laissent aller à des pratiques',
-      imageType: 'flag-people'
+      image: "/assets/m23_pourpalers.jpg",
+      category: "Diplomatie",
+      date: "12 avril 2026",
+      title: "Reprise des pourparlers de paix à l'Est de la RDC",
+      excerpt: "Les discussions diplomatiques se poursuivent afin d'assurer la stabilité régionale.",
     },
     {
-      id: 3,
-      date: '20',
-      month: 'janvier',
-      title: 'charmes du plaisir',
-      excerpt: 'se laissent aller à des pratiques',
-      imageType: 'group'
+      image: "/assets/economie_nationale.jpg",
+      category: "Économie",
+      date: "08 avril 2026",
+      title: "Forum économique RDC–Suisse à Genève",
+      excerpt: "Rencontre entre investisseurs suisses et entrepreneurs congolais autour de secteurs stratégiques.",
     },
     {
-      id: 4,
-      date: '20',
-      month: 'janvier',
-      title: 'charmes du plaisir',
-      excerpt: 'se laissent aller à des pratiques',
-      imageType: 'duo'
+      image: "/assets/ONU_Femme.jpg",
+      category: "Coopération",
+      date: "02 avril 2026",
+      title: "Partenariat ONU Femmes pour les droits des femmes",
+      excerpt: "Nouvelle initiative conjointe pour l'autonomisation des femmes en RDC.",
     },
     {
-      id: 5,
-      date: '15',
-      month: 'février',
-      title: 'charmes du plaisir',
-      excerpt: 'se laissent aller à des pratiques',
-      imageType: 'outdoor'
-    },
-    {
-      id: 6,
-      date: '10',
-      month: 'mars',
-      title: 'charmes du plaisir',
-      excerpt: 'se laissent aller à des pratiques',
-      imageType: 'event'
+      image: "/assets/wagenia.jpg",
+      category: "Culture",
+      date: "25 mars 2026",
+      title: "Exposition culturelle : les pêcheurs Wagenia",
+      excerpt: "Un voyage à travers les traditions ancestrales des rives du fleuve Congo.",
     },
   ];
-
-  offset = signal(0);
-
-  visibleSidebar = computed(() =>
-    this.sidebarArticles.slice(this.offset(), this.offset() + this.visibleCount)
-  );
-
-  canScrollUp = computed(() => this.offset() > 0);
-  canScrollDown = computed(() => this.offset() + this.visibleCount < this.sidebarArticles.length);
-
-  scrollUp(): void {
-    if (this.canScrollUp()) this.offset.update(o => o - 1);
-  }
-
-  scrollDown(): void {
-    if (this.canScrollDown()) this.offset.update(o => o + 1);
-  }
 }

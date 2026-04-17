@@ -1,74 +1,50 @@
-<section style="margin: 32px; padding: 24px 32px;">
+<section class="bg-white py-20 px-6">
+  <div class="max-w-7xl mx-auto">
 
-  <!-- Title (outside the outer rounded box) -->
-  <h2 style="color: #111111; font-size: 25px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin: 0 0 16px 4px; text-align: center;">
-    INFOS UTILES
-  </h2>
-
-  <!-- Outer rounded container -->
-  <div style=" border-radius: 36px; padding: 24px;">
-
-    <!-- Div principale -->
-    <div style=" border-radius: 30px; padding: 20px; display: flex; flex-direction: column; gap: 18px;">
-      <p style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #444; margin: 0 0 0 4px;">
-        <!--Div principale -->
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="inline-block bg-[#007FFF]/10 text-[#007FFF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        📊 Infos utiles
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-4">
+        Tout ce dont vous avez besoin, en un seul endroit
+      </h2>
+      <p class="text-gray-600 text-lg leading-relaxed">
+        Accès centralisé aux informations économiques, sociales et événementielles liées à la RDC
+        et à la diaspora en Suisse.
       </p>
-
-      <!-- DIV for title
-      <div style="border: 1px solid rgba(0,0,0,0.4); border-radius: 20px; background-color: #ffd6a5; padding: 22px; display: flex; align-items: center; justify-content: center;">
-        <span style="color: #7a3e00; font-size: 18px; font-weight: 600;">DIV for title</span>
-      </div> -->
-
-      <!-- DIV for categories -->
-      <div style="border: 1px solid rgba(0,0,0,0.4); border-radius: 20px; background-color: #bde0fe; padding: 14px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
-        @for (cat of categories; track cat.id) {
-          <button
-            (click)="setCategory(cat.id)"
-            [style.background-color]="activeCategory() === cat.id ? '#0d3b66' : '#ffffff'"
-            [style.color]="activeCategory() === cat.id ? '#ffffff' : '#0d3b66'"
-            [style.border]="'1px solid ' + (activeCategory() === cat.id ? '#0d3b66' : 'rgba(0,0,0,0.3)')"
-            style="padding: 10px 22px; border-radius: 999px; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease;">
-            {{ cat.label }}
-          </button>
-        }
-      </div>
-
-      <!-- Div for infos -->
-      <div style=" border-radius: 22px; padding: 18px;  display: flex; flex-direction: column; gap: 10px;">
-        <p style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #444; margin: 0 0 0 4px;">
-          <!--Div for infos-->
-        </p>
-
-        <!-- Cards row — centers when fewer than 3, fills evenly otherwise -->
-        <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: stretch;">
-          @for (card of filteredCards(); track card.id) {
-            <article class="info-card">
-
-              <!-- Picture -->
-              <div class="info-card-picture">
-                @if (card.imageUrl) {
-                  <img [src]="card.imageUrl" [alt]="card.title" />
-                } @else {
-                  <span class="info-card-picture-placeholder">{{ card.title }}</span>
-                }
-              </div>
-
-              <!-- Text -->
-              <div class="info-card-text">
-                @if (card.imageUrl) {
-                  <h3 class="info-card-title">{{ card.title }}</h3>
-                  <p class="info-card-body">{{ card.text }}</p>
-                } @else {
-                  <p class="info-card-body" style="text-align: center;">{{ card.text }}</p>
-                }
-              </div>
-            </article>
-          }
-        </div>
-      </div>
-
     </div>
 
-  </div>
+    <!-- Tabs -->
+    <div class="flex gap-2 overflow-x-auto pb-4 mb-8 scrollbar-thin -mx-6 px-6 snap-x">
+      @for (t of tabs; track t.id) {
+        <button
+          (click)="selectTab(t.id)"
+          [class]="'shrink-0 snap-start px-5 py-2.5 rounded-full text-sm font-semibold transition flex items-center gap-2 border-2 ' +
+            (activeId() === t.id
+              ? 'bg-[#0b1a5c] text-white border-[#0b1a5c] shadow-md'
+              : 'bg-white text-gray-700 border-gray-200 hover:border-[#007FFF] hover:text-[#007FFF]')"
+        >
+          <span>{{ t.icon }}</span>
+          <span>{{ t.title }}</span>
+        </button>
+      }
+    </div>
 
+    <!-- Active panel -->
+    <div class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-8 md:p-10 shadow-sm">
+      <div class="grid md:grid-cols-[auto_1fr] gap-8 items-center">
+        <div class="w-28 h-28 rounded-2xl bg-gradient-to-br from-[#007FFF] to-[#0b1a5c] flex items-center justify-center text-6xl shadow-lg shrink-0">
+          {{ activeTab().icon }}
+        </div>
+        <div>
+          <h3 class="text-2xl md:text-3xl font-extrabold text-[#0b1a5c] mb-3">{{ activeTab().title }}</h3>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">{{ activeTab().description }}</p>
+          <button class="bg-[#FCD116] text-[#0b1a5c] px-6 py-3 rounded-full font-bold hover:bg-[#ffd938] shadow-md transition">
+            {{ activeTab().action }} →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

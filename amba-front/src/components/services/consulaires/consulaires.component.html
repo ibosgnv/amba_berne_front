@@ -1,0 +1,124 @@
+<section id="services-consulaires" class="bg-white py-20 px-6 scroll-mt-24">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Intro -->
+    <div class="flex items-start gap-5 mb-12">
+      <div class="w-14 h-14 rounded-2xl bg-[#007FFF]/10 flex items-center justify-center text-3xl shrink-0">🧾</div>
+      <div>
+        <span class="inline-block bg-[#007FFF]/10 text-[#007FFF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+          Services consulaires
+        </span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-3">
+          Simplifiez vos démarches administratives
+        </h2>
+        <p class="text-gray-600 text-lg leading-relaxed max-w-3xl">
+          L'Ambassade vous accompagne dans l'ensemble de vos formalités consulaires, conformément
+          aux dispositions légales en vigueur. Chaque procédure est détaillée étape par étape.
+        </p>
+      </div>
+    </div>
+
+    <!-- Procédures : accordion -->
+    <h3 class="text-xl font-bold text-[#0b1a5c] mb-4">📋 Procédures disponibles</h3>
+    <div class="space-y-3 mb-14">
+      @for (p of procedures; track p.id) {
+        <div class="border border-gray-200 rounded-xl overflow-hidden hover:border-[#007FFF] transition">
+          <button
+            (click)="toggleProcedure(p.id)"
+            class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-gray-50 transition"
+          >
+            <span class="flex items-center gap-3">
+              <span class="text-2xl">{{ p.icon }}</span>
+              <span class="font-bold text-[#0b1a5c]">{{ p.title }}</span>
+            </span>
+            <span [class]="'text-[#007FFF] text-xl transition-transform ' + (openProcedure() === p.id ? 'rotate-45' : '')">+</span>
+          </button>
+          @if (openProcedure() === p.id) {
+            <div class="px-5 pb-5 border-t border-gray-100 pt-4 bg-gray-50">
+              <ol class="space-y-2">
+                @for (step of p.steps; track $index) {
+                  <li class="flex items-start gap-3">
+                    <span class="shrink-0 w-6 h-6 rounded-full bg-[#FCD116] text-[#0b1a5c] font-bold text-xs flex items-center justify-center mt-0.5">{{ $index + 1 }}</span>
+                    <span class="text-gray-700">{{ step }}</span>
+                  </li>
+                }
+              </ol>
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Documents requis -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-14">
+      <div class="bg-gradient-to-br from-[#007FFF]/5 to-white rounded-2xl border border-gray-200 p-7">
+        <h3 class="text-xl font-bold text-[#0b1a5c] mb-5 flex items-center gap-2">
+          <span>📄</span> Documents requis
+        </h3>
+        <ul class="space-y-3 mb-5">
+          @for (d of documents; track d) {
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="shrink-0 w-5 h-5 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5">✓</span>
+              <span>{{ d }}</span>
+            </li>
+          }
+        </ul>
+        <button class="bg-[#0b1a5c] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#007FFF] transition">
+          ⬇ Télécharger la checklist (PDF)
+        </button>
+      </div>
+
+      <!-- E-démarche -->
+      <div class="bg-[#0b1a5c] text-white rounded-2xl p-7 relative overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#FCD116]/20 rounded-full blur-2xl"></div>
+        <h3 class="text-xl font-bold mb-3 flex items-center gap-2 relative">
+          <span>💻</span> E-démarche
+        </h3>
+        <p class="text-white/80 mb-5 leading-relaxed relative">
+          Initiez votre demande directement en ligne via un formulaire évolutif et sécurisé.
+          Saisie guidée, téléversement des documents, accusé de réception automatique.
+        </p>
+        <!-- Progress preview -->
+        <div class="space-y-2 mb-6 relative">
+          <div class="flex items-center gap-3 text-sm">
+            <span class="w-6 h-6 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center">1</span>
+            <span>Informations personnelles</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <span class="w-6 h-6 rounded-full bg-white/20 text-white text-xs font-bold flex items-center justify-center">2</span>
+            <span class="text-white/70">Téléversement documents</span>
+          </div>
+          <div class="flex items-center gap-3 text-sm">
+            <span class="w-6 h-6 rounded-full bg-white/20 text-white text-xs font-bold flex items-center justify-center">3</span>
+            <span class="text-white/70">Validation & envoi</span>
+          </div>
+        </div>
+        <button class="bg-[#FCD116] text-[#0b1a5c] px-6 py-3 rounded-full font-bold hover:bg-[#ffd938] transition relative">
+          Commencer ma démarche →
+        </button>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div>
+      <h3 class="text-xl font-bold text-[#0b1a5c] mb-5 flex items-center gap-2">
+        <span>❓</span> Questions fréquentes
+      </h3>
+      <div class="space-y-2">
+        @for (f of faq; track $index) {
+          <div class="border border-gray-200 rounded-xl overflow-hidden">
+            <button (click)="toggleFaq($index)" class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-gray-50 transition">
+              <span class="font-semibold text-[#0b1a5c]">{{ f.question }}</span>
+              <span [class]="'text-[#007FFF] text-xl transition-transform ' + (openFaq() === $index ? 'rotate-45' : '')">+</span>
+            </button>
+            @if (openFaq() === $index) {
+              <div class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4 bg-gray-50">
+                {{ f.answer }}
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

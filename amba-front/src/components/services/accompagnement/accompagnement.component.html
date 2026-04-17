@@ -1,0 +1,84 @@
+<section id="services-accompagnement" class="bg-gradient-to-b from-white to-gray-50 py-20 px-6 scroll-mt-24">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Intro -->
+    <div class="flex items-start gap-5 mb-12">
+      <div class="w-14 h-14 rounded-2xl bg-[#72d4e0]/25 flex items-center justify-center text-3xl shrink-0">🤝</div>
+      <div>
+        <span class="inline-block bg-[#72d4e0]/25 text-[#0b1a5c] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+          Accompagnement
+        </span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-3">
+          Un accompagnement sur mesure
+        </h2>
+        <p class="text-gray-600 text-lg leading-relaxed max-w-3xl">
+          De la mise en relation au soutien à l'installation, l'Ambassade est à vos côtés
+          pour chaque étape de votre parcours entre la RDC et la Suisse.
+        </p>
+      </div>
+    </div>
+
+    <!-- 4 grandes rubriques -->
+    <div class="grid md:grid-cols-2 gap-6 mb-14">
+      @for (s of sections; track s.title) {
+        <div [class]="'rounded-2xl p-7 border border-gray-200 bg-gradient-to-br ' + s.color + ' hover:shadow-xl transition-all hover:-translate-y-1'">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center text-3xl shrink-0">
+              {{ s.icon }}
+            </div>
+            <div>
+              <h3 class="text-xl font-extrabold text-[#0b1a5c] mb-1">{{ s.title }}</h3>
+              <p class="text-gray-700 text-sm leading-relaxed">{{ s.desc }}</p>
+            </div>
+          </div>
+          <ul class="space-y-2 mt-5 pl-2">
+            @for (item of s.items; track item) {
+              <li class="flex items-center gap-3 text-sm text-gray-700">
+                <span [style.background-color]="s.accent" class="w-1.5 h-1.5 rounded-full"></span>
+                <span>{{ item }}</span>
+              </li>
+            }
+          </ul>
+          <button class="mt-6 text-sm font-semibold text-[#0b1a5c] hover:text-[#007FFF] transition">
+            En savoir plus →
+          </button>
+        </div>
+      }
+    </div>
+
+    <!-- Support rapide -->
+    <div class="bg-[#0b1a5c] text-white rounded-2xl p-8 relative overflow-hidden">
+      <div class="absolute -top-16 -right-16 w-56 h-56 bg-[#FCD116]/10 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-16 -left-16 w-56 h-56 bg-[#007FFF]/20 rounded-full blur-3xl"></div>
+
+      <div class="relative grid md:grid-cols-[1fr_auto] gap-8 items-center">
+        <div>
+          <h3 class="text-2xl font-extrabold mb-2">Besoin d'une assistance immédiate ?</h3>
+          <p class="text-white/80 mb-6 max-w-xl">
+            Notre cellule d'accompagnement est à votre écoute pour les urgences consulaires,
+            les demandes d'information et l'orientation de vos démarches.
+          </p>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            @for (s of supports; track s.label) {
+              <div class="bg-white/5 border border-white/10 rounded-xl p-4 backdrop-blur">
+                <div class="text-2xl mb-1">{{ s.icon }}</div>
+                <div class="text-xs uppercase tracking-wider text-white/60 mb-1">{{ s.label }}</div>
+                <div class="text-sm font-semibold">{{ s.value }}</div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3 md:min-w-[200px]">
+          <button class="bg-[#FCD116] text-[#0b1a5c] px-6 py-3 rounded-full font-bold hover:bg-[#ffd938] transition shadow-lg">
+            Prendre rendez-vous
+          </button>
+          <button class="border-2 border-white/40 text-white px-6 py-3 rounded-full font-bold hover:bg-white/10 transition">
+            Nous contacter
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

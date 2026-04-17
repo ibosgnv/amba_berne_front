@@ -1,0 +1,51 @@
+<section class="bg-white py-20 px-6">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+
+    <!-- Image -->
+    <div class="relative order-2 lg:order-1">
+      <div class="absolute -inset-4 bg-gradient-to-tr from-[#FCD116]/30 to-[#007FFF]/20 rounded-3xl blur-2xl"></div>
+      <img src="/assets/economie_nationale.jpg" alt="Opportunités d'affaires" class="relative w-full h-[480px] object-cover rounded-3xl shadow-2xl" />
+
+      <!-- Floating stat -->
+      <div class="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-5 hidden md:block border border-gray-100">
+        <div class="text-3xl font-extrabold text-[#FCD116]">+6%</div>
+        <div class="text-xs text-gray-600 uppercase tracking-wider">Croissance annuelle</div>
+      </div>
+    </div>
+
+    <!-- Texte -->
+    <div class="order-1 lg:order-2">
+      <span class="inline-block bg-[#FCD116]/20 text-[#0b1a5c] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+        💼 Opportunités & investissements
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] leading-tight mb-5">
+        Construisons ensemble des partenariats durables
+      </h2>
+      <p class="text-gray-600 text-lg leading-relaxed mb-8">
+        La République Démocratique du Congo offre un potentiel économique exceptionnel dans plusieurs
+        secteurs stratégiques. L'Ambassade accompagne les investisseurs et entrepreneurs souhaitant
+        développer des projets en RDC.
+      </p>
+
+      <!-- Sectors grid -->
+      <div class="grid grid-cols-2 gap-3 mb-8">
+        @for (s of secteurs; track s.title) {
+          <div class="flex items-center gap-3 bg-gray-50 hover:bg-[#007FFF]/5 rounded-xl px-4 py-3 border border-transparent hover:border-[#007FFF]/30 transition">
+            <span class="text-2xl">{{ s.icon }}</span>
+            <span class="text-sm font-semibold text-[#0b1a5c]">{{ s.title }}</span>
+          </div>
+        }
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#" class="bg-[#FCD116] text-[#0b1a5c] px-6 py-3 rounded-full font-bold hover:bg-[#ffd938] shadow-md transition text-center">
+          Voir les opportunités
+        </a>
+        <a href="#" class="border-2 border-[#0b1a5c] text-[#0b1a5c] px-6 py-3 rounded-full font-semibold hover:bg-[#0b1a5c] hover:text-white transition text-center">
+          Consulter les projets
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

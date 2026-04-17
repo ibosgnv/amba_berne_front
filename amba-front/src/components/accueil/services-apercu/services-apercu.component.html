@@ -1,0 +1,44 @@
+<section class="bg-gradient-to-b from-gray-50 to-white py-20 px-6">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-14 max-w-3xl mx-auto">
+      <span class="inline-block bg-[#007FFF]/10 text-[#007FFF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        🛂 Services consulaires
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-4">
+        Effectuez vos démarches en toute simplicité
+      </h2>
+      <p class="text-gray-600 text-lg leading-relaxed">
+        Un ensemble de services consulaires accessibles en ligne, pour faciliter vos démarches
+        administratives de manière rapide, sécurisée et transparente.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (s of services; track s.title) {
+        <a routerLink="/services" class="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#FCD116] hover:shadow-2xl hover:-translate-y-2 transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#007FFF] to-[#0b1a5c] flex items-center justify-center text-3xl mb-4 shadow-md group-hover:scale-110 transition">
+            {{ s.icon }}
+          </div>
+          <h3 class="text-lg font-bold text-[#0b1a5c] mb-2">{{ s.title }}</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">{{ s.desc }}</p>
+          <span class="text-[#007FFF] text-sm font-semibold group-hover:text-[#FCD116] transition">
+            En savoir plus →
+          </span>
+        </a>
+      }
+    </div>
+
+    <!-- Global CTA -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+      <a routerLink="/services" class="bg-[#0b1a5c] text-white px-8 py-3.5 rounded-full font-bold shadow-lg hover:bg-[#007FFF] transition text-center">
+        Accéder à tous les services
+      </a>
+      <a routerLink="/services" class="border-2 border-[#0b1a5c] text-[#0b1a5c] px-8 py-3.5 rounded-full font-semibold hover:bg-[#0b1a5c] hover:text-white transition text-center">
+        En savoir plus
+      </a>
+    </div>
+  </div>
+</section>
