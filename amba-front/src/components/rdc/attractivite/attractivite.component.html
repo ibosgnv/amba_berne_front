@@ -1,0 +1,113 @@
+<section class="bg-gradient-to-b from-white to-gray-50 py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="mb-8">
+      <span class="inline-block bg-[#FCD116]/20 text-[#0b1a5c] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        📈 Attractivité
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-3">
+        Un marché à fort potentiel
+      </h2>
+      <p class="text-gray-600 max-w-3xl">
+        La RDC offre des opportunités majeures pour les investisseurs et entrepreneurs internationaux,
+        notamment dans le cadre des relations économiques avec la Suisse.
+      </p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex flex-wrap gap-2 border-b border-gray-200 mb-8 overflow-x-auto">
+      @for (t of tabs; track t.id) {
+        <button
+          (click)="setTab(t.id)"
+          [class]="'flex items-center gap-2 px-5 py-3 text-sm font-semibold transition border-b-2 -mb-px ' +
+            (activeTab() === t.id
+              ? 'border-[#FCD116] text-[#0b1a5c]'
+              : 'border-transparent text-gray-500 hover:text-[#0b1a5c]')"
+        >
+          <span>{{ t.icon }}</span>
+          <span>{{ t.label }}</span>
+        </button>
+      }
+    </div>
+
+    <!-- Opportunités -->
+    @if (activeTab() === 'opportunites') {
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        @for (s of sectors; track s.name) {
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#007FFF] hover:shadow-lg transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FCD116]/30 to-[#FCD116]/10 flex items-center justify-center text-3xl mb-4">
+              {{ s.icon }}
+            </div>
+            <h3 class="font-extrabold text-[#0b1a5c] mb-1">{{ s.name }}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">{{ s.desc }}</p>
+            <a href="#" class="text-sm font-bold text-[#007FFF] hover:text-[#0b1a5c]">Voir les projets →</a>
+          </div>
+        }
+      </div>
+      <div class="mt-8 flex flex-wrap gap-3 justify-center">
+        <button class="bg-[#0b1a5c] text-white px-6 py-3 rounded-full font-bold hover:bg-[#007FFF] transition shadow-lg">
+          💼 Investir en RDC
+        </button>
+        <button class="border-2 border-[#0b1a5c] text-[#0b1a5c] px-6 py-3 rounded-full font-bold hover:bg-[#0b1a5c] hover:text-white transition">
+          Télécharger le guide (PDF)
+        </button>
+      </div>
+    }
+
+    <!-- Climat -->
+    @if (activeTab() === 'climat') {
+      <div class="grid md:grid-cols-2 gap-5">
+        @for (c of climatIndicators; track c.label) {
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-green-100 text-green-700 flex items-center justify-center text-xl font-extrabold shrink-0">
+              {{ c.trend }}
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-1">{{ c.label }}</div>
+              <div class="font-bold text-[#0b1a5c]">{{ c.value }}</div>
+            </div>
+          </div>
+        }
+      </div>
+      <div class="mt-8 bg-[#0b1a5c] text-white rounded-2xl p-8 text-center">
+        <h3 class="text-xl font-extrabold mb-2">Découvrez le guide du climat des affaires</h3>
+        <p class="text-white/80 mb-5 max-w-2xl mx-auto">
+          Un document synthétique pour comprendre le cadre fiscal, légal et opérationnel des affaires en RDC.
+        </p>
+        <button class="bg-[#FCD116] text-[#0b1a5c] px-6 py-3 rounded-full font-bold hover:bg-[#ffd938] transition">
+          📥 Télécharger le guide
+        </button>
+      </div>
+    }
+
+    <!-- Ressources -->
+    @if (activeTab() === 'ressources') {
+      <div class="grid md:grid-cols-3 gap-5">
+        @for (r of resources; track r.title) {
+          <div class="bg-gradient-to-br from-[#007FFF]/5 to-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition">
+            <div class="w-16 h-16 rounded-2xl bg-[#007FFF] text-white flex items-center justify-center text-3xl mb-4 shadow-md">
+              {{ r.icon }}
+            </div>
+            <h3 class="font-extrabold text-[#0b1a5c] text-lg mb-2">{{ r.title }}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">{{ r.desc }}</p>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- Témoignages -->
+    @if (activeTab() === 'temoignages') {
+      <div class="grid md:grid-cols-3 gap-5">
+        @for (t of testimonials; track t.author) {
+          <blockquote class="bg-white rounded-2xl p-6 border border-gray-200 relative">
+            <div class="text-[#FCD116] text-5xl font-serif leading-none absolute top-3 right-5 opacity-50">"</div>
+            <p class="text-gray-700 italic leading-relaxed mb-5 relative">{{ t.quote }}</p>
+            <div class="pt-4 border-t border-gray-100 relative">
+              <div class="text-sm font-bold text-[#0b1a5c]">{{ t.author }}</div>
+            </div>
+          </blockquote>
+        }
+      </div>
+    }
+  </div>
+</section>

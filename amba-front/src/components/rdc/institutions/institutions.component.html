@@ -1,0 +1,91 @@
+<section class="bg-gradient-to-b from-gray-50 to-white py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="mb-10">
+      <span class="inline-block bg-[#007FFF]/10 text-[#007FFF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        Institutions
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-3">
+        Un écosystème institutionnel structuré
+      </h2>
+      <p class="text-gray-600 max-w-3xl">
+        La RDC s'appuie sur plusieurs institutions pour structurer son développement économique
+        et ses relations internationales.
+      </p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="inline-flex flex-wrap gap-2 bg-white border border-gray-200 rounded-2xl p-1.5 mb-8 shadow-sm">
+      @for (t of tabs; track t.id) {
+        <button
+          (click)="setTab(t.id)"
+          [class]="'flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition ' +
+            (activeTab() === t.id
+              ? 'bg-[#0b1a5c] text-white shadow'
+              : 'text-[#0b1a5c] hover:bg-gray-100')"
+        >
+          <span>{{ t.icon }}</span>
+          <span>{{ t.label }}</span>
+        </button>
+      }
+    </div>
+
+    <!-- Content -->
+    @if (activeTab() === 'commerce') {
+      <div class="grid lg:grid-cols-2 gap-8 items-start">
+        <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+          <h3 class="font-extrabold text-[#0b1a5c] text-xl mb-4">Commerce extérieur</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Les institutions en charge du commerce extérieur œuvrent au rayonnement économique
+            de la RDC sur la scène internationale.
+          </p>
+          <ul class="space-y-3">
+            @for (m of missions; track m) {
+              <li class="flex items-start gap-3">
+                <span class="shrink-0 w-6 h-6 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5">✓</span>
+                <span class="text-gray-700">{{ m }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <div class="bg-gradient-to-br from-[#0b1a5c] to-[#007FFF] text-white rounded-2xl p-8 shadow-xl">
+          <h3 class="font-extrabold text-xl mb-3">Relations RDC–Suisse</h3>
+          <p class="text-white/85 leading-relaxed mb-6">
+            La Suisse représente un partenaire de premier plan dans le commerce, les investissements
+            et la coopération technique avec la RDC.
+          </p>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <div class="text-3xl font-extrabold text-[#FCD116]">CHF 150M+</div>
+              <div class="text-xs uppercase tracking-wider text-white/70">Échanges annuels</div>
+            </div>
+            <div>
+              <div class="text-3xl font-extrabold text-[#FCD116]">50+</div>
+              <div class="text-xs uppercase tracking-wider text-white/70">Entreprises suisses en RDC</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    @if (activeTab() === 'institutions') {
+      <div class="grid sm:grid-cols-2 gap-5">
+        @for (i of institutions; track i.short) {
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#007FFF] hover:shadow-lg transition-all">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FCD116] to-[#ffd938] flex items-center justify-center font-extrabold text-[#0b1a5c] shrink-0">
+                {{ i.short }}
+              </div>
+              <div class="flex-1">
+                <h4 class="font-extrabold text-[#0b1a5c] mb-1">{{ i.name }}</h4>
+                <p class="text-sm text-gray-600 leading-relaxed mb-3">{{ i.desc }}</p>
+                <a href="#" class="text-sm font-bold text-[#007FFF] hover:text-[#0b1a5c]">En savoir plus →</a>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

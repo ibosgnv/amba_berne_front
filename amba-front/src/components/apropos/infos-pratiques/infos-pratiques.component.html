@@ -1,0 +1,90 @@
+<section id="apropos-infos" class="bg-gradient-to-b from-white to-gray-50 py-20 px-6 scroll-mt-24">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-12">
+      <span class="inline-block bg-[#007FFF]/10 text-[#007FFF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        Informations pratiques
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c]">Nous rendre visite</h2>
+    </div>
+
+    <div class="grid lg:grid-cols-[1.3fr_1fr] gap-6 mb-10">
+      <!-- Carte -->
+      <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+        <div class="aspect-[16/10] bg-gradient-to-br from-[#72d4e0]/20 to-[#007FFF]/10 flex items-center justify-center relative">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-6xl mb-3">🗺️</div>
+              <div class="text-[#0b1a5c] font-bold">Berne, Suisse</div>
+              <div class="text-sm text-gray-600">Carte interactive</div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-[#FCD116]/20 flex items-center justify-center text-2xl shrink-0">📍</div>
+          <div>
+            <div class="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-1">Adresse</div>
+            <div class="font-bold text-[#0b1a5c]">Ambassade de la République Démocratique du Congo</div>
+            <div class="text-gray-600 text-sm">[Adresse complète]</div>
+            <div class="text-gray-600 text-sm">[Code postal], Berne · Suisse</div>
+            <a href="#" class="inline-block mt-3 text-sm font-bold text-[#007FFF] hover:text-[#0b1a5c]">Ouvrir dans Google Maps →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horaires + contact -->
+      <div class="flex flex-col gap-6">
+        <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+          <h3 class="font-extrabold text-[#0b1a5c] mb-4 flex items-center gap-2">
+            <span class="text-2xl">🕒</span> Horaires d'ouverture
+          </h3>
+          <ul class="space-y-2">
+            @for (h of hours; track h.day) {
+              <li class="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
+                <span class="text-sm text-gray-700">{{ h.day }}</span>
+                <span class="text-sm font-bold text-[#0b1a5c]">{{ h.value }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <div class="bg-[#0b1a5c] text-white rounded-2xl p-6 shadow-sm">
+          <h3 class="font-extrabold mb-4 flex items-center gap-2">
+            <span class="text-2xl">☎️</span> Contacts
+          </h3>
+          <div class="space-y-3">
+            <a href="tel:+41311234567" class="flex items-center gap-3 hover:text-[#FCD116] transition">
+              <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center">📞</span>
+              <span class="text-sm">+41 31 123 45 67</span>
+            </a>
+            <a href="mailto:contact@ambardc-berne.ch" class="flex items-center gap-3 hover:text-[#FCD116] transition">
+              <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center">✉️</span>
+              <span class="text-sm">contact&#64;ambardc-berne.ch</span>
+            </a>
+          </div>
+          <button class="mt-5 w-full bg-[#FCD116] text-[#0b1a5c] font-bold py-2.5 rounded-full hover:bg-[#ffd938] transition">
+            Appeler maintenant
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Réseaux sociaux + CTA -->
+    <div class="grid md:grid-cols-[1fr_auto] gap-8 items-center bg-white rounded-2xl border border-gray-200 p-8">
+      <div>
+        <h3 class="font-extrabold text-[#0b1a5c] mb-3">Suivez l'Ambassade sur les réseaux</h3>
+        <div class="flex flex-wrap gap-3">
+          @for (s of socials; track s.label) {
+            <a [href]="s.url" class="flex items-center gap-2 bg-gray-50 hover:bg-[#007FFF] hover:text-white border border-gray-200 hover:border-[#007FFF] rounded-full px-4 py-2 text-sm font-semibold text-[#0b1a5c] transition">
+              <span>{{ s.icon }}</span>
+              <span>{{ s.label }}</span>
+            </a>
+          }
+        </div>
+      </div>
+      <button class="bg-[#FCD116] text-[#0b1a5c] font-bold px-6 py-3 rounded-full hover:bg-[#ffd938] transition shadow-lg">
+        Prendre rendez-vous →
+      </button>
+    </div>
+  </div>
+</section>

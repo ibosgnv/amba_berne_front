@@ -1,0 +1,40 @@
+<section class="bg-white py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <span class="inline-block bg-[#FCD116]/20 text-[#0b1a5c] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+          Présentation générale
+        </span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-6">
+          Un géant d'Afrique centrale
+        </h2>
+        <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          La République Démocratique du Congo est un vaste pays situé au cœur de l'Afrique centrale,
+          reconnu pour sa richesse naturelle exceptionnelle et sa diversité culturelle unique.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Avec plus de <strong class="text-[#0b1a5c]">2,3 millions de km²</strong>, la RDC est
+          le deuxième plus grand pays d'Afrique. Elle est traversée par le puissant fleuve Congo
+          et abrite une biodiversité parmi les plus riches de la planète.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Son potentiel économique, sa jeunesse et sa position stratégique en font un acteur
+          incontournable de la scène africaine et internationale.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        @for (h of highlights; track h.title) {
+          <div class="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#FCD116] hover:shadow-lg transition-all">
+            <div class="w-12 h-12 rounded-xl bg-[#FCD116]/20 flex items-center justify-center text-2xl mb-3">
+              {{ h.icon }}
+            </div>
+            <h3 class="font-extrabold text-[#0b1a5c] mb-2">{{ h.title }}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">{{ h.desc }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

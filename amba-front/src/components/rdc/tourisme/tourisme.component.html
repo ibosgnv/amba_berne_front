@@ -1,0 +1,65 @@
+<section class="bg-white py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+      <div>
+        <span class="inline-block bg-[#72d4e0]/25 text-[#0b1a5c] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+          Tourisme
+        </span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-2">
+          Une destination d'exception
+        </h2>
+        <p class="text-gray-600 max-w-2xl">
+          La RDC, terre d'authenticité et d'aventure : volcans actifs, gorilles, fleuves puissants, forêts équatoriales.
+        </p>
+      </div>
+      <a href="#" class="inline-flex items-center gap-2 text-sm font-bold text-[#007FFF] hover:text-[#0b1a5c] whitespace-nowrap">
+        📥 Télécharger le guide touristique
+      </a>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      @for (d of destinations; track d.title) {
+        <div class="group relative rounded-2xl overflow-hidden border border-gray-200 hover:shadow-2xl transition-all">
+          <div class="aspect-[4/5] overflow-hidden">
+            <img [src]="d.image" [alt]="d.title" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0b1a5c]/95 via-[#0b1a5c]/30 to-transparent"></div>
+          </div>
+          <div class="absolute inset-0 p-6 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="bg-white/90 backdrop-blur text-[#0b1a5c] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                {{ d.region }}
+              </span>
+              <div class="w-10 h-10 rounded-full bg-[#FCD116] flex items-center justify-center text-xl shadow-lg">
+                {{ d.icon }}
+              </div>
+            </div>
+            <div class="text-white">
+              <h3 class="text-xl font-extrabold mb-2">{{ d.title }}</h3>
+              <p class="text-sm text-white/85 leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition duration-300 line-clamp-3">
+                {{ d.desc }}
+              </p>
+              <button class="bg-[#FCD116] text-[#0b1a5c] font-bold text-sm px-4 py-2 rounded-full hover:bg-[#ffd938] transition">
+                Découvrir →
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 bg-gradient-to-r from-[#007FFF] to-[#0b1a5c] rounded-2xl p-8 text-white text-center relative overflow-hidden">
+      <div class="absolute -top-10 -right-10 w-56 h-56 bg-[#FCD116]/20 rounded-full blur-3xl"></div>
+      <div class="relative">
+        <h3 class="text-2xl font-extrabold mb-2">Prêt pour l'aventure congolaise ?</h3>
+        <p class="text-white/80 mb-6 max-w-2xl mx-auto">
+          Recevez par email un itinéraire personnalisé adapté à votre durée de séjour et vos centres d'intérêt.
+        </p>
+        <button class="bg-[#FCD116] text-[#0b1a5c] px-8 py-3 rounded-full font-bold hover:bg-[#ffd938] transition shadow-lg">
+          ✈️ Générer mon itinéraire
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

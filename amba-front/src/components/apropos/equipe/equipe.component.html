@@ -1,0 +1,70 @@
+<section id="apropos-equipe" class="bg-white py-20 px-6 scroll-mt-24">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+      <div>
+        <span class="inline-block bg-[#72d4e0]/20 text-[#0b1a5c] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+          Équipe
+        </span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-2">
+          Une équipe engagée à vos côtés
+        </h2>
+        <p class="text-gray-600 max-w-2xl">
+          Des professionnels au service des citoyens et des relations diplomatiques entre la RDC et la Suisse.
+        </p>
+      </div>
+
+      <!-- Filtres -->
+      <div class="flex flex-wrap gap-2">
+        @for (f of filters; track f.id) {
+          <button
+            (click)="setFilter(f.id)"
+            [class]="'px-4 py-2 rounded-full text-sm font-semibold transition ' +
+              (activeFilter() === f.id
+                ? 'bg-[#0b1a5c] text-white shadow'
+                : 'bg-gray-100 text-[#0b1a5c] hover:bg-gray-200')"
+          >
+            {{ f.label }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (m of visibleMembers(); track m.email) {
+        <div class="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all">
+          <!-- Cover -->
+          <div class="relative h-32" [style.background]="'linear-gradient(135deg, ' + m.accent + ' 0%, #0b1a5c 100%)'">
+            <div class="absolute -bottom-10 left-6 w-20 h-20 rounded-2xl bg-white shadow-lg flex items-center justify-center text-2xl font-extrabold text-[#0b1a5c] ring-4 ring-white">
+              {{ m.initials }}
+            </div>
+          </div>
+
+          <div class="pt-14 pb-6 px-6">
+            <h3 class="font-extrabold text-[#0b1a5c] text-lg mb-1">{{ m.name }}</h3>
+            <p class="text-sm text-gray-600 mb-5">{{ m.role }}</p>
+
+            <div class="space-y-2.5">
+              <a [href]="'mailto:' + m.email" class="flex items-center gap-3 text-sm text-gray-700 hover:text-[#007FFF] transition group/link">
+                <span class="w-8 h-8 rounded-lg bg-gray-100 group-hover/link:bg-[#007FFF]/10 flex items-center justify-center text-sm transition">✉️</span>
+                <span class="truncate">{{ m.email }}</span>
+              </a>
+              <a [href]="'tel:' + m.phone" class="flex items-center gap-3 text-sm text-gray-700 hover:text-[#007FFF] transition group/link">
+                <span class="w-8 h-8 rounded-lg bg-gray-100 group-hover/link:bg-[#007FFF]/10 flex items-center justify-center text-sm transition">📞</span>
+                <span>{{ m.phone }}</span>
+              </a>
+            </div>
+
+            <button class="mt-5 w-full bg-gray-50 hover:bg-[#FCD116] text-[#0b1a5c] font-bold py-2.5 rounded-full text-sm transition">
+              Contacter
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+
+    @if (visibleMembers().length === 0) {
+      <p class="text-center text-gray-500 mt-10">Aucun membre dans cette catégorie.</p>
+    }
+  </div>
+</section>

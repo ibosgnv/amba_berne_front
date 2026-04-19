@@ -1,0 +1,86 @@
+<section class="bg-gradient-to-b from-gray-50 to-white py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-12">
+      <span class="inline-block bg-[#FCD116]/20 text-[#0b1a5c] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        Culture
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-3">
+        Une culture vivante et influente
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Musique, arts, langues, traditions : la RDC rayonne à travers une créativité reconnue mondialement.
+      </p>
+    </div>
+
+    <!-- Musique - featured -->
+    <div class="bg-gradient-to-br from-[#0b1a5c] to-[#007FFF] text-white rounded-2xl overflow-hidden mb-8 grid md:grid-cols-2">
+      <div class="p-8 md:p-10 flex flex-col justify-center">
+        <div class="text-4xl mb-3">🎵</div>
+        <h3 class="text-2xl font-extrabold mb-3">La rumba congolaise</h3>
+        <p class="text-white/85 leading-relaxed mb-4">
+          Inscrite au patrimoine culturel immatériel de l'UNESCO en 2021, la rumba congolaise
+          est le cœur battant de la musique africaine. De Franco à Papa Wemba, une tradition
+          qui s'écrit et se réinvente à chaque génération.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="bg-white/10 border border-white/20 rounded-full px-3 py-1 text-xs font-semibold">Rumba</span>
+          <span class="bg-white/10 border border-white/20 rounded-full px-3 py-1 text-xs font-semibold">Soukous</span>
+          <span class="bg-white/10 border border-white/20 rounded-full px-3 py-1 text-xs font-semibold">Ndombolo</span>
+          <span class="bg-white/10 border border-white/20 rounded-full px-3 py-1 text-xs font-semibold">Gospel</span>
+        </div>
+        <button class="self-start bg-[#FCD116] text-[#0b1a5c] px-6 py-3 rounded-full font-bold hover:bg-[#ffd938] transition shadow-lg">
+          ▶ Écouter une playlist
+        </button>
+      </div>
+      <div class="relative min-h-[250px] md:min-h-0">
+        <img src="/assets/ONU_Femme.jpg" alt="Musique congolaise" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-l from-transparent to-[#0b1a5c]/40"></div>
+      </div>
+    </div>
+
+    <!-- Arts -->
+    <div class="grid sm:grid-cols-3 gap-5 mb-8">
+      @for (a of arts; track a.title) {
+        <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition">
+          <div class="w-14 h-14 rounded-2xl bg-[#FCD116]/25 flex items-center justify-center text-3xl mb-4">
+            {{ a.icon }}
+          </div>
+          <h4 class="font-extrabold text-[#0b1a5c] mb-2">{{ a.title }}</h4>
+          <p class="text-sm text-gray-600 leading-relaxed">{{ a.desc }}</p>
+        </div>
+      }
+    </div>
+
+    <!-- Langues + Traditions -->
+    <div class="grid lg:grid-cols-2 gap-5">
+      <div class="bg-white rounded-2xl p-7 border border-gray-200">
+        <h3 class="font-extrabold text-[#0b1a5c] mb-4 flex items-center gap-2">
+          <span>🗣️</span> Langues
+        </h3>
+        <div class="flex flex-wrap gap-3">
+          @for (l of languages; track l.label) {
+            <div class="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 hover:border-[#007FFF] transition">
+              <div class="font-bold text-[#0b1a5c]">{{ l.label }}</div>
+              <div class="text-xs text-gray-500">{{ l.sub }}</div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-7 border border-gray-200">
+        <h3 class="font-extrabold text-[#0b1a5c] mb-4 flex items-center gap-2">
+          <span>🪶</span> Coutumes & traditions
+        </h3>
+        <ul class="space-y-3">
+          @for (t of traditions; track t) {
+            <li class="flex items-start gap-3">
+              <span class="shrink-0 w-6 h-6 rounded-full bg-[#FCD116] text-[#0b1a5c] font-bold text-xs flex items-center justify-center mt-0.5">•</span>
+              <span class="text-gray-700">{{ t }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

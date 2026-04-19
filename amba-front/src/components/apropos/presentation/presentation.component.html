@@ -1,0 +1,66 @@
+<section id="apropos-presentation" class="bg-white py-20 px-6 scroll-mt-24">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-start">
+      <!-- Texte -->
+      <div>
+        <span class="inline-block bg-[#007FFF]/10 text-[#007FFF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+          Présentation
+        </span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-6">
+          Une représentation diplomatique au service des citoyens
+        </h2>
+        <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          L'Ambassade de la République Démocratique du Congo en Suisse représente officiellement
+          l'État congolais auprès de la Confédération suisse et des institutions internationales
+          présentes sur son territoire.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Elle joue un rôle clé dans le renforcement des relations diplomatiques, économiques,
+          culturelles et sociales entre la RDC et la Suisse, tout en agissant comme un pont entre
+          les institutions congolaises et les organisations internationales basées à Genève.
+        </p>
+
+        <!-- Stats -->
+        <div class="mt-10 grid grid-cols-3 gap-4">
+          @for (stat of stats; track stat.label) {
+            <div class="bg-gradient-to-br from-[#007FFF]/5 to-white rounded-xl border border-gray-200 p-4 text-center">
+              <div class="text-3xl font-extrabold text-[#007FFF] mb-1">{{ stat.value }}</div>
+              <div class="text-xs text-gray-600 uppercase tracking-wider">{{ stat.label }}</div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="relative">
+        <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gray-200 aspect-[4/5]">
+          <img src="/assets/economie_nationale.jpg" alt="Ambassade RDC" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b1a5c]/40 via-transparent to-transparent"></div>
+        </div>
+        <div class="absolute -bottom-6 -left-6 bg-[#FCD116] rounded-2xl px-5 py-4 shadow-xl">
+          <div class="text-xs text-[#0b1a5c] font-bold uppercase tracking-wider">Depuis</div>
+          <div class="text-2xl font-extrabold text-[#0b1a5c]">1961</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Missions -->
+    <div class="mt-20">
+      <h3 class="text-xl font-bold text-[#0b1a5c] mb-6 flex items-center gap-2">
+        <span>🎯</span> Nos missions
+      </h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        @for (m of missions; track m.title) {
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#007FFF] hover:shadow-lg transition-all">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FCD116]/30 to-[#FCD116]/10 flex items-center justify-center text-3xl mb-4">
+              {{ m.icon }}
+            </div>
+            <h4 class="font-extrabold text-[#0b1a5c] mb-1">{{ m.title }}</h4>
+            <p class="text-sm text-gray-600 leading-relaxed">{{ m.desc }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
