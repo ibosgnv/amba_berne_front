@@ -1,0 +1,132 @@
+<section id="contact-formulaire" class="scroll-mt-24 bg-white py-20 px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="inline-block bg-[#007FFF]/10 text-[#007FFF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        📝 Formulaire de contact
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-3">
+        Adressez-nous votre demande
+      </h2>
+      <p class="text-gray-600">
+        Décrivez précisément votre besoin afin de faciliter le traitement de votre demande.
+      </p>
+    </div>
+
+    @if (sent()) {
+      <!-- Success state -->
+      <div class="bg-gradient-to-br from-green-50 to-white border-2 border-green-200 rounded-2xl p-10 text-center shadow-md">
+        <div class="w-20 h-20 mx-auto rounded-full bg-green-100 flex items-center justify-center text-4xl mb-5">✅</div>
+        <h3 class="text-2xl font-extrabold text-[#0b1a5c] mb-3">Demande envoyée avec succès</h3>
+        <p class="text-gray-600 mb-6 max-w-lg mx-auto">
+          Merci pour votre message. Une confirmation a été transmise à votre adresse email.
+          Notre équipe vous répondra dans les meilleurs délais.
+        </p>
+        <button (click)="reset()" class="bg-[#0b1a5c] text-white px-6 py-3 rounded-full font-bold hover:bg-[#007FFF] transition">
+          Envoyer une autre demande
+        </button>
+      </div>
+    } @else {
+      <!-- Form -->
+      <form [formGroup]="form" (ngSubmit)="submit()"
+            class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-6 md:p-10 shadow-sm">
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <!-- Nom -->
+          <div>
+            <label for="nom" class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">
+              Nom et prénom <span class="text-red-500">*</span>
+            </label>
+            <input id="nom" type="text" formControlName="nom" placeholder="Jean Dupont"
+                   class="w-full px-4 py-3 rounded-lg border bg-white text-[#0b1a5c] focus:outline-none focus:ring-2 focus:ring-[#007FFF] transition"
+                   [class.border-red-400]="hasError('nom')"
+                   [class.border-gray-200]="!hasError('nom')" />
+            @if (hasError('nom')) {
+              <p class="mt-1 text-xs text-red-500">Veuillez saisir votre nom (min. 2 caractères).</p>
+            }
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">
+              Adresse email <span class="text-red-500">*</span>
+            </label>
+            <input id="email" type="email" formControlName="email" placeholder="jean.dupont&#64;exemple.com"
+                   class="w-full px-4 py-3 rounded-lg border bg-white text-[#0b1a5c] focus:outline-none focus:ring-2 focus:ring-[#007FFF] transition"
+                   [class.border-red-400]="hasError('email')"
+                   [class.border-gray-200]="!hasError('email')" />
+            @if (hasError('email')) {
+              <p class="mt-1 text-xs text-red-500">Veuillez saisir une adresse email valide.</p>
+            }
+          </div>
+
+          <!-- Téléphone -->
+          <div>
+            <label for="telephone" class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">
+              Téléphone <span class="text-gray-400 font-normal">(optionnel)</span>
+            </label>
+            <input id="telephone" type="tel" formControlName="telephone" placeholder="+41 76 000 00 00"
+                   class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-[#0b1a5c] focus:outline-none focus:ring-2 focus:ring-[#007FFF] transition" />
+          </div>
+
+          <!-- Objet -->
+          <div>
+            <label for="objet" class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">
+              Objet <span class="text-red-500">*</span>
+            </label>
+            <select id="objet" formControlName="objet"
+                    class="w-full px-4 py-3 rounded-lg border bg-white text-[#0b1a5c] focus:outline-none focus:ring-2 focus:ring-[#007FFF] transition"
+                    [class.border-red-400]="hasError('objet')"
+                    [class.border-gray-200]="!hasError('objet')">
+              <option value="" disabled>Sélectionnez un objet</option>
+              @for (o of objets; track o) {
+                <option [value]="o">{{ o }}</option>
+              }
+            </select>
+            @if (hasError('objet')) {
+              <p class="mt-1 text-xs text-red-500">Veuillez sélectionner un objet.</p>
+            }
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div class="mt-5">
+          <label for="message" class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">
+            Votre message <span class="text-red-500">*</span>
+          </label>
+          <textarea id="message" formControlName="message" rows="6" placeholder="Décrivez votre demande en détail…"
+                    class="w-full px-4 py-3 rounded-lg border bg-white text-[#0b1a5c] focus:outline-none focus:ring-2 focus:ring-[#007FFF] transition resize-y"
+                    [class.border-red-400]="hasError('message')"
+                    [class.border-gray-200]="!hasError('message')"></textarea>
+          @if (hasError('message')) {
+            <p class="mt-1 text-xs text-red-500">Le message doit comporter au moins 10 caractères.</p>
+          }
+        </div>
+
+        <!-- Privacy -->
+        <p class="mt-5 flex items-start gap-2 text-xs text-gray-500 leading-relaxed">
+          <span aria-hidden="true">🔒</span>
+          <span>
+            Les informations transmises via ce formulaire sont strictement confidentielles
+            et utilisées uniquement dans le cadre du traitement de votre demande.
+          </span>
+        </p>
+
+        <!-- Submit -->
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+          <p class="text-sm text-gray-500">
+            📩 Une confirmation vous sera envoyée après l'envoi de votre message.
+          </p>
+          <button type="submit" [disabled]="sending()"
+                  class="inline-flex items-center gap-2 bg-[#FCD116] text-[#0b1a5c] px-7 py-3.5 rounded-full font-bold shadow-md hover:bg-[#ffd938] disabled:opacity-60 disabled:cursor-not-allowed transition">
+            @if (sending()) {
+              <span class="w-4 h-4 border-2 border-[#0b1a5c] border-t-transparent rounded-full animate-spin"></span>
+              Envoi en cours…
+            } @else {
+              Envoyer ma demande →
+            }
+          </button>
+        </div>
+      </form>
+    }
+  </div>
+</section>

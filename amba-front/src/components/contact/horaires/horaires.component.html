@@ -1,0 +1,53 @@
+<section class="bg-white py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="inline-block bg-[#007FFF]/10 text-[#007FFF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        🕒 Horaires d'ouverture
+      </span>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-3">
+        Nos services vous accueillent
+      </h2>
+      <p class="text-gray-600">
+        Pour un traitement plus rapide, nous vous recommandons de nous contacter en matinée.
+      </p>
+    </div>
+
+    <div class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
+      <!-- Status bar -->
+      <div class="px-6 md:px-8 py-4 flex items-center justify-between gap-3 border-b border-gray-200"
+           [class.bg-green-50]="isOpen()"
+           [class.bg-red-50]="!isOpen()">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🕓</span>
+          <span class="font-bold text-[#0b1a5c] text-lg">Statut actuel</span>
+        </div>
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold"
+              [class]="isOpen() ? 'bg-green-600 text-white' : 'bg-red-500 text-white'">
+          <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+          @if (isOpen()) { Ouvert maintenant } @else { Fermé }
+        </span>
+      </div>
+
+      <!-- Schedule table -->
+      <ul class="divide-y divide-gray-100">
+        @for (d of days; track d.idx) {
+          <li class="flex items-center justify-between px-6 md:px-8 py-3.5"
+              [class.bg-[#FCD116]/10]="d.idx === todayIdx()">
+            <span class="font-semibold text-[#0b1a5c]"
+                  [class.text-[#007FFF]]="d.idx === todayIdx()">
+              {{ d.label }}
+              @if (d.idx === todayIdx()) {
+                <span class="ml-2 text-[10px] uppercase tracking-wider font-bold text-[#007FFF]">Aujourd'hui</span>
+              }
+            </span>
+            @if (d.open) {
+              <span class="text-gray-700 font-medium">{{ d.open }} – {{ d.close }}</span>
+            } @else {
+              <span class="text-gray-400 italic">Fermé</span>
+            }
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>
