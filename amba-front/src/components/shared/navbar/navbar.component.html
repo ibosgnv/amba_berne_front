@@ -1,28 +1,23 @@
-<header class="bg-gradient-to-r from-[#007FFF] to-[#0b1a5c] border-b-[3px] border-[#FCD116] shadow-md">
+<header class="bg-white border-b border-gray-200 shadow-sm">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 gap-6">
     <!-- Brand -->
-    <a routerLink="/" class="flex items-center gap-3 text-white no-underline shrink-0" (click)="closeMenu()">
-      <img src="/assets/logo.png" alt="Armoiries RDC" class="w-12 h-12 rounded-full bg-white p-1 shadow-md object-contain" />
-      <div class="flex flex-col leading-tight">
-        <span class="text-[#FCD116] font-extrabold text-lg tracking-widest uppercase">Ambassade</span>
-        <span class="text-white text-xs font-semibold uppercase opacity-90">RDC · Suisse</span>
-      </div>
+    <a routerLink="/" class="flex items-center shrink-0" (click)="closeMenu()" aria-label="Ambassade RDC · Suisse — Accueil">
+      <img src="/assets/generated%20images/logo1.png" alt="Ambassade de la République Démocratique du Congo en Suisse" class="h-14 w-auto object-contain" />
     </a>
 
     <!-- Desktop nav -->
-    <nav class="hidden lg:flex items-center gap-1 bg-white/10 backdrop-blur-sm rounded-full p-1.5" aria-label="Navigation principale">
-      <a routerLink="/" routerLinkActive="bg-[#FCD116] text-[#0b1a5c] shadow" [routerLinkActiveOptions]="{ exact: true }" class="px-4 py-2 rounded-full text-white text-sm font-semibold hover:bg-white/15 transition">Accueil</a>
-      <a routerLink="/services" routerLinkActive="bg-[#FCD116] text-[#0b1a5c] shadow" class="px-4 py-2 rounded-full text-white text-sm font-semibold hover:bg-white/15 transition">Services</a>
-      <a routerLink="/a-propos" routerLinkActive="bg-[#FCD116] text-[#0b1a5c] shadow" class="px-4 py-2 rounded-full text-white text-sm font-semibold hover:bg-white/15 transition">À Propos</a>
-      <a routerLink="/rdc" routerLinkActive="bg-[#FCD116] text-[#0b1a5c] shadow" class="px-4 py-2 rounded-full text-white text-sm font-semibold hover:bg-white/15 transition">RDC</a>
-      <!--<a routerLink="/attractivite" routerLinkActive="bg-[#FCD116] text-[#0b1a5c] shadow" class="px-4 py-2 rounded-full text-white text-sm font-semibold hover:bg-white/15 transition">Attractivité</a> -->
-      <a routerLink="/contact" routerLinkActive="bg-[#FCD116] text-[#0b1a5c] shadow" class="px-4 py-2 rounded-full text-white text-sm font-semibold hover:bg-white/15 transition">Contact</a>
+    <nav class="hidden lg:flex items-center gap-1 bg-gray-50 border border-gray-200 rounded-full p-1.5 shadow-inner" aria-label="Navigation principale">
+      <a routerLink="/" routerLinkActive="bg-[#FCD116] text-[#0b1a5c] shadow-sm" [routerLinkActiveOptions]="{ exact: true }" class="px-4 py-2 rounded-full text-[#0b1a5c] text-sm font-semibold hover:bg-white hover:text-[#007FFF] transition">Accueil</a>
+      <a routerLink="/services" routerLinkActive="bg-[#FCD116] text-[#0b1a5c] shadow-sm" class="px-4 py-2 rounded-full text-[#0b1a5c] text-sm font-semibold hover:bg-white hover:text-[#007FFF] transition">Services</a>
+      <a routerLink="/a-propos" routerLinkActive="bg-[#FCD116] text-[#0b1a5c] shadow-sm" class="px-4 py-2 rounded-full text-[#0b1a5c] text-sm font-semibold hover:bg-white hover:text-[#007FFF] transition">Ambassade</a>
+      <a routerLink="/rdc" routerLinkActive="bg-[#FCD116] text-[#0b1a5c] shadow-sm" class="px-4 py-2 rounded-full text-[#0b1a5c] text-sm font-semibold hover:bg-white hover:text-[#007FFF] transition">RDC</a>
+      <a routerLink="/contact" routerLinkActive="bg-[#FCD116] text-[#0b1a5c] shadow-sm" class="px-4 py-2 rounded-full text-[#0b1a5c] text-sm font-semibold hover:bg-white hover:text-[#007FFF] transition">Contact</a>
     </nav>
 
     <!-- Mobile toggle -->
     <button
       (click)="toggleMenu()"
-      class="lg:hidden text-white w-10 h-10 flex items-center justify-center rounded-md hover:bg-white/10"
+      class="lg:hidden text-[#0b1a5c] w-10 h-10 flex items-center justify-center rounded-md hover:bg-gray-100"
       aria-label="Ouvrir le menu"
     >
       @if (menuOpen()) {
@@ -35,13 +30,12 @@
 
   <!-- Mobile menu -->
   @if (menuOpen()) {
-    <nav class="lg:hidden border-t border-white/10 px-6 py-4 flex flex-col gap-1">
-      <a routerLink="/" routerLinkActive="bg-[#FCD116] text-[#0b1a5c]" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()" class="px-4 py-3 rounded-lg text-white font-semibold hover:bg-white/10">Accueil</a>
-      <a routerLink="/services" routerLinkActive="bg-[#FCD116] text-[#0b1a5c]" (click)="closeMenu()" class="px-4 py-3 rounded-lg text-white font-semibold hover:bg-white/10">Services</a>
-      <a routerLink="/a-propos" routerLinkActive="bg-[#FCD116] text-[#0b1a5c]" (click)="closeMenu()" class="px-4 py-3 rounded-lg text-white font-semibold hover:bg-white/10">À Propos</a>
-      <a routerLink="/rdc" routerLinkActive="bg-[#FCD116] text-[#0b1a5c]" (click)="closeMenu()" class="px-4 py-3 rounded-lg text-white font-semibold hover:bg-white/10">RDC</a>
-    <!--  <a routerLink="/attractivite" routerLinkActive="bg-[#FCD116] text-[#0b1a5c]" (click)="closeMenu()" class="px-4 py-3 rounded-lg text-white font-semibold hover:bg-white/10">Attractivité</a> -->
-      <a routerLink="/contact" routerLinkActive="bg-[#FCD116] text-[#0b1a5c]" (click)="closeMenu()" class="px-4 py-3 rounded-lg text-white font-semibold hover:bg-white/10">Contact</a>
+    <nav class="lg:hidden border-t border-gray-200 px-6 py-4 flex flex-col gap-1 bg-white">
+      <a routerLink="/" routerLinkActive="bg-[#FCD116] text-[#0b1a5c]" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()" class="px-4 py-3 rounded-lg text-[#0b1a5c] font-semibold hover:bg-gray-100">Accueil</a>
+      <a routerLink="/services" routerLinkActive="bg-[#FCD116] text-[#0b1a5c]" (click)="closeMenu()" class="px-4 py-3 rounded-lg text-[#0b1a5c] font-semibold hover:bg-gray-100">Services</a>
+      <a routerLink="/a-propos" routerLinkActive="bg-[#FCD116] text-[#0b1a5c]" (click)="closeMenu()" class="px-4 py-3 rounded-lg text-[#0b1a5c] font-semibold hover:bg-gray-100">À Propos</a>
+      <a routerLink="/rdc" routerLinkActive="bg-[#FCD116] text-[#0b1a5c]" (click)="closeMenu()" class="px-4 py-3 rounded-lg text-[#0b1a5c] font-semibold hover:bg-gray-100">RDC</a>
+      <a routerLink="/contact" routerLinkActive="bg-[#FCD116] text-[#0b1a5c]" (click)="closeMenu()" class="px-4 py-3 rounded-lg text-[#0b1a5c] font-semibold hover:bg-gray-100">Contact</a>
     </nav>
   }
 </header>

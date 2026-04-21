@@ -18,13 +18,13 @@
     <!-- Cards -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
       @for (s of services; track s.title) {
-        <a routerLink="/services" class="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#FCD116] hover:shadow-2xl hover:-translate-y-2 transition-all">
+        <a routerLink="/services" [fragment]="s.fragment" class="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#FCD116] hover:shadow-2xl hover:-translate-y-2 transition-all">
           <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#007FFF] to-[#0b1a5c] flex items-center justify-center text-3xl mb-4 shadow-md group-hover:scale-110 transition">
             {{ s.icon }}
           </div>
           <h3 class="text-lg font-bold text-[#0b1a5c] mb-2">{{ s.title }}</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">{{ s.desc }}</p>
-          <span class="text-[#007FFF] text-sm font-semibold group-hover:text-[#FCD116] transition">
+           <span class="text-[#007FFF] text-sm font-semibold group-hover:text-[#FCD116] transition">
             En savoir plus →
           </span>
         </a>
@@ -36,9 +36,9 @@
       <a routerLink="/services" class="bg-[#0b1a5c] text-white px-8 py-3.5 rounded-full font-bold shadow-lg hover:bg-[#007FFF] transition text-center">
         Accéder à tous les services
       </a>
-      <a routerLink="/services" class="border-2 border-[#0b1a5c] text-[#0b1a5c] px-8 py-3.5 rounded-full font-semibold hover:bg-[#0b1a5c] hover:text-white transition text-center">
+      <!-- <a routerLink="/services" class="border-2 border-[#0b1a5c] text-[#0b1a5c] px-8 py-3.5 rounded-full font-semibold hover:bg-[#0b1a5c] hover:text-white transition text-center">
         En savoir plus
-      </a>
+        </a> -->
     </div>
   </div>
 </section>
