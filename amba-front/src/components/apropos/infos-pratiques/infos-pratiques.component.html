@@ -11,23 +11,26 @@
     <div class="grid lg:grid-cols-[1.3fr_1fr] gap-6 mb-10">
       <!-- Carte -->
       <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-        <div class="aspect-[16/10] bg-gradient-to-br from-[#72d4e0]/20 to-[#007FFF]/10 flex items-center justify-center relative">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="text-center">
-              <div class="text-6xl mb-3">🗺️</div>
-              <div class="text-[#0b1a5c] font-bold">Berne, Suisse</div>
-              <div class="text-sm text-gray-600">Carte interactive</div>
-            </div>
-          </div>
+        <div class="aspect-[16/10] relative">
+          <iframe
+            [src]="mapUrl"
+            class="absolute inset-0 w-full h-full border-0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Carte de l'Ambassade de la RDC à Berne"
+          ></iframe>
         </div>
         <div class="p-6 flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl bg-[#FCD116]/20 flex items-center justify-center text-2xl shrink-0">📍</div>
           <div>
             <div class="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-1">Adresse</div>
             <div class="font-bold text-[#0b1a5c]">Ambassade de la République Démocratique du Congo</div>
-            <div class="text-gray-600 text-sm">[Adresse complète]</div>
-            <div class="text-gray-600 text-sm">[Code postal], Berne · Suisse</div>
-            <a href="#" class="inline-block mt-3 text-sm font-bold text-[#007FFF] hover:text-[#0b1a5c]">Ouvrir dans Google Maps →</a>
+            <div class="text-gray-600 text-sm">Case postale 9273</div>
+            <div class="text-gray-600 text-sm">3001 Berne · Suisse</div>
+            <a [href]="mapLink" target="_blank" rel="noopener"
+               class="inline-block mt-3 text-sm font-bold text-[#007FFF] hover:text-[#0b1a5c]">
+              Ouvrir dans Google Maps →
+            </a>
           </div>
         </div>
       </div>
@@ -55,16 +58,16 @@
           <div class="space-y-3">
             <a href="tel:+41311234567" class="flex items-center gap-3 hover:text-[#FCD116] transition">
               <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center">📞</span>
-              <span class="text-sm">+41 31 123 45 67</span>
+              <span class="text-sm">+41 31 371 35 38</span>
             </a>
             <a href="mailto:contact@ambardc-berne.ch" class="flex items-center gap-3 hover:text-[#FCD116] transition">
               <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center">✉️</span>
-              <span class="text-sm">contact&#64;ambardc-berne.ch</span>
+              <span class="text-sm">rdcambassy&#64;bluewin.ch</span>
             </a>
           </div>
-          <button class="mt-5 w-full bg-[#FCD116] text-[#0b1a5c] font-bold py-2.5 rounded-full hover:bg-[#ffd938] transition">
+          <!--<button class="mt-5 w-full bg-[#FCD116] text-[#0b1a5c] font-bold py-2.5 rounded-full hover:bg-[#ffd938] transition">
             Appeler maintenant
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -82,9 +85,10 @@
           }
         </div>
       </div>
-      <button class="bg-[#FCD116] text-[#0b1a5c] font-bold px-6 py-3 rounded-full hover:bg-[#ffd938] transition shadow-lg">
+      <a routerLink="/contact" fragment="contact-formulaire"
+         class="inline-block bg-[#FCD116] text-[#0b1a5c] font-bold px-6 py-3 rounded-full hover:bg-[#ffd938] transition shadow-lg cursor-pointer">
         Prendre rendez-vous →
-      </button>
+      </a>
     </div>
   </div>
 </section>

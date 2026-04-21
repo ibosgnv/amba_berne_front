@@ -1,6 +1,11 @@
 import { Component, signal } from "@angular/core";
 
-type Department = "all" | "diplomatique" | "consulaire" | "administratif" | "communication";
+type Department =
+  | "all"
+  | "diplomatique"
+  | "consulaire"
+  | "administratif"
+  | "communication";
 
 interface Member {
   initials: string;
@@ -21,11 +26,11 @@ interface Member {
 })
 export class AproposEquipeComponent {
   protected readonly filters: { id: Department; label: string }[] = [
-    { id: "all", label: "Tous" },
-    { id: "diplomatique", label: "Diplomatique" },
-    { id: "consulaire", label: "Consulaire" },
-    { id: "administratif", label: "Administratif" },
-    { id: "communication", label: "Communication" },
+    // { id: "all", label: "Tous" },
+    //{ id: "diplomatique", label: "Diplomatique" },
+    //{ id: "consulaire", label: "Consulaire" },
+    // { id: "administratif", label: "Administratif" },
+    // { id: "communication", label: "Communication" },
   ];
 
   protected readonly activeFilter = signal<Department>("all");
@@ -33,7 +38,7 @@ export class AproposEquipeComponent {
   protected readonly members: Member[] = [
     {
       initials: "AM",
-      name: "S.E. [Ambassadeur]",
+      name: "S.E. Symphorien Bakafwa Nsenda Mutombo",
       role: "Ambassadeur Extraordinaire et Plénipotentiaire",
       email: "ambassadeur@ambardc-berne.ch",
       phone: "+41 31 123 45 67",
@@ -84,6 +89,8 @@ export class AproposEquipeComponent {
 
   visibleMembers() {
     const f = this.activeFilter();
-    return f === "all" ? this.members : this.members.filter((m) => m.dept === f);
+    return f === "all"
+      ? this.members
+      : this.members.filter((m) => m.dept === f);
   }
 }
