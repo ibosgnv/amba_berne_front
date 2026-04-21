@@ -1,0 +1,179 @@
+<section class="bg-gradient-to-b from-gray-50 to-white py-12 px-4 min-h-screen">
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Retour -->
+    <a routerLink="/services" fragment="services-visas"
+       class="inline-flex items-center gap-2 text-sm text-[#0b1a5c] hover:text-[#007FFF] font-semibold mb-6 transition">
+      ← Retour aux services
+    </a>
+
+    @if (submitted()) {
+      <!-- Écran de confirmation -->
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-10 text-center">
+        <div class="w-20 h-20 rounded-full bg-green-100 mx-auto mb-6 flex items-center justify-center text-4xl">✓</div>
+        <h2 class="text-2xl font-extrabold text-[#0b1a5c] mb-3">Demande de rendez-vous envoyée</h2>
+        <p class="text-gray-600 mb-2 max-w-lg mx-auto">
+          Votre dossier a bien été reçu et va être examiné par l'Ambassade.
+        </p>
+        <p class="text-gray-600 mb-6 max-w-lg mx-auto">
+          Vous serez contacté(e) par email dès qu'un rendez-vous pour la capture biométrique sera fixé.
+        </p>
+        <a routerLink="/services" fragment="services-visas"
+           class="inline-block bg-[#0b1a5c] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#007FFF] transition">
+          Retour aux services
+        </a>
+      </div>
+    } @else {
+      <!-- Formulaire officiel -->
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+
+        <!-- En-tête officiel -->
+        <header class="bg-gradient-to-r from-[#0b1a5c] to-[#007FFF] text-white text-center py-8 px-6">
+          <h1 class="text-2xl md:text-3xl font-extrabold tracking-wide mb-1">Ambassade de la RDC à Berne</h1>
+          <p class="text-white/80 text-sm">Demande de Passeport Biométrique (Procédure 2025)</p>
+        </header>
+
+        <!-- Prérequis -->
+        <div class="m-6 md:m-10 mb-0 md:mb-0 rounded-xl border-l-4 border-[#FCD116] bg-[#FCD116]/10 p-5">
+          <div class="font-bold text-[#0b1a5c] mb-3 flex items-center gap-2">
+            <span>⚠️</span> Avant de remplir ce formulaire, vous devez avoir :
+          </div>
+          <ol class="space-y-2 pl-1">
+            @for (p of prerequis; track $index) {
+              <li class="flex items-start gap-3 text-sm text-gray-700">
+                <span class="shrink-0 w-6 h-6 rounded-full bg-[#FCD116] text-[#0b1a5c] font-bold text-xs flex items-center justify-center mt-0.5">{{ $index + 1 }}</span>
+                <span>
+                  {{ p.text }}
+                  @if (p.url) {
+                    <a [href]="p.url" target="_blank" rel="noopener"
+                       class="text-[#007FFF] font-semibold hover:underline">{{ p.linkLabel }}</a>.
+                  }
+                </span>
+              </li>
+            }
+          </ol>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="submit()" class="p-6 md:p-10 space-y-10">
+
+          <!-- 1. IDENTIFICATION -->
+          <section>
+            <h2 class="bg-[#007FFF]/10 border-l-4 border-[#007FFF] text-[#0b1a5c] font-bold px-4 py-2 mb-5 uppercase tracking-wide text-sm">
+              1. Identification du requérant
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">
+                  Numéro NIF <span class="text-red-500">*</span>
+                </label>
+                <input type="text" formControlName="nif" placeholder="Entrez votre NIF"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('nif') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">
+                  Numéro du formulaire (QR Code) <span class="text-red-500">*</span>
+                </label>
+                <input type="text" formControlName="qrCode" placeholder="Obtenu sur passeport.gouv.cd"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('qrCode') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Nom <span class="text-red-500">*</span></label>
+                <input type="text" formControlName="nom"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('nom') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Prénom <span class="text-red-500">*</span></label>
+                <input type="text" formControlName="prenom"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('prenom') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Email de contact <span class="text-red-500">*</span></label>
+                <input type="email" formControlName="email" placeholder="exemple@email.com"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('email') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Téléphone en Suisse <span class="text-red-500">*</span></label>
+                <input type="tel" formControlName="telephone" placeholder="+41 76 000 00 00"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('telephone') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+            </div>
+          </section>
+
+          <!-- 2. DOCUMENTS À JOINDRE -->
+          <section>
+            <h2 class="bg-[#007FFF]/10 border-l-4 border-[#007FFF] text-[#0b1a5c] font-bold px-4 py-2 mb-3 uppercase tracking-wide text-sm">
+              2. Documents à joindre au dossier (courrier postal)
+            </h2>
+            <p class="text-sm text-gray-600 mb-5">
+              Cochez les éléments que vous allez inclure dans votre envoi à l'Ambassade :
+            </p>
+
+            <div formGroupName="documents" class="space-y-3">
+              @for (d of documentsRequis; track d.key) {
+                <label
+                  [class]="'flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition ' +
+                    (hasDocumentError(d.key) ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-[#007FFF] hover:bg-[#007FFF]/5')">
+                  <input type="checkbox" [formControlName]="d.key"
+                    class="mt-0.5 w-4 h-4 accent-[#007FFF] shrink-0" />
+                  <span class="text-sm text-gray-700">{{ d.label }}</span>
+                </label>
+              }
+            </div>
+          </section>
+
+          <!-- 3. VALIDATION -->
+          <section>
+            <h2 class="bg-[#FCD116]/20 border-l-4 border-[#FCD116] text-[#0b1a5c] font-bold px-4 py-2 mb-5 uppercase tracking-wide text-sm">
+              3. Validation
+            </h2>
+
+            <p class="text-sm text-gray-600 leading-relaxed mb-4 bg-gray-50 border border-gray-200 rounded-lg p-4">
+              En soumettant ce formulaire, je confirme avoir pris connaissance que la capture des données se fait
+              <strong>uniquement sur rendez-vous</strong> fixé par l'Ambassade après validation du dossier.
+              La carte consulaire est obligatoire.
+            </p>
+
+            <label class="flex items-start gap-3 cursor-pointer mb-6">
+              <input type="checkbox" formControlName="consentement"
+                class="mt-1 w-4 h-4 accent-[#007FFF]" />
+              <span class="text-sm text-gray-700">
+                J'ai lu et j'accepte les conditions ci-dessus. <span class="text-red-500">*</span>
+              </span>
+            </label>
+            @if (hasError('consentement')) {
+              <p class="text-red-500 text-xs -mt-4 mb-4">Vous devez accepter les conditions pour soumettre la demande.</p>
+            }
+
+            <div class="flex flex-col sm:flex-row gap-3 items-center justify-between pt-4 border-t border-gray-200">
+              <p class="text-xs text-gray-500">Les champs marqués d'un <span class="text-red-500">*</span> sont obligatoires.</p>
+              <button type="submit" [disabled]="sending()"
+                class="bg-[#0b1a5c] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-[#007FFF] transition cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed">
+                @if (sending()) {
+                  Envoi en cours...
+                } @else {
+                  Valider ma demande de rendez-vous →
+                }
+              </button>
+            </div>
+          </section>
+        </form>
+
+        <!-- Note de pied -->
+        <div class="bg-gray-50 border-t border-gray-200 text-center text-xs text-gray-600 py-4 px-6 leading-relaxed">
+          <div class="mb-1">
+            <strong class="text-[#0b1a5c]">Adresse d'envoi :</strong>
+            Ambassade de la RDC, Case postale 9273, 3001 Berne
+          </div>
+          <div class="italic">Délai d'attente estimé : environ 20 jours ouvrables après capture.</div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,256 @@
+<section class="bg-gradient-to-b from-gray-50 to-white py-12 px-4 min-h-screen">
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Retour -->
+    <a routerLink="/services" fragment="services-visas"
+       class="inline-flex items-center gap-2 text-sm text-[#0b1a5c] hover:text-[#007FFF] font-semibold mb-6 transition">
+      ← Retour aux services
+    </a>
+
+    @if (submitted()) {
+      <!-- Écran de confirmation -->
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-10 text-center">
+        <div class="w-20 h-20 rounded-full bg-green-100 mx-auto mb-6 flex items-center justify-center text-4xl">✓</div>
+        <h2 class="text-2xl font-extrabold text-[#0b1a5c] mb-3">Demande envoyée avec succès</h2>
+        <p class="text-gray-600 mb-6 max-w-lg mx-auto">
+          Votre demande de visa a bien été reçue. Vous recevrez un accusé de réception par email,
+          puis serez contacté(e) par l'Ambassade dans les plus brefs délais.
+        </p>
+        <a routerLink="/services" fragment="services-visas"
+           class="inline-block bg-[#0b1a5c] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#007FFF] transition">
+          Retour aux services
+        </a>
+      </div>
+    } @else {
+      <!-- Formulaire officiel -->
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+
+        <!-- En-tête officiel -->
+        <header class="bg-gradient-to-r from-[#0b1a5c] to-[#007FFF] text-white text-center py-8 px-6">
+          <p class="text-sm font-bold uppercase tracking-wider mb-1">République Démocratique du Congo</p>
+          <p class="text-xs text-white/80 mb-1">Ministère des Affaires Étrangères et Coopération internationale</p>
+          <p class="text-xs text-white/80 mb-4">AMBA RDC / BERNE</p>
+          <h1 class="text-2xl md:text-3xl font-extrabold tracking-wide">Formulaire de demande de visa</h1>
+        </header>
+
+        <form [formGroup]="form" (ngSubmit)="submit()" class="p-6 md:p-10 space-y-10">
+
+          <!-- A. DOCUMENTS À JOINDRE -->
+          <section>
+            <h2 class="bg-[#FCD116]/20 border-l-4 border-[#FCD116] text-[#0b1a5c] font-bold px-4 py-2 mb-4 uppercase tracking-wide text-sm">
+              A. Documents à joindre
+            </h2>
+            <ul class="space-y-2 pl-1">
+              @for (d of documentsRequis; track d) {
+                <li class="flex items-start gap-3 text-gray-700">
+                  <span class="shrink-0 w-5 h-5 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5">✓</span>
+                  <span>{{ d }}</span>
+                </li>
+              }
+            </ul>
+          </section>
+
+          <!-- B. RENSEIGNEMENTS PERSONNELS -->
+          <section>
+            <h2 class="bg-[#007FFF]/10 border-l-4 border-[#007FFF] text-[#0b1a5c] font-bold px-4 py-2 mb-5 uppercase tracking-wide text-sm">
+              B. Renseignements personnels
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Nom <span class="text-red-500">*</span></label>
+                <input type="text" formControlName="nom"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('nom') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Nom de jeune fille</label>
+                <input type="text" formControlName="nomJeuneFille"
+                  class="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 focus:border-[#007FFF] transition" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Post-nom(s)</label>
+                <input type="text" formControlName="postnom"
+                  class="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 focus:border-[#007FFF] transition" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Prénom <span class="text-red-500">*</span></label>
+                <input type="text" formControlName="prenom"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('prenom') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Date de naissance <span class="text-red-500">*</span></label>
+                <input type="date" formControlName="dateNaissance"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('dateNaissance') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Lieu de naissance (Ville / Pays) <span class="text-red-500">*</span></label>
+                <input type="text" formControlName="lieuNaissance" placeholder="Kinshasa, RDC"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('lieuNaissance') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Nationalité actuelle <span class="text-red-500">*</span></label>
+                <input type="text" formControlName="nationalite" placeholder="Congolaise"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('nationalite') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">État civil <span class="text-red-500">*</span></label>
+                <select formControlName="etatCivil"
+                  class="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 focus:border-[#007FFF] transition">
+                  @for (e of etatsCivil; track e.value) {
+                    <option [value]="e.value">{{ e.label }}</option>
+                  }
+                </select>
+              </div>
+              <div class="md:col-span-2">
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Profession</label>
+                <input type="text" formControlName="profession"
+                  class="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 focus:border-[#007FFF] transition" />
+              </div>
+              <div class="md:col-span-2">
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Adresse de résidence principale <span class="text-red-500">*</span></label>
+                <textarea formControlName="adresse" rows="2" placeholder="Rue, numéro, code postal, ville, pays"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 resize-none transition ' +
+                    (hasError('adresse') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')"></textarea>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Téléphone <span class="text-red-500">*</span></label>
+                <input type="tel" formControlName="telephone" placeholder="+41 76 000 00 00"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('telephone') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Email <span class="text-red-500">*</span></label>
+                <input type="email" formControlName="email" placeholder="exemple@email.com"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('email') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+            </div>
+          </section>
+
+          <!-- C. DÉTAILS DU VOYAGE -->
+          <section>
+            <h2 class="bg-[#007FFF]/10 border-l-4 border-[#007FFF] text-[#0b1a5c] font-bold px-4 py-2 mb-5 uppercase tracking-wide text-sm">
+              C. Détails du voyage
+            </h2>
+
+            <div class="mb-6">
+              <label class="block text-sm font-semibold text-[#0b1a5c] mb-3">Motif du voyage <span class="text-red-500">*</span></label>
+              <div formGroupName="motifs" class="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+                @for (m of motifs; track m.key) {
+                  <label class="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-300 hover:border-[#007FFF] cursor-pointer transition">
+                    <input type="checkbox" [formControlName]="m.key"
+                      class="w-4 h-4 accent-[#007FFF]" />
+                    <span class="text-sm text-gray-700">{{ m.label }}</span>
+                  </label>
+                }
+              </div>
+              @if (form.get('motifs')?.touched && !hasMotifSelected()) {
+                <p class="text-red-500 text-xs mt-2">Veuillez sélectionner au moins un motif.</p>
+              }
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Type de visa souhaité <span class="text-red-500">*</span></label>
+                <select formControlName="typeVisa"
+                  class="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 focus:border-[#007FFF] transition">
+                  @for (t of typesVisa; track t.value) {
+                    <option [value]="t.value">{{ t.label }}</option>
+                  }
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Délai de traitement <span class="text-red-500">*</span></label>
+                <select formControlName="traitement"
+                  class="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 focus:border-[#007FFF] transition">
+                  <option value="normal">Normal (10 jours ouvrables)</option>
+                  <option value="express">Express (+30 FS)</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <!-- D. RÉFÉRENCES EN RDC -->
+          <section>
+            <h2 class="bg-[#007FFF]/10 border-l-4 border-[#007FFF] text-[#0b1a5c] font-bold px-4 py-2 mb-5 uppercase tracking-wide text-sm">
+              D. Références en RDC
+            </h2>
+            <div class="space-y-5">
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Nom de la personne ou organisation qui invite</label>
+                <input type="text" formControlName="invitantNom"
+                  class="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 focus:border-[#007FFF] transition" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Adresse et téléphone en RDC</label>
+                <textarea formControlName="invitantContact" rows="2"
+                  class="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 focus:border-[#007FFF] resize-none transition"></textarea>
+              </div>
+            </div>
+          </section>
+
+          <!-- ENGAGEMENT -->
+          <section>
+            <h2 class="bg-[#FCD116]/20 border-l-4 border-[#FCD116] text-[#0b1a5c] font-bold px-4 py-2 mb-5 uppercase tracking-wide text-sm">
+              Engagement
+            </h2>
+
+            <p class="text-sm text-gray-600 leading-relaxed mb-4 bg-gray-50 border border-gray-200 rounded-lg p-4">
+              Je reconnais que les renseignements communiqués ci-dessus sont exacts et véridiques.
+              J'accepte qu'en cas de refus de visa, les frais payés ne sont pas remboursables.
+            </p>
+
+            <label class="flex items-start gap-3 cursor-pointer mb-6">
+              <input type="checkbox" formControlName="engagement"
+                class="mt-1 w-4 h-4 accent-[#007FFF]" />
+              <span class="text-sm text-gray-700">
+                J'accepte les termes de l'engagement ci-dessus. <span class="text-red-500">*</span>
+              </span>
+            </label>
+            @if (hasError('engagement')) {
+              <p class="text-red-500 text-xs -mt-4 mb-4">Vous devez accepter l'engagement pour soumettre le formulaire.</p>
+            }
+
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Fait à <span class="text-red-500">*</span></label>
+                <input type="text" formControlName="faitA" placeholder="Berne"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('faitA') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Le <span class="text-red-500">*</span></label>
+                <input type="date" formControlName="dateSignature"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('dateSignature') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Submit -->
+          <div class="pt-4 border-t border-gray-200 flex flex-col sm:flex-row gap-3 items-center justify-between">
+            <p class="text-xs text-gray-500">Les champs marqués d'un <span class="text-red-500">*</span> sont obligatoires.</p>
+            <button type="submit" [disabled]="sending()"
+              class="bg-[#0b1a5c] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-[#007FFF] transition cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed">
+              @if (sending()) {
+                Envoi en cours...
+              } @else {
+                Soumettre la demande →
+              }
+            </button>
+          </div>
+        </form>
+
+        <!-- Note de pied -->
+        <div class="bg-gray-50 border-t border-gray-200 text-center text-xs text-gray-600 py-4 px-6 italic">
+          NB : Aucune suite n'est donnée aux dossiers incomplets. Contrôlez votre visa dès réception.
+        </div>
+      </div>
+    }
+  </div>
+</section>

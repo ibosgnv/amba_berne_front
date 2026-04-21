@@ -12,7 +12,7 @@
 
     <div class="grid md:grid-cols-3 gap-6">
       @for (c of categories; track c.id) {
-        <a [href]="c.anchor" class="group relative bg-white rounded-2xl p-8 border border-gray-200 hover:border-transparent hover:shadow-2xl hover:-translate-y-2 transition-all overflow-hidden">
+        <a routerLink="/services" [fragment]="c.fragment" class="group relative bg-white rounded-2xl p-8 border border-gray-200 hover:border-transparent hover:shadow-2xl hover:-translate-y-2 transition-all overflow-hidden">
           <!-- Colored gradient accent -->
           <div [class]="'absolute top-0 right-0 w-32 h-32 -mt-12 -mr-12 rounded-full bg-gradient-to-br opacity-10 group-hover:opacity-20 blur-2xl transition ' + c.color"></div>
 
