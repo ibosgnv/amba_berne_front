@@ -94,8 +94,12 @@ export class RdcBlogComponent {
     const q = this.query().toLowerCase().trim();
     return this.articles.filter((a) => {
       const matchCat = cat === "all" || a.category === cat;
-      const matchQ = !q || a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q);
-      return matchCat && matchQ;
+      if (!matchCat) return false;
+      if (!q) return true;
+      const haystack = [a.title, a.excerpt, a.tag, a.category]
+        .join(" ")
+        .toLowerCase();
+      return haystack.includes(q);
     });
   });
 
@@ -105,5 +109,9 @@ export class RdcBlogComponent {
 
   updateQuery(value: string) {
     this.query.set(value);
+  }
+
+  clearQuery() {
+    this.query.set("");
   }
 }
