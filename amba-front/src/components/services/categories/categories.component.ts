@@ -12,7 +12,7 @@ export class ServicesCategoriesComponent {
   protected readonly categories = [
     {
       id: "consulaires",
-      icon: "🧾",
+      icon: "fa-solid fa-receipt",
       title: "Services consulaires",
       desc: "Cartes consulaires, état civil, légalisation de documents, visites consulaires. Démarches guidées étape par étape.",
       fragment: "services-consulaires",
@@ -20,7 +20,7 @@ export class ServicesCategoriesComponent {
     },
     {
       id: "visas",
-      icon: "🛂",
+      icon: "fa-solid fa-passport",
       title: "Visas & Passeports",
       desc: "Types de visas, procédures, checklist des documents, tarification claire et formulaire en ligne sécurisé.",
       fragment: "services-visas",
@@ -28,7 +28,7 @@ export class ServicesCategoriesComponent {
     },
     {
       id: "accompagnement",
-      icon: "🤝",
+      icon: "fa-solid fa-handshake",
       title: "Accompagnement",
       desc: "Partenariats, aide aux voyageurs, guide des ressortissants, intégration en Suisse. L'Ambassade à vos côtés.",
       fragment: "services-accompagnement",

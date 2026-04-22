@@ -10,9 +10,9 @@ import { RouterLink } from "@angular/router";
 })
 export class AccueilServicesApercuComponent {
   protected readonly services = [
-    { icon: "🛂", title: "Visa", desc: "Demande de visa court, long séjour, affaires, tourisme.", fragment: "services-visas" },
-    { icon: "📜", title: "Légalisation", desc: "Légalisation de documents officiels et actes.", fragment: "services-consulaires" },
+    { icon: "fa-solid fa-passport", title: "Visa", desc: "Demande de visa court, long séjour, affaires, tourisme.", fragment: "services-visas" },
+    { icon: "fa-solid fa-scroll", title: "Légalisation", desc: "Légalisation de documents officiels et actes.", fragment: "services-consulaires" },
     { icon: "🆔", title: "Passeport", desc: "Délivrance et renouvellement de passeports et documents d'identité.", fragment: "services-visas" },
-    { icon: "🫂", title: "Assistance", desc: "Assistance consulaire aux ressortissants congolais.", fragment: "support-immediat" },
+    { icon: "fa-solid fa-people-group", title: "Assistance", desc: "Assistance consulaire aux ressortissants congolais.", fragment: "support-immediat" },
   ];
 }

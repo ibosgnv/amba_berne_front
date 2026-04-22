@@ -84,7 +84,7 @@ const PROCEDURES: Record<string, ProcedureSchema> = {
   carte: {
     id: "carte",
     title: "Carte consulaire",
-    icon: "🪪",
+    icon: "fa-solid fa-id-card",
     intro:
       "La carte consulaire atteste de votre inscription auprès de l'Ambassade. Elle facilite vos démarches et votre identification en Suisse.",
     specificFields: [
@@ -128,7 +128,7 @@ const PROCEDURES: Record<string, ProcedureSchema> = {
   "etat-civil": {
     id: "etat-civil",
     title: "Transcription d'acte d'état civil",
-    icon: "📜",
+    icon: "fa-solid fa-scroll",
     intro:
       "Transcrivez un acte de naissance, de mariage ou de décès survenu à l'étranger dans les registres consulaires.",
     specificFields: [
@@ -171,7 +171,7 @@ const PROCEDURES: Record<string, ProcedureSchema> = {
   legalisation: {
     id: "legalisation",
     title: "Légalisation de documents",
-    icon: "✔️",
+    icon: "fa-solid fa-check",
     intro:
       "La légalisation authentifie la signature et le sceau des documents destinés à être utilisés à l'étranger.",
     specificFields: [
@@ -221,7 +221,7 @@ const PROCEDURES: Record<string, ProcedureSchema> = {
   visite: {
     id: "visite",
     title: "Visite consulaire",
-    icon: "🏛️",
+    icon: "fa-solid fa-landmark",
     intro:
       "Prenez rendez-vous pour une visite à l'Ambassade. Nos équipes vous accueilleront à la date convenue.",
     specificFields: [

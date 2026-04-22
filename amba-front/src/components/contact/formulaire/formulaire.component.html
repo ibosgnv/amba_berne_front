@@ -2,7 +2,7 @@
   <div class="max-w-4xl mx-auto">
     <div class="text-center max-w-2xl mx-auto mb-12">
       <span class="inline-block bg-[#007FFF]/10 text-[#007FFF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
-        📝 Formulaire de contact
+        <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Formulaire de contact
       </span>
       <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-3">
         Adressez-nous votre demande
@@ -15,7 +15,7 @@
     @if (sent()) {
       <!-- Success state -->
       <div class="bg-gradient-to-br from-green-50 to-white border-2 border-green-200 rounded-2xl p-10 text-center shadow-md">
-        <div class="w-20 h-20 mx-auto rounded-full bg-green-100 flex items-center justify-center text-4xl mb-5">✅</div>
+        <div class="w-20 h-20 mx-auto rounded-full bg-green-100 flex items-center justify-center text-4xl mb-5"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
         <h3 class="text-2xl font-extrabold text-[#0b1a5c] mb-3">Demande envoyée avec succès</h3>
         <p class="text-gray-600 mb-6 max-w-lg mx-auto">
           Merci pour votre message. Une confirmation a été transmise à votre adresse email.
@@ -104,7 +104,7 @@
 
         <!-- Privacy -->
         <p class="mt-5 flex items-start gap-2 text-xs text-gray-500 leading-relaxed">
-          <span aria-hidden="true">🔒</span>
+          <span aria-hidden="true"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
           <span>
             Les informations transmises via ce formulaire sont strictement confidentielles
             et utilisées uniquement dans le cadre du traitement de votre demande.
@@ -114,7 +114,7 @@
         <!-- Submit -->
         <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
           <p class="text-sm text-gray-500">
-            📩 Une confirmation vous sera envoyée après l'envoi de votre message.
+            <i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i> Une confirmation vous sera envoyée après l'envoi de votre message.
           </p>
           <button type="submit" [disabled]="sending()"
                   class="inline-flex items-center gap-2 bg-[#FCD116] text-[#0b1a5c] px-7 py-3.5 rounded-full font-bold shadow-md hover:bg-[#ffd938] disabled:opacity-60 disabled:cursor-not-allowed transition">

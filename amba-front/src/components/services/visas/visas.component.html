@@ -3,7 +3,7 @@
 
     <!-- Intro -->
     <div class="flex items-start gap-5 mb-12">
-      <div class="w-14 h-14 rounded-2xl bg-[#FCD116]/20 flex items-center justify-center text-3xl shrink-0">🛂</div>
+      <div class="w-14 h-14 rounded-2xl bg-[#FCD116]/20 flex items-center justify-center text-3xl shrink-0"><i class="fa-solid fa-passport" aria-hidden="true"></i></div>
       <div>
         <span class="inline-block bg-[#FCD116]/20 text-[#0b1a5c] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
           Visas & Passeports
@@ -19,7 +19,7 @@
 
     <!-- === VISAS === -->
     <div class="flex items-center gap-3 mb-8 pb-4 border-b-2 border-[#007FFF]/20">
-      <div class="w-12 h-12 rounded-xl bg-[#007FFF]/10 flex items-center justify-center text-2xl shrink-0">🛂</div>
+      <div class="w-12 h-12 rounded-xl bg-[#007FFF]/10 flex items-center justify-center text-2xl shrink-0"><i class="fa-solid fa-passport" aria-hidden="true"></i></div>
       <div>
         <h3 class="text-2xl font-extrabold text-[#0b1a5c]">Visas</h3>
         <p class="text-sm text-gray-600">Demandes pour séjour, tourisme, affaires ou études.</p>
@@ -27,7 +27,7 @@
     </div>
 
     <!-- Timeline -->
-    <h4 class="text-lg font-bold text-[#0b1a5c] mb-6">📍 Procédure en 4 étapes</h4>
+    <h4 class="text-lg font-bold text-[#0b1a5c] mb-6"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Procédure en 4 étapes</h4>
     <div class="relative mb-16">
       <!-- Ligne -->
       <div class="hidden lg:block absolute top-8 left-8 right-8 h-0.5 bg-gradient-to-r from-[#007FFF] to-[#FCD116]"></div>
@@ -47,7 +47,7 @@
 
     <!-- Types de visas -->
     <!--
-    <h4 class="text-lg font-bold text-[#0b1a5c] mb-6">🌍 Types de visas</h4>
+    <h4 class="text-lg font-bold text-[#0b1a5c] mb-6"><i class="fa-solid fa-earth-africa" aria-hidden="true"></i> Types de visas</h4>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
       @for (v of visaTypes; track v.name) {
         <button
@@ -57,7 +57,7 @@
               ? 'border-[#FCD116] shadow-xl ring-4 ring-[#FCD116]/20'
               : 'border-gray-200 hover:border-[#007FFF] hover:shadow-lg')"
         >
-          <div class="text-4xl mb-4">{{ v.icon }}</div>
+          <div class="text-4xl mb-4"><i class="{{ v.icon }}" aria-hidden="true"></i></div>
           <h4 class="font-bold text-[#0b1a5c] text-lg mb-1">{{ v.name }}</h4>
           <div class="text-xs text-gray-500 uppercase tracking-wider mb-3">{{ v.duration }}</div>
           <p class="text-sm text-gray-600 mb-4 leading-relaxed">{{ v.desc }}</p>
@@ -70,7 +70,7 @@
     </div> -->
 
     <!-- Tarification -->
-    <h4 class="text-lg font-bold text-[#0b1a5c] mb-5">💰 Tarification</h4>
+    <h4 class="text-lg font-bold text-[#0b1a5c] mb-5"><i class="fa-solid fa-sack-dollar" aria-hidden="true"></i> Tarification</h4>
     <div class="grid lg:grid-cols-[1fr_360px] gap-6 mb-20 items-stretch">
       <div class="overflow-x-auto">
         <table class="w-full h-full bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200">
@@ -84,7 +84,7 @@
           <tbody>
             @for (v of visaTypes; track v.name) {
               <tr class="border-t border-gray-100 hover:bg-gray-50">
-                <td class="px-6 py-4 font-semibold text-[#0b1a5c]">{{ v.icon }} {{ v.name }}</td>
+                <td class="px-6 py-4 font-semibold text-[#0b1a5c]"><i class="{{ v.icon }}" aria-hidden="true"></i> {{ v.name }}</td>
                 <td class="px-6 py-4 text-gray-600">{{ v.duration }}</td>
                 <td class="px-6 py-4 text-right font-bold text-[#007FFF]">{{ v.price }}</td>
               </tr>
@@ -108,7 +108,7 @@
 
     <!-- === PASSEPORTS === -->
     <div class="flex items-center gap-3 mb-8 pb-4 border-b-2 border-[#FCD116]/40">
-      <div class="w-12 h-12 rounded-xl bg-[#FCD116]/20 flex items-center justify-center text-2xl shrink-0">📄</div>
+      <div class="w-12 h-12 rounded-xl bg-[#FCD116]/20 flex items-center justify-center text-2xl shrink-0"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></div>
       <div>
         <h3 class="text-2xl font-extrabold text-[#0b1a5c]">Passeports</h3>
         <p class="text-sm text-gray-600">Délivrance et renouvellement des passeports congolais.</p>
@@ -116,7 +116,7 @@
     </div>
 
     <!-- Procédure passeport : timeline -->
-    <h4 class="text-lg font-bold text-[#0b1a5c] mb-6">📍 Procédure en 2 étapes</h4>
+    <h4 class="text-lg font-bold text-[#0b1a5c] mb-6"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Procédure en 2 étapes</h4>
     <div class="relative mb-14">
       <!-- Ligne -->
       <div class="hidden sm:block absolute top-8 left-8 right-8 h-0.5 bg-gradient-to-r from-[#007FFF] to-[#FCD116]"></div>
@@ -137,12 +137,12 @@
     <!-- Documents requis passeport -->
     <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm mb-14">
       <h4 class="text-lg font-bold text-[#0b1a5c] mb-5 flex items-center gap-2">
-        <span>📎</span> Documents requis
+        <span><i class="fa-solid fa-paperclip" aria-hidden="true"></i></span> Documents requis
       </h4>
       <ul class="space-y-2.5">
         @for (d of passportDocs; track d) {
           <li class="flex items-start gap-3 text-gray-700">
-            <span class="shrink-0 w-5 h-5 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5">✓</span>
+            <span class="shrink-0 w-5 h-5 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
             <span>{{ d }}</span>
           </li>
         }
@@ -151,11 +151,11 @@
 
     <!-- Types de passeports -->
     <!--
-    <h4 class="text-lg font-bold text-[#0b1a5c] mb-6">📘 Types de passeports</h4>
+    <h4 class="text-lg font-bold text-[#0b1a5c] mb-6"><i class="fa-solid fa-book" aria-hidden="true"></i> Types de passeports</h4>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
       @for (p of passportTypes; track p.name) {
         <div class="bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-[#007FFF] hover:shadow-lg transition-all hover:-translate-y-1">
-          <div class="text-4xl mb-4">{{ p.icon }}</div>
+          <div class="text-4xl mb-4"><i class="{{ p.icon }}" aria-hidden="true"></i></div>
           <h5 class="font-bold text-[#0b1a5c] text-lg mb-2">{{ p.name }}</h5>
           <p class="text-sm text-gray-600 mb-4 leading-relaxed">{{ p.desc }}</p>
           <div class="flex items-center justify-between pt-4 border-t border-gray-100">
@@ -193,7 +193,7 @@
             class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-lg transition cursor-pointer"
             aria-label="Fermer"
           >
-            ✕
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
           </button>
           <h3 class="text-xl font-extrabold mb-1">Comment souhaitez-vous procéder ?</h3>
           <p class="text-white/80 text-sm">Choisissez l'option qui vous convient le mieux.</p>
@@ -215,7 +215,7 @@
                   class="flex items-start gap-4 p-4 rounded-xl border-2 border-gray-200 hover:border-[#FCD116] hover:bg-[#FCD116]/5 transition cursor-pointer group"
                 >
                   <div class="w-10 h-10 rounded-lg bg-[#FCD116]/20 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition">
-                    📄
+                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
                   </div>
                   <div class="flex-1 min-w-0">
                     <div class="font-bold text-[#0b1a5c] text-sm mb-0.5 truncate">{{ doc.name }}</div>
@@ -241,7 +241,7 @@
             class="flex items-start gap-4 p-4 rounded-xl border-2 border-gray-200 hover:border-[#007FFF] hover:bg-[#007FFF]/5 transition cursor-pointer group"
           >
             <div class="w-12 h-12 rounded-xl bg-[#007FFF]/10 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition">
-              💻
+              <i class="fa-solid fa-laptop" aria-hidden="true"></i>
             </div>
             <div class="flex-1">
               <div class="font-bold text-[#0b1a5c] mb-1">Remplir en ligne</div>

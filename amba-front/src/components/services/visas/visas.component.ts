@@ -34,28 +34,28 @@ export class ServicesVisasComponent {
 
   protected readonly visaTypes = [
     {
-      icon: "🏖️",
+      icon: "fa-solid fa-umbrella-beach",
       name: "Court séjour",
       duration: "Jusqu'à 90 jours",
       price: "CHF 80",
       desc: "Tourisme, visite familiale, court déplacement professionnel.",
     },
     {
-      icon: "🏠",
+      icon: "fa-solid fa-house",
       name: "Long séjour",
       duration: "Plus de 90 jours",
       price: "CHF 180",
       desc: "Installation, regroupement familial, études.",
     },
     {
-      icon: "💼",
+      icon: "fa-solid fa-briefcase",
       name: "Affaires",
       duration: "Selon mission",
       price: "CHF 150",
       desc: "Missions commerciales, partenariats, conférences professionnelles.",
     },
     {
-      icon: "🏞️",
+      icon: "fa-solid fa-mountain-sun",
       name: "Tourisme",
       duration: "Jusqu'à 30 jours",
       price: "CHF 60",
@@ -86,19 +86,19 @@ export class ServicesVisasComponent {
 
   protected readonly passportTypes = [
     {
-      icon: "📘",
+      icon: "fa-solid fa-book",
       name: "Passeport ordinaire",
       desc: "Pour tous les ressortissants congolais. Validité 5 ans.",
       price: "CHF 150",
     },
     {
-      icon: "📕",
+      icon: "fa-solid fa-book",
       name: "Passeport diplomatique",
       desc: "Réservé aux agents diplomatiques et officiels de l'État.",
       price: "Sur dossier",
     },
     {
-      icon: "📗",
+      icon: "fa-solid fa-book",
       name: "Passeport de service",
       desc: "Pour les missions officielles à caractère administratif.",
       price: "Sur dossier",

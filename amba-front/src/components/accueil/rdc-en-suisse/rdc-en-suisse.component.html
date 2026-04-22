@@ -3,7 +3,7 @@
 
     <div class="text-center max-w-3xl mx-auto mb-14">
       <span class="inline-block bg-[#FCD116]/20 text-[#0b1a5c] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
-        🌍 La RDC en Suisse
+        <i class="fa-solid fa-earth-africa" aria-hidden="true"></i> La RDC en Suisse
       </span>
       <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-4">
         Un pont entre deux nations
@@ -23,7 +23,7 @@
         @for (p of piliers; track p.title) {
           <div class="text-center">
             <div class="relative mx-auto w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center text-4xl mb-5 border-4 border-[#FCD116]">
-              {{ p.icon }}
+              <i class="{{ p.icon }}" aria-hidden="true"></i>
             </div>
             <h3 class="text-lg font-bold text-[#0b1a5c] mb-2">{{ p.title }}</h3>
             <p class="text-sm text-gray-600 leading-relaxed">{{ p.desc }}</p>

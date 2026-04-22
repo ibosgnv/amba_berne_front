@@ -3,7 +3,7 @@
 
     <!-- Intro -->
     <div class="flex items-start gap-5 mb-12">
-      <div class="w-14 h-14 rounded-2xl bg-[#72d4e0]/25 flex items-center justify-center text-3xl shrink-0">🤝</div>
+      <div class="w-14 h-14 rounded-2xl bg-[#72d4e0]/25 flex items-center justify-center text-3xl shrink-0"><i class="fa-solid fa-handshake" aria-hidden="true"></i></div>
       <div>
         <span class="inline-block bg-[#72d4e0]/25 text-[#0b1a5c] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
           Accompagnement
@@ -24,7 +24,7 @@
         <div [class]="'rounded-2xl p-7 border border-gray-200 bg-gradient-to-br ' + s.color + ' hover:shadow-xl transition-all hover:-translate-y-1'">
           <div class="flex items-start gap-4 mb-4">
             <div class="w-14 h-14 rounded-2xl bg-white shadow-md flex items-center justify-center text-3xl shrink-0">
-              {{ s.icon }}
+              <i class="{{ s.icon }}" aria-hidden="true"></i>
             </div>
             <div>
               <h3 class="text-xl font-extrabold text-[#0b1a5c] mb-1">{{ s.title }}</h3>
@@ -62,7 +62,7 @@
           <div class="grid sm:grid-cols-3 gap-4">
             @for (s of supports; track s.label) {
               <div class="bg-white/5 border border-white/10 rounded-xl p-4 backdrop-blur">
-                <div class="text-2xl mb-1">{{ s.icon }}</div>
+                <div class="text-2xl mb-1"><i class="{{ s.icon }}" aria-hidden="true"></i></div>
                 <div class="text-xs uppercase tracking-wider text-white/60 mb-1">{{ s.label }}</div>
                 <div class="text-sm font-semibold">{{ s.value }}</div>
               </div>

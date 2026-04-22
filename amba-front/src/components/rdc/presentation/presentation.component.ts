@@ -9,9 +9,9 @@ import { Component } from "@angular/core";
 })
 export class RdcPresentationComponent {
   protected readonly highlights = [
-    { icon: "💎", title: "Ressources naturelles", desc: "Cobalt, cuivre, coltan, or, diamant — un sous-sol parmi les plus riches au monde." },
-    { icon: "🌳", title: "Biodiversité unique", desc: "Forêts équatoriales, parcs nationaux (Virunga, Salonga), fleuve Congo." },
-    { icon: "👥", title: "Population dynamique", desc: "Une jeunesse éduquée et entrepreneuriale au cœur du développement." },
-    { icon: "📍", title: "Position stratégique", desc: "Carrefour de l'Afrique centrale, 9 pays frontaliers, 10ᵉ économie africaine." },
+    { icon: "fa-solid fa-gem", title: "Ressources naturelles", desc: "Cobalt, cuivre, coltan, or, diamant — un sous-sol parmi les plus riches au monde." },
+    { icon: "fa-solid fa-tree", title: "Biodiversité unique", desc: "Forêts équatoriales, parcs nationaux (Virunga, Salonga), fleuve Congo." },
+    { icon: "fa-solid fa-users", title: "Population dynamique", desc: "Une jeunesse éduquée et entrepreneuriale au cœur du développement." },
+    { icon: "fa-solid fa-location-dot", title: "Position stratégique", desc: "Carrefour de l'Afrique centrale, 9 pays frontaliers, 10ᵉ économie africaine." },
   ];
 }

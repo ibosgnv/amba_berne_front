@@ -24,7 +24,7 @@
               ? 'bg-[#0b1a5c] text-white shadow'
               : 'text-[#0b1a5c] hover:bg-gray-100')"
         >
-          <span>{{ t.icon }}</span>
+          <span><i class="{{ t.icon }}" aria-hidden="true"></i></span>
           <span>{{ t.label }}</span>
         </button>
       }
@@ -44,7 +44,7 @@
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             />
             <div class="absolute inset-0 hidden flex-col items-center justify-center text-white">
-              <div class="text-7xl mb-3">🎖️</div>
+              <div class="text-7xl mb-3"><i class="fa-solid fa-medal" aria-hidden="true"></i></div>
               <div class="text-sm text-white/70 italic">Portrait officiel</div>
             </div>
             <div class="relative z-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white px-5 py-4 w-full">
@@ -63,28 +63,28 @@
 
             <div class="grid sm:grid-cols-2 gap-3 text-sm mb-5">
               <div class="flex items-start gap-2">
-                <span class="text-[#007FFF] shrink-0">📅</span>
+                <span class="text-[#007FFF] shrink-0"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span>
                 <div>
                   <div class="text-xs uppercase tracking-wider text-gray-500">Investiture</div>
                   <div class="font-semibold text-[#0b1a5c]">{{ president.investiture }}</div>
                 </div>
               </div>
               <div class="flex items-start gap-2">
-                <span class="text-[#007FFF] shrink-0">🗳️</span>
+                <span class="text-[#007FFF] shrink-0"><i class="fa-solid fa-check-to-slot" aria-hidden="true"></i></span>
                 <div>
                   <div class="text-xs uppercase tracking-wider text-gray-500">Mandat actuel</div>
                   <div class="font-semibold text-[#0b1a5c]">{{ president.reelection }}</div>
                 </div>
               </div>
               <div class="flex items-start gap-2">
-                <span class="text-[#007FFF] shrink-0">👤</span>
+                <span class="text-[#007FFF] shrink-0"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
                 <div>
                   <div class="text-xs uppercase tracking-wider text-gray-500">Né le</div>
                   <div class="font-semibold text-[#0b1a5c]">{{ president.naissance }}</div>
                 </div>
               </div>
               <div class="flex items-start gap-2">
-                <span class="text-[#007FFF] shrink-0">🤝</span>
+                <span class="text-[#007FFF] shrink-0"><i class="fa-solid fa-handshake" aria-hidden="true"></i></span>
                 <div>
                   <div class="text-xs uppercase tracking-wider text-gray-500">Parti politique</div>
                   <div class="font-semibold text-[#0b1a5c]">{{ president.parti }}</div>
@@ -101,12 +101,12 @@
           <!-- Axes prioritaires -->
           <div class="p-6 md:p-8 border-b lg:border-b-0 lg:border-r border-gray-200">
             <h4 class="font-extrabold text-[#0b1a5c] mb-4 flex items-center gap-2">
-              <span>🎯</span> Axes prioritaires
+              <span><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span> Axes prioritaires
             </h4>
             <ul class="space-y-3">
               @for (a of president.axes; track a) {
                 <li class="flex items-start gap-3">
-                  <span class="shrink-0 w-6 h-6 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5">✓</span>
+                  <span class="shrink-0 w-6 h-6 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
                   <span class="text-gray-700 text-sm">{{ a }}</span>
                 </li>
               }
@@ -116,12 +116,12 @@
           <!-- Réalisations majeures -->
           <div class="p-6 md:p-8 bg-gray-50">
             <h4 class="font-extrabold text-[#0b1a5c] mb-4 flex items-center gap-2">
-              <span>🏆</span> Réalisations majeures
+              <span><i class="fa-solid fa-trophy" aria-hidden="true"></i></span> Réalisations majeures
             </h4>
             <div class="space-y-3">
               @for (r of president.realisations; track r.title) {
                 <div class="bg-white rounded-xl p-4 border border-gray-200 flex items-start gap-3">
-                  <div class="w-10 h-10 rounded-lg bg-[#007FFF]/10 flex items-center justify-center text-xl shrink-0">{{ r.icon }}</div>
+                  <div class="w-10 h-10 rounded-lg bg-[#007FFF]/10 flex items-center justify-center text-xl shrink-0"><i class="{{ r.icon }}" aria-hidden="true"></i></div>
                   <div>
                     <div class="font-bold text-[#0b1a5c] text-sm mb-0.5">{{ r.title }}</div>
                     <p class="text-xs text-gray-600 leading-relaxed">{{ r.desc }}</p>
@@ -145,7 +145,7 @@
           <ul class="space-y-3">
             @for (m of missions; track m) {
               <li class="flex items-start gap-3">
-                <span class="shrink-0 w-6 h-6 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5">✓</span>
+                <span class="shrink-0 w-6 h-6 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
                 <span class="text-gray-700">{{ m }}</span>
               </li>
             }

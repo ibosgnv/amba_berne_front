@@ -33,7 +33,7 @@
       @for (p of piliers; track p.title) {
         <div class="group bg-white border border-gray-200 rounded-2xl p-6 ">
           <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#007FFF]/10 to-[#FCD116]/10 flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition">
-            {{ p.icon }}
+            <i class="{{ p.icon }}" aria-hidden="true"></i>
           </div>
           <h3 class="text-lg font-bold text-[#0b1a5c] mb-2">{{ p.title }}</h3>
           <p class="text-sm text-gray-600 leading-relaxed">{{ p.desc }}</p>

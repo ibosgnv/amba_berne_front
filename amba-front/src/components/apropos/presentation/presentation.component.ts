@@ -10,22 +10,22 @@ import { Component } from "@angular/core";
 export class AproposPresentationComponent {
   protected readonly missions = [
     {
-      icon: "🌐",
+      icon: "fa-solid fa-globe",
       title: "Promouvoir",
       desc: "les intérêts de la RDC à l'étranger.",
     },
     {
-      icon: "🤝",
+      icon: "fa-solid fa-handshake",
       title: "Accompagner",
       desc: "les ressortissants congolais en Suisse.",
     },
     {
-      icon: "🔄",
+      icon: "fa-solid fa-arrows-rotate",
       title: "Faciliter",
       desc: "les échanges bilatéraux (commerce, culture, éducation).",
     },
     {
-      icon: "🏛️",
+      icon: "fa-solid fa-landmark",
       title: "Coopérer",
       desc: "avec les institutions internationales basées en Suisse.",
     },

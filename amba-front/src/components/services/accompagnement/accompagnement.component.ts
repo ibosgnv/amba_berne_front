@@ -11,7 +11,7 @@ import { RouterLink } from "@angular/router";
 export class ServicesAccompagnementComponent {
   protected readonly sections = [
     {
-      icon: "🤝",
+      icon: "fa-solid fa-handshake",
       title: "Partenariats",
       desc: "Mise en relation entre acteurs économiques, institutionnels et culturels RDC–Suisse.",
       items: [
@@ -23,7 +23,7 @@ export class ServicesAccompagnementComponent {
       accent: "#007FFF",
     },
     {
-      icon: "🧭",
+      icon: "fa-solid fa-compass",
       title: "Aide aux voyageurs",
       desc: "Informations pratiques, conseils et assistance avant, pendant et après votre voyage.",
       items: [
@@ -35,7 +35,7 @@ export class ServicesAccompagnementComponent {
       accent: "#0b1a5c",
     },
     {
-      icon: "📘",
+      icon: "fa-solid fa-book",
       title: "Guide des ressortissants",
       desc: "Ressource officielle pour les Congolais vivant ou s'installant en Suisse.",
       items: [
@@ -47,7 +47,7 @@ export class ServicesAccompagnementComponent {
       accent: "#007FFF",
     },
     {
-      icon: "🏡",
+      icon: "fa-solid fa-house",
       title: "Vivre en Suisse",
       desc: "Intégration, logement, travail, éducation : les clés pour réussir votre installation.",
       items: [
@@ -61,8 +61,8 @@ export class ServicesAccompagnementComponent {
   ];
 
   protected readonly supports = [
-    { icon: "📞", label: "Hotline d'urgence", value: "+41 (0)31 371 35 38" },
-    { icon: "✉️", label: "Email dédié", value: "rdcambassy@bluewin.ch" },
-    { icon: "🕑", label: "Horaires", value: "Lun–Ven · 09h–16h" },
+    { icon: "fa-solid fa-phone", label: "Hotline d'urgence", value: "+41 (0)31 371 35 38" },
+    { icon: "fa-solid fa-envelope", label: "Email dédié", value: "rdcambassy@bluewin.ch" },
+    { icon: "fa-solid fa-clock", label: "Horaires", value: "Lun–Ven · 09h–16h" },
   ];
 }

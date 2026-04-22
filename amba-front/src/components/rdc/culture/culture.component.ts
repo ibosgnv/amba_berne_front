@@ -17,9 +17,9 @@ export class RdcCultureComponent {
   ];
 
   protected readonly arts = [
-    { icon: "🎨", title: "Peinture & sculpture", desc: "Une école populaire vibrante de Kinshasa aux marchés d'art urbains." },
-    { icon: "🪘", title: "Artisanat", desc: "Tissus, masques, sculptures en bois, vanneries — un héritage vivant." },
-    { icon: "💃", title: "Danse & performance", desc: "Du ndombolo aux danses traditionnelles, une expression corporelle riche." },
+    { icon: "fa-solid fa-palette", title: "Peinture & sculpture", desc: "Une école populaire vibrante de Kinshasa aux marchés d'art urbains." },
+    { icon: "fa-solid fa-drum", title: "Artisanat", desc: "Tissus, masques, sculptures en bois, vanneries — un héritage vivant." },
+    { icon: "fa-solid fa-music", title: "Danse & performance", desc: "Du ndombolo aux danses traditionnelles, une expression corporelle riche." },
   ];
 
   protected readonly traditions = [

@@ -27,9 +27,9 @@ export class AproposInfosPratiquesComponent {
   ];
 
   protected readonly socials = [
-    { icon: "📘", label: "Facebook", url: "#" },
-    { icon: "✖️", label: "Twitter / X", url: "#" },
-    { icon: "💼", label: "LinkedIn", url: "#" },
-    { icon: "📸", label: "Instagram", url: "#" },
+    { icon: "fa-solid fa-book", label: "Facebook", url: "#" },
+    { icon: "fa-solid fa-xmark", label: "Twitter / X", url: "#" },
+    { icon: "fa-solid fa-briefcase", label: "LinkedIn", url: "#" },
+    { icon: "fa-solid fa-camera", label: "Instagram", url: "#" },
   ];
 }

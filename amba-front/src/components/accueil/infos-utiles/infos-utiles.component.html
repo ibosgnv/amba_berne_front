@@ -4,7 +4,7 @@
     <!-- Header -->
     <div class="text-center max-w-3xl mx-auto mb-12">
       <span class="inline-block bg-[#007FFF]/10 text-[#007FFF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
-        📊 Infos utiles
+        <i class="fa-solid fa-chart-column" aria-hidden="true"></i> Infos utiles
       </span>
       <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-4">
         Tout ce dont vous avez besoin, en un seul endroit
@@ -25,7 +25,7 @@
               ? 'bg-[#0b1a5c] text-white border-[#0b1a5c] shadow-md'
               : 'bg-white text-gray-700 border-gray-200 hover:border-[#007FFF] hover:text-[#007FFF]')"
         >
-          <span>{{ t.icon }}</span>
+          <span><i class="{{ t.icon }}" aria-hidden="true"></i></span>
           <span>{{ t.title }}</span>
         </button>
       }
@@ -35,7 +35,7 @@
     <div class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-8 md:p-10 shadow-sm">
       <div class="grid md:grid-cols-[auto_1fr] gap-8 items-center">
         <div class="w-28 h-28 rounded-2xl bg-gradient-to-br from-[#007FFF] to-[#0b1a5c] flex items-center justify-center text-6xl shadow-lg shrink-0">
-          {{ activeTab().icon }}
+          <i class="{{ activeTab().icon }}" aria-hidden="true"></i>
         </div>
         <div>
           <h3 class="text-2xl md:text-3xl font-extrabold text-[#0b1a5c] mb-3">{{ activeTab().title }}</h3>

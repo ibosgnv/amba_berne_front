@@ -28,7 +28,7 @@
         @for (h of highlights; track h.title) {
           <div class="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-[#FCD116] hover:shadow-lg transition-all">
             <div class="w-12 h-12 rounded-xl bg-[#FCD116]/20 flex items-center justify-center text-2xl mb-3">
-              {{ h.icon }}
+              <i class="{{ h.icon }}" aria-hidden="true"></i>
             </div>
             <h3 class="font-extrabold text-[#0b1a5c] mb-2">{{ h.title }}</h3>
             <p class="text-sm text-gray-600 leading-relaxed">{{ h.desc }}</p>

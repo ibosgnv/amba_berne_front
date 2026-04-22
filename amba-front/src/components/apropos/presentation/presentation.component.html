@@ -48,13 +48,13 @@
     <!-- Missions -->
     <div class="mt-20">
       <h3 class="text-xl font-bold text-[#0b1a5c] mb-6 flex items-center gap-2">
-        <span>🎯</span> Nos missions
+        <span><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span> Nos missions
       </h3>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         @for (m of missions; track m.title) {
           <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#007FFF] hover:shadow-lg transition-all">
             <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FCD116]/30 to-[#FCD116]/10 flex items-center justify-center text-3xl mb-4">
-              {{ m.icon }}
+              <i class="{{ m.icon }}" aria-hidden="true"></i>
             </div>
             <h4 class="font-extrabold text-[#0b1a5c] mb-1">{{ m.title }}</h4>
             <p class="text-sm text-gray-600 leading-relaxed">{{ m.desc }}</p>

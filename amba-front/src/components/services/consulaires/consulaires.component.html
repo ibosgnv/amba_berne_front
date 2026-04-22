@@ -3,7 +3,7 @@
 
     <!-- Intro -->
     <div class="flex items-start gap-5 mb-12">
-      <div class="w-14 h-14 rounded-2xl bg-[#007FFF]/10 flex items-center justify-center text-3xl shrink-0">🧾</div>
+      <div class="w-14 h-14 rounded-2xl bg-[#007FFF]/10 flex items-center justify-center text-3xl shrink-0"><i class="fa-solid fa-receipt" aria-hidden="true"></i></div>
       <div>
         <span class="inline-block bg-[#007FFF]/10 text-[#007FFF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
           Services consulaires
@@ -19,7 +19,7 @@
     </div>
 
     <!-- Procédures : accordion -->
-    <h3 class="text-xl font-bold text-[#0b1a5c] mb-4">📋 Procédures disponibles</h3>
+    <h3 class="text-xl font-bold text-[#0b1a5c] mb-4"><i class="fa-solid fa-clipboard" aria-hidden="true"></i> Procédures disponibles</h3>
     <div class="space-y-3 mb-14">
       @for (p of procedures; track p.id) {
         <div class="border border-gray-200 rounded-xl overflow-hidden hover:border-[#007FFF] transition">
@@ -28,7 +28,7 @@
             class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer hover:bg-gray-50 transition"
           >
             <span class="flex items-center gap-3">
-              <span class="text-2xl">{{ p.icon }}</span>
+              <span class="text-2xl"><i class="{{ p.icon }}" aria-hidden="true"></i></span>
               <span class="font-bold text-[#0b1a5c]">{{ p.title }}</span>
             </span>
             <span [class]="'text-[#007FFF] text-xl transition-transform ' + (openProcedure() === p.id ? 'rotate-45' : '')">+</span>
@@ -42,7 +42,7 @@
                   <!-- Étapes -->
                   <div>
                     <h4 class="text-sm font-bold uppercase tracking-wider text-[#007FFF] mb-4 flex items-center gap-2">
-                      <span>📋</span> Étapes
+                      <span><i class="fa-solid fa-clipboard" aria-hidden="true"></i></span> Étapes
                     </h4>
                     <ol class="space-y-2.5">
                       @for (step of p.steps; track $index) {
@@ -60,12 +60,12 @@
                   <!-- Documents requis -->
                   <div>
                     <h4 class="text-sm font-bold uppercase tracking-wider text-[#007FFF] mb-4 flex items-center gap-2">
-                      <span>📄</span> Documents requis
+                      <span><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span> Documents requis
                     </h4>
                     <ul class="space-y-2.5 mb-4">
                       @for (d of p.docs; track d) {
                         <li class="flex items-start gap-3 text-gray-700">
-                          <span class="shrink-0 w-5 h-5 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5">✓</span>
+                          <span class="shrink-0 w-5 h-5 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
                           <span>{{ d }}</span>
                         </li>
                       }
@@ -80,7 +80,7 @@
                 <aside class="bg-[#0b1a5c] text-white rounded-2xl p-6 relative overflow-hidden lg:w-80 flex flex-col">
                   <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#FCD116]/20 rounded-full blur-2xl"></div>
                   <h4 class="text-lg font-bold mb-3 flex items-center gap-2 relative">
-                    <span>💻</span> E-démarche
+                    <span><i class="fa-solid fa-laptop" aria-hidden="true"></i></span> E-démarche
                   </h4>
                   <p class="text-white/80 text-sm mb-5 leading-relaxed relative">
                     Initiez votre demande en ligne via un formulaire évolutif et sécurisé. Saisie guidée,
@@ -115,7 +115,7 @@
     <!-- FAQ -->
     <div>
       <h3 class="text-xl font-bold text-[#0b1a5c] mb-5 flex items-center gap-2">
-        <span>❓</span> Questions fréquentes
+        <span><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span> Questions fréquentes
       </h3>
       <div class="space-y-2">
         @for (f of faq; track $index) {

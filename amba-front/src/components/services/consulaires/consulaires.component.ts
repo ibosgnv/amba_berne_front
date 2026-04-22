@@ -25,7 +25,7 @@ export class ServicesConsulairesComponent {
   protected readonly procedures: Procedure[] = [
     {
       id: "carte",
-      icon: "🪪",
+      icon: "fa-solid fa-id-card",
       title: "Carte consulaire",
       steps: [
         "Remplir le formulaire en ligne",
@@ -42,7 +42,7 @@ export class ServicesConsulairesComponent {
     },
     {
       id: "etat-civil",
-      icon: "📜",
+      icon: "fa-solid fa-scroll",
       title: "Transcription d'actes d'état civil",
       steps: [
         "Choisir le type d'acte (naissance, mariage, décès)",
@@ -59,7 +59,7 @@ export class ServicesConsulairesComponent {
     },
     {
       id: "legalisation",
-      icon: "✔️",
+      icon: "fa-solid fa-check",
       title: "Légalisation de documents",
       steps: [
         "Vérifier l'éligibilité du document",
@@ -75,7 +75,7 @@ export class ServicesConsulairesComponent {
     },
     {
       id: "visite",
-      icon: "🏛️",
+      icon: "fa-solid fa-landmark",
       title: "Visite consulaire",
       steps: [
         "Prendre rendez-vous en ligne",

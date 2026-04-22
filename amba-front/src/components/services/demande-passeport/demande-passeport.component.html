@@ -10,7 +10,7 @@
     @if (submitted()) {
       <!-- Écran de confirmation -->
       <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-10 text-center">
-        <div class="w-20 h-20 rounded-full bg-green-100 mx-auto mb-6 flex items-center justify-center text-4xl">✓</div>
+        <div class="w-20 h-20 rounded-full bg-green-100 mx-auto mb-6 flex items-center justify-center text-4xl"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
         <h2 class="text-2xl font-extrabold text-[#0b1a5c] mb-3">Demande de rendez-vous envoyée</h2>
         <p class="text-gray-600 mb-2 max-w-lg mx-auto">
           Votre dossier a bien été reçu et va être examiné par l'Ambassade.
@@ -36,7 +36,7 @@
         <!-- Prérequis -->
         <div class="m-6 md:m-10 mb-0 md:mb-0 rounded-xl border-l-4 border-[#FCD116] bg-[#FCD116]/10 p-5">
           <div class="font-bold text-[#0b1a5c] mb-3 flex items-center gap-2">
-            <span>⚠️</span> Avant de remplir ce formulaire, vous devez avoir :
+            <span><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span> Avant de remplir ce formulaire, vous devez avoir :
           </div>
           <ol class="space-y-2 pl-1">
             @for (p of prerequis; track $index) {

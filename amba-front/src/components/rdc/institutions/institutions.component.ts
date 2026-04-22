@@ -10,8 +10,8 @@ import { Component, signal } from "@angular/core";
 export class RdcInstitutionsComponent {
   protected readonly tabs = [
     { id: "presidence", label: "Présidence de la RDC", icon: "🇨🇩" },
-    { id: "commerce", label: "Commerce extérieur", icon: "🌐" },
-    { id: "institutions", label: "Institutions clés", icon: "🏛️" },
+    { id: "commerce", label: "Commerce extérieur", icon: "fa-solid fa-globe" },
+    { id: "institutions", label: "Institutions clés", icon: "fa-solid fa-landmark" },
   ] as const;
 
   protected readonly activeTab = signal<string>("presidence");
@@ -35,17 +35,17 @@ export class RdcInstitutionsComponent {
     ],
     realisations: [
       {
-        icon: "🎓",
+        icon: "fa-solid fa-graduation-cap",
         title: "Gratuité de l'enseignement primaire",
         desc: "Mise en œuvre effective depuis 2019, permettant la scolarisation de millions d'enfants.",
       },
       {
-        icon: "🏥",
+        icon: "fa-solid fa-hospital",
         title: "Couverture santé universelle",
         desc: "Programme ambitieux de prise en charge médicale, à commencer par la maternité gratuite.",
       },
       {
-        icon: "🌍",
+        icon: "fa-solid fa-earth-africa",
         title: "Présidence de l'Union africaine",
         desc: "Présidence de l'UA en 2021 : voix panafricaine sur le climat, la paix et la jeunesse.",
       },

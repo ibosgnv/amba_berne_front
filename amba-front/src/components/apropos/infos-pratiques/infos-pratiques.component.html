@@ -21,7 +21,7 @@
           ></iframe>
         </div>
         <div class="p-6 flex items-start gap-4">
-          <div class="w-12 h-12 rounded-xl bg-[#FCD116]/20 flex items-center justify-center text-2xl shrink-0">📍</div>
+          <div class="w-12 h-12 rounded-xl bg-[#FCD116]/20 flex items-center justify-center text-2xl shrink-0"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
           <div>
             <div class="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-1">Adresse</div>
             <div class="font-bold text-[#0b1a5c]">Ambassade de la République Démocratique du Congo</div>
@@ -39,7 +39,7 @@
       <div class="flex flex-col gap-6">
         <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
           <h3 class="font-extrabold text-[#0b1a5c] mb-4 flex items-center gap-2">
-            <span class="text-2xl">🕒</span> Horaires d'ouverture
+            <span class="text-2xl"><i class="fa-solid fa-clock" aria-hidden="true"></i></span> Horaires d'ouverture
           </h3>
           <ul class="space-y-2">
             @for (h of hours; track h.day) {
@@ -53,15 +53,15 @@
 
         <div class="bg-[#0b1a5c] text-white rounded-2xl p-6 shadow-sm">
           <h3 class="font-extrabold mb-4 flex items-center gap-2">
-            <span class="text-2xl">☎️</span> Contacts
+            <span class="text-2xl"><i class="fa-solid fa-phone" aria-hidden="true"></i></span> Contacts
           </h3>
           <div class="space-y-3">
             <a href="tel:+41311234567" class="flex items-center gap-3 hover:text-[#FCD116] transition">
-              <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center">📞</span>
+              <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
               <span class="text-sm">+41 31 371 35 38</span>
             </a>
             <a href="mailto:contact@ambardc-berne.ch" class="flex items-center gap-3 hover:text-[#FCD116] transition">
-              <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center">✉️</span>
+              <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
               <span class="text-sm">rdcambassy&#64;bluewin.ch</span>
             </a>
           </div>
@@ -79,7 +79,7 @@
         <div class="flex flex-wrap gap-3">
           @for (s of socials; track s.label) {
             <a [href]="s.url" class="flex items-center gap-2 bg-gray-50 hover:bg-[#007FFF] hover:text-white border border-gray-200 hover:border-[#007FFF] rounded-full px-4 py-2 text-sm font-semibold text-[#0b1a5c] transition">
-              <span>{{ s.icon }}</span>
+              <span><i class="{{ s.icon }}" aria-hidden="true"></i></span>
               <span>{{ s.label }}</span>
             </a>
           }

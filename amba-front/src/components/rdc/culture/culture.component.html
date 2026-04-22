@@ -16,7 +16,7 @@
     <!-- Musique - featured -->
     <div class="bg-gradient-to-br from-[#0b1a5c] to-[#007FFF] text-white rounded-2xl overflow-hidden mb-8 grid md:grid-cols-2">
       <div class="p-8 md:p-10 flex flex-col justify-center">
-        <div class="text-4xl mb-3">🎵</div>
+        <div class="text-4xl mb-3"><i class="fa-solid fa-music" aria-hidden="true"></i></div>
         <h3 class="text-2xl font-extrabold mb-3">La rumba congolaise</h3>
         <p class="text-white/85 leading-relaxed mb-4">
           Inscrite au patrimoine culturel immatériel de l'UNESCO en 2021, la rumba congolaise
@@ -44,7 +44,7 @@
       @for (a of arts; track a.title) {
         <div class="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition">
           <div class="w-14 h-14 rounded-2xl bg-[#FCD116]/25 flex items-center justify-center text-3xl mb-4">
-            {{ a.icon }}
+            <i class="{{ a.icon }}" aria-hidden="true"></i>
           </div>
           <h4 class="font-extrabold text-[#0b1a5c] mb-2">{{ a.title }}</h4>
           <p class="text-sm text-gray-600 leading-relaxed">{{ a.desc }}</p>
@@ -56,7 +56,7 @@
     <div class="grid lg:grid-cols-2 gap-5">
       <div class="bg-white rounded-2xl p-7 border border-gray-200">
         <h3 class="font-extrabold text-[#0b1a5c] mb-4 flex items-center gap-2">
-          <span>🗣️</span> Langues
+          <span><i class="fa-solid fa-comment-dots" aria-hidden="true"></i></span> Langues
         </h3>
         <div class="flex flex-wrap gap-3">
           @for (l of languages; track l.label) {
@@ -70,7 +70,7 @@
 
       <div class="bg-white rounded-2xl p-7 border border-gray-200">
         <h3 class="font-extrabold text-[#0b1a5c] mb-4 flex items-center gap-2">
-          <span>🪶</span> Coutumes & traditions
+          <span><i class="fa-solid fa-feather" aria-hidden="true"></i></span> Coutumes & traditions
         </h3>
         <ul class="space-y-3">
           @for (t of traditions; track t) {

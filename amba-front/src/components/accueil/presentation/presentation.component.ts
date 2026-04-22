@@ -9,9 +9,9 @@ import { Component } from "@angular/core";
 })
 export class AccueilPresentationComponent {
   protected readonly piliers = [
-    { icon: "🤝", title: "Diplomatie", desc: "Représentation de l'État congolais et dialogue bilatéral." },
-    { icon: "🧾", title: "Services consulaires", desc: "Démarches administratives accessibles et sécurisées." },
-    { icon: "🌍", title: "Coopération", desc: "Partenariats économiques, culturels et scientifiques." },
-    { icon: "🫂", title: "Diaspora", desc: "Accompagnement des ressortissants congolais en Suisse." },
+    { icon: "fa-solid fa-handshake", title: "Diplomatie", desc: "Représentation de l'État congolais et dialogue bilatéral." },
+    { icon: "fa-solid fa-receipt", title: "Services consulaires", desc: "Démarches administratives accessibles et sécurisées." },
+    { icon: "fa-solid fa-earth-africa", title: "Coopération", desc: "Partenariats économiques, culturels et scientifiques." },
+    { icon: "fa-solid fa-people-group", title: "Diaspora", desc: "Accompagnement des ressortissants congolais en Suisse." },
   ];
 }

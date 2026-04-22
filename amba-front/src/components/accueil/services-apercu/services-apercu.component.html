@@ -4,7 +4,7 @@
     <!-- Header -->
     <div class="text-center mb-14 max-w-3xl mx-auto">
       <span class="inline-block bg-[#007FFF]/10 text-[#007FFF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
-        🛂 Services consulaires
+        <i class="fa-solid fa-passport" aria-hidden="true"></i> Services consulaires
       </span>
       <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-4">
         Effectuez vos démarches en toute simplicité
@@ -20,7 +20,7 @@
       @for (s of services; track s.title) {
         <a routerLink="/services" [fragment]="s.fragment" class="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#FCD116] hover:shadow-2xl hover:-translate-y-2 transition-all">
           <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#007FFF] to-[#0b1a5c] flex items-center justify-center text-3xl mb-4 shadow-md group-hover:scale-110 transition">
-            {{ s.icon }}
+            <i class="{{ s.icon }}" aria-hidden="true"></i>
           </div>
           <h3 class="text-lg font-bold text-[#0b1a5c] mb-2">{{ s.title }}</h3>
           <p class="text-sm text-gray-600 leading-relaxed mb-4">{{ s.desc }}</p>
