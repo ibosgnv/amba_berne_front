@@ -26,7 +26,7 @@ export class ContactHorairesComponent implements OnInit, OnDestroy {
     const day = now.getDay();
     if (day === 0 || day === 6) return false;
     const minutes = now.getHours() * 60 + now.getMinutes();
-    return minutes >= 9 * 60 && minutes < 16 * 60;
+    return minutes >= 9 * 60 && minutes < 15 * 60;
   });
 
   protected readonly todayIdx = computed(() => this.tick().getDay());
