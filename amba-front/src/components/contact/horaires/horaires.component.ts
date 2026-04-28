@@ -12,11 +12,11 @@ export class ContactHorairesComponent implements OnInit, OnDestroy {
   private intervalId?: ReturnType<typeof setInterval>;
 
   protected readonly days = [
-    { label: "Lundi", open: "09h00", close: "16h00", idx: 1 },
-    { label: "Mardi", open: "09h00", close: "16h00", idx: 2 },
-    { label: "Mercredi", open: "09h00", close: "16h00", idx: 3 },
-    { label: "Jeudi", open: "09h00", close: "16h00", idx: 4 },
-    { label: "Vendredi", open: "09h00", close: "16h00", idx: 5 },
+    { label: "Lundi", open: "09h00", close: "15h00", idx: 1 },
+    { label: "Mardi", open: "09h00", close: "15h00", idx: 2 },
+    { label: "Mercredi", open: "09h00", close: "15h00", idx: 3 },
+    { label: "Jeudi", open: "09h00", close: "15h00", idx: 4 },
+    { label: "Vendredi", open: "09h00", close: "15h00", idx: 5 },
     { label: "Samedi", open: null, close: null, idx: 6 },
     { label: "Dimanche", open: null, close: null, idx: 0 },
   ];
