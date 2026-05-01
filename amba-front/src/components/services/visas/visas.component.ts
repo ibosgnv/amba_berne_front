@@ -71,8 +71,13 @@ export class ServicesVisasComponent {
     },
     {
       num: 2,
+      title: "Prendre rendez-vous",
+      desc: "Réservez un créneau en ligne pour déposer votre dossier à l'Ambassade.",
+    },
+    {
+      num: 3,
       title: "Se présenter à l'Ambassade",
-      desc: "Prenez rendez-vous, puis rendez-vous sur place pour la prise d'empreintes et la remise du passeport.",
+      desc: "Rendez-vous sur place à la date convenue pour la prise d'empreintes et la remise du passeport.",
     },
   ];
 

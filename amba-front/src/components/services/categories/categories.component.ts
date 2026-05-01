@@ -24,7 +24,7 @@ export class ServicesCategoriesComponent {
       title: "Visas & Passeports",
       desc: "Types de visas, procédures, checklist des documents, tarification claire et formulaire en ligne sécurisé.",
       fragment: "services-visas",
-      color: "from-[#FCD116] to-[#FBA916]",
+      color: "from-[#007FFF] to-[#0b1a5c]",
     },
     {
       id: "accompagnement",

@@ -19,7 +19,7 @@
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
       @for (s of services; track s.title) {
         <a routerLink="/services" [fragment]="s.fragment" class="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-[#FCD116] hover:shadow-2xl hover:-translate-y-2 transition-all">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#007FFF] to-[#0b1a5c] flex items-center justify-center text-3xl mb-4 shadow-md group-hover:scale-110 transition">
+          <div class="w-14 h-14 rounded-2xl bg-white border border-gray-200 flex items-center justify-center text-2xl text-[#007FFF] mb-4 shadow-sm group-hover:scale-110 group-hover:border-[#FCD116] transition">
             <i class="{{ s.icon }}" aria-hidden="true"></i>
           </div>
           <h3 class="text-lg font-bold text-[#0b1a5c] mb-2">{{ s.title }}</h3>
