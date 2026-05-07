@@ -11,3 +11,8 @@ svg {
   width: 100%;
   height: auto;
 }
+
+@keyframes kenBurns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.15); }
+}
