@@ -6,6 +6,8 @@ import {
   Validators,
 } from "@angular/forms";
 import { RouterLink } from "@angular/router";
+import { DemandeVisaDTO } from "../../../dtos/demande-visa.dto";
+import { DemandeVisaService } from "../../../services/demande-visa.service";
 
 interface MotifOption {
   key: string;
@@ -26,6 +28,7 @@ interface VisaTypeOption {
 })
 export class DemandeVisaComponent {
   private readonly fb = inject(FormBuilder);
+  private demandeVisaService = inject(DemandeVisaService);
 
   protected readonly documentsRequis = [
     "Passeport en cours de validité (plus de six mois)",
@@ -59,6 +62,7 @@ export class DemandeVisaComponent {
 
   protected readonly sending = signal(false);
   protected readonly submitted = signal(false);
+  protected readonly errorMessage = signal<string | null>(null);
 
   protected readonly form: FormGroup = this.fb.group({
     nom: ["", Validators.required],
@@ -100,13 +104,53 @@ export class DemandeVisaComponent {
   protected submit() {
     this.form.markAllAsTouched();
     if (this.form.invalid || !this.hasMotifSelected()) return;
-    this.sending.set(true);
-    setTimeout(() => {
-      this.sending.set(false);
-      this.submitted.set(true);
-      if (typeof window !== "undefined") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    const visaFormData = this.form.value;
+    const motifs: string[] =
+      Object.entries(visaFormData.motifs as Record<string, boolean>)
+        .filter(([, checked]) => checked)
+        .map(([key]) => key);
+
+
+    const payload: DemandeVisaDTO = {
+      nom:            visaFormData.nom,
+         postnom:        visaFormData.postnom || undefined,
+         nomJeuneFille:  visaFormData.nomJeuneFille || undefined,
+         prenom:         visaFormData.prenom,
+         dateNaissance:  visaFormData.dateNaissance,   // déjà "YYYY-MM-DD" via <input type="date">
+         lieuNaissance:  visaFormData.lieuNaissance,
+         nationalite:    visaFormData.nationalite,
+         etatCivil:      visaFormData.etatCivil,
+         profession:     visaFormData.profession || undefined,
+         adresse:        visaFormData.adresse,
+         telephone:      visaFormData.telephone,
+         email:          visaFormData.email,
+         motifs,
+         typeVisa:       visaFormData.typeVisa,
+         traitement:     visaFormData.traitement,
+         invitantNom:    visaFormData.invitantNom || undefined,
+         invitantContact:visaFormData.invitantContact || undefined,
+         faitA:          visaFormData.faitA,
+         dateSignature:  visaFormData.dateSignature,
+    }
+
+    this.demandeVisaService.submitInfos(payload).subscribe({
+      next: () => {
+        this.submitted.set(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+      error: (err) => {
+        if (err.status === 0) {
+             this.errorMessage.set('Impossible de joindre le serveur. Vérifiez votre connexion.');
+           } else if (err.status >= 500) {
+             this.errorMessage.set('Une erreur est survenue côté serveur. Veuillez réessayer plus tard.');
+           } else {
+             this.errorMessage.set('Votre demande n\'a pas pu être envoyée. Veuillez vérifier vos informations.');
+           }
+      },
+      complete: () => {
+        this.sending.set(false);
       }
-    }, 1000);
+
+    });
   }
 }
