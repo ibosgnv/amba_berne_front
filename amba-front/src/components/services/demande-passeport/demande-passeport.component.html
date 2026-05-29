@@ -103,27 +103,46 @@
                   [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
                     (hasError('telephone') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
               </div>
+              <div>
+                <label class="block text-sm font-semibold text-[#0b1a5c] mb-1.5">Date de naissance <span class="text-red-500">*</span></label>
+                <input type="date" formControlName="dateNaissance"
+                  [class]="'w-full px-4 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+                    (hasError('dateNaissance') ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')" />
+                @if (hasError('dateNaissance')) {
+                  <p class="text-red-500 text-xs mt-1">Ce champ est obligatoire.</p>
+                }
+              </div>
             </div>
           </section>
 
           <!-- 2. DOCUMENTS À JOINDRE -->
           <section>
             <h2 class="bg-[#007FFF]/10 border-l-4 border-[#007FFF] text-[#0b1a5c] font-bold px-4 py-2 mb-3 uppercase tracking-wide text-sm">
-              2. Documents à joindre au dossier (courrier postal)
+              2. Documents à joindre au dossier
             </h2>
             <p class="text-sm text-gray-600 mb-5">
-              Cochez les éléments que vous allez inclure dans votre envoi à l'Ambassade :
+              Téléversez chaque document requis (PDF, JPG ou PNG — 5 Mo max par fichier) :
             </p>
 
-            <div formGroupName="documents" class="space-y-3">
+            <div class="space-y-3">
               @for (d of documentsRequis; track d.key) {
-                <label
-                  [class]="'flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition ' +
-                    (hasDocumentError(d.key) ? 'border-red-400 bg-red-50' : 'border-gray-200 hover:border-[#007FFF] hover:bg-[#007FFF]/5')">
-                  <input type="checkbox" [formControlName]="d.key"
-                    class="mt-0.5 w-4 h-4 accent-[#007FFF] shrink-0" />
-                  <span class="text-sm text-gray-700">{{ d.label }}</span>
-                </label>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-3 p-4 rounded-lg border border-gray-200 hover:border-[#007FFF]/40 transition">
+                  <span class="flex-1 text-sm text-gray-700">{{ d.label }}</span>
+                  <label class="shrink-0 cursor-pointer inline-flex items-center gap-2 bg-[#007FFF]/10 text-[#007FFF] border border-[#007FFF]/30 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#007FFF]/20 transition">
+                    <i class="fa-solid fa-upload text-xs" aria-hidden="true"></i>
+                    Choisir un fichier
+                    <input type="file" accept=".pdf,.jpg,.jpeg,.png" class="hidden"
+                      (change)="onFileSelected($event, d.key)" />
+                  </label>
+                  @if (selectedFileNames[d.key]) {
+                    <span class="text-xs text-green-600 font-medium flex items-center gap-1 shrink-0">
+                      <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                      {{ selectedFileNames[d.key] }}
+                    </span>
+                  } @else {
+                    <span class="text-xs text-gray-400 shrink-0">Aucun fichier</span>
+                  }
+                </div>
               }
             </div>
           </section>

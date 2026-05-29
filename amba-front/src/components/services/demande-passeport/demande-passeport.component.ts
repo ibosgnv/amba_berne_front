@@ -6,6 +6,8 @@ import {
   Validators,
 } from "@angular/forms";
 import { RouterLink } from "@angular/router";
+import { DemandePasseportService } from "../../../services/demande-passeport.service";
+import { DocumentType, PasseportRequestDTO } from "../../../dtos/passeport-request.dto";
 
 interface DocumentRequis {
   key: string;
@@ -21,6 +23,20 @@ interface DocumentRequis {
 })
 export class DemandePasseportComponent {
   private readonly fb = inject(FormBuilder);
+  private readonly passeportService = inject(DemandePasseportService);
+
+  // Maps frontend document keys to backend DocumentType enum values
+  private readonly documentTypeMap: Record<string, DocumentType> = {
+    formulaire: 'APPLICATION_FORM_QR',
+    passeport:  'EXPIRED_PASSPORT_OR_NATIONALITY_CERT',
+    permis:     'SWISS_RESIDENCE_PERMIT',
+    paiement:   'EQUITY_BCDC_PAYMENT_RECEIPT',
+    photos:     'PASSPORT_PHOTOS',
+  };
+
+  protected readonly uploadedFiles: Partial<Record<DocumentType, File>> = {};
+  protected readonly selectedFileNames: Record<string, string> = {};
+  protected readonly errorMessage = signal<string | null>(null);
 
   protected readonly prerequis = [
     {
@@ -71,38 +87,61 @@ export class DemandePasseportComponent {
     qrCode: ["", Validators.required],
     nom: ["", Validators.required],
     prenom: ["", Validators.required],
+    dateNaissance: ["", Validators.required],
     email: ["", [Validators.required, Validators.email]],
     telephone: ["", Validators.required],
-    documents: this.fb.group(
-      Object.fromEntries(
-        this.documentsRequis.map((d) => [d.key, [false, Validators.requiredTrue]]),
-      ),
-    ),
     consentement: [false, Validators.requiredTrue],
   });
-
-  protected readonly documentsGroup = this.form.get("documents") as FormGroup;
 
   protected hasError(key: string): boolean {
     const c = this.form.get(key);
     return !!c && c.invalid && (c.touched || c.dirty);
   }
 
-  protected hasDocumentError(key: string): boolean {
-    const c = this.documentsGroup.get(key);
-    return !!c && c.invalid && (c.touched || c.dirty);
+  protected onFileSelected(event: Event, docKey: string): void {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if (file) {
+      const docType = this.documentTypeMap[docKey];
+      if (docType) {
+        this.uploadedFiles[docType] = file;
+        this.selectedFileNames[docKey] = file.name;
+      }
+    }
   }
 
-  protected submit() {
+  protected submit(): void {
     this.form.markAllAsTouched();
     if (this.form.invalid) return;
+
+    const raw = this.form.value;
+
+    const payload: PasseportRequestDTO = {
+      nom:           raw.nom,
+      prenom:        raw.prenom,
+      email:         raw.email,
+      telephone:     raw.telephone,
+      dateNaissance: raw.dateNaissance,
+      consentement:  raw.consentement,
+    };
+
     this.sending.set(true);
-    setTimeout(() => {
-      this.sending.set(false);
-      this.submitted.set(true);
-      if (typeof window !== "undefined") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    }, 1000);
+    this.errorMessage.set(null);
+
+    this.passeportService.submit(payload, this.uploadedFiles).subscribe({
+      next: () => {
+        this.submitted.set(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+      error: (err) => {
+        if (err.status === 0) {
+          this.errorMessage.set('Impossible de joindre le serveur. Vérifiez votre connexion.');
+        } else if (err.status >= 500) {
+          this.errorMessage.set('Une erreur est survenue côté serveur. Veuillez réessayer plus tard.');
+        } else {
+          this.errorMessage.set('Votre demande n\'a pas pu être envoyée. Veuillez vérifier vos informations.');
+        }
+      },
+      complete: () => this.sending.set(false),
+    });
   }
 }
