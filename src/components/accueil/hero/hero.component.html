@@ -1,0 +1,26 @@
+<section class="relative w-full h-[80vh] min-h-[520px] overflow-hidden">
+  @for (theme of themes; track theme.title; let i = $index) {
+    <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+         [style.opacity]="i === currentIndex() ? 1 : 0"
+         [style.pointerEvents]="i === currentIndex() ? 'auto' : 'none'"
+         [attr.aria-hidden]="i !== currentIndex()">
+      <img [src]="theme.image" [alt]="theme.alt"
+           class="absolute inset-0 w-full h-full object-cover"
+           [style.animation]="i === currentIndex() ? 'kenBurns 6s ease-out forwards' : 'none'" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+      <div class="relative h-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-end pb-16 md:pb-20 text-white">
+        <h3 class="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg max-w-3xl">
+          {{ theme.title }}
+        </h3>
+        <p class="text-base md:text-xl text-white/90 mb-8 leading-snug drop-shadow max-w-2xl">
+          {{ theme.description }}
+        </p>
+        <a [routerLink]="theme.routerLink"
+           class="inline-flex items-center gap-2 self-start bg-[#FCD116] text-[#0b1a5c] px-6 py-3 rounded-full text-sm md:text-base font-bold shadow-lg hover:bg-white hover:gap-3 transition-all">
+          {{ theme.cta }}
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  }
+</section>
