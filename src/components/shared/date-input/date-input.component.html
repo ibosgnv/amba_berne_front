@@ -1,0 +1,45 @@
+<div class="flex gap-2">
+  <!-- Day -->
+  <select
+    [(ngModel)]="selectedDay"
+    (ngModelChange)="onPartChange()"
+    [disabled]="isDisabled"
+    [class]="'w-20 px-3 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition appearance-none cursor-pointer ' +
+      (hasError ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')"
+    aria-label="Jour"
+  >
+    <option [ngValue]="null" disabled>JJ</option>
+    @for (d of dayOptions(); track d) {
+      <option [ngValue]="d">{{ d < 10 ? '0' + d : d }}</option>
+    }
+  </select>
+
+  <!-- Month -->
+  <select
+    [(ngModel)]="selectedMonth"
+    (ngModelChange)="onPartChange()"
+    [disabled]="isDisabled"
+    [class]="'flex-1 px-3 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition appearance-none cursor-pointer ' +
+      (hasError ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')"
+    aria-label="Mois"
+  >
+    <option [ngValue]="null" disabled>Mois</option>
+    @for (m of months; track m.value) {
+      <option [ngValue]="m.value">{{ m.label }}</option>
+    }
+  </select>
+
+  <!-- Year -->
+  <input
+    type="number"
+    [(ngModel)]="selectedYear"
+    (ngModelChange)="onPartChange()"
+    [disabled]="isDisabled"
+    [min]="minYear"
+    [max]="maxYear"
+    placeholder="AAAA"
+    [class]="'w-24 px-3 py-2.5 rounded-lg border bg-white text-[#0b1a5c] outline-none focus:ring-2 focus:ring-[#007FFF]/30 transition ' +
+      (hasError ? 'border-red-400' : 'border-gray-300 focus:border-[#007FFF]')"
+    aria-label="Année"
+  />
+</div>

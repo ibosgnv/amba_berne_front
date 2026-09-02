@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Custom scrollbar for tab row */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 2px;
+}

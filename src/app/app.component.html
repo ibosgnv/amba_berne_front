@@ -1,0 +1,9 @@
+@if (maintenance.isActive()) {
+  <app-maintenance />
+} @else {
+  <app-navbar />
+  <main>
+    <router-outlet />
+  </main>
+  <app-footer />
+}

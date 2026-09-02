@@ -1,0 +1,137 @@
+<section id="services-consulaires" class="bg-white py-20 px-6 scroll-mt-24">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Intro -->
+    <div class="flex items-start gap-5 mb-12">
+      <div class="w-14 h-14 rounded-2xl bg-[#007FFF]/10 flex items-center justify-center text-3xl shrink-0"><i class="fa-solid fa-receipt" aria-hidden="true"></i></div>
+      <div>
+        <span class="inline-block bg-[#007FFF]/10 text-[#007FFF] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+          Services consulaires
+        </span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-[#0b1a5c] mb-3">
+          Simplifiez vos démarches administratives
+        </h2>
+        <p class="text-gray-600 text-lg leading-relaxed max-w-3xl">
+          L'Ambassade vous accompagne dans l'ensemble de vos formalités consulaires, conformément
+          aux dispositions légales en vigueur. Chaque procédure est détaillée étape par étape.
+        </p>
+      </div>
+    </div>
+
+    <!-- Procédures : accordion -->
+    <h3 class="text-xl font-bold text-[#0b1a5c] mb-4"><i class="fa-solid fa-clipboard" aria-hidden="true"></i> Procédures disponibles</h3>
+    <div class="space-y-3 mb-14">
+      @for (p of procedures; track p.id) {
+        <div class="border border-gray-200 rounded-xl overflow-hidden hover:border-[#007FFF] transition">
+          <button
+            (click)="toggleProcedure(p.id)"
+            class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer hover:bg-gray-50 transition"
+          >
+            <span class="flex items-center gap-3">
+              <span class="text-2xl"><i class="{{ p.icon }}" aria-hidden="true"></i></span>
+              <span class="font-bold text-[#0b1a5c]">{{ p.title }}</span>
+            </span>
+            <span [class]="'text-[#007FFF] text-xl transition-transform ' + (openProcedure() === p.id ? 'rotate-45' : '')">+</span>
+          </button>
+
+          @if (openProcedure() === p.id) {
+            <div class="border-t border-gray-100 bg-gray-50 p-5 md:p-6">
+              <div class="grid lg:grid-cols-[1fr_auto] gap-6">
+                <!-- Left column : Étapes + divider + Documents -->
+                <div class="flex flex-col gap-6">
+                  <!-- Étapes -->
+                  <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-[#007FFF] mb-4 flex items-center gap-2">
+                      <span><i class="fa-solid fa-clipboard" aria-hidden="true"></i></span> Étapes
+                    </h4>
+                    <ol class="space-y-2.5">
+                      @for (step of p.steps; track $index) {
+                        <li class="flex items-start gap-3">
+                          <span class="shrink-0 w-6 h-6 rounded-full bg-[#FCD116] text-[#0b1a5c] font-bold text-xs flex items-center justify-center mt-0.5">{{ $index + 1 }}</span>
+                          <span class="text-gray-700">{{ step }}</span>
+                        </li>
+                      }
+                    </ol>
+                  </div>
+
+                  <!-- Divider -->
+                  <hr class="border-t border-gray-300" />
+
+                  <!-- Documents requis -->
+                  <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-[#007FFF] mb-4 flex items-center gap-2">
+                      <span><i class="fa-solid fa-file-lines" aria-hidden="true"></i></span> Documents requis
+                    </h4>
+                    <ul class="space-y-2.5 mb-4">
+                      @for (d of p.docs; track d) {
+                        <li class="flex items-start gap-3 text-gray-700">
+                          <span class="shrink-0 w-5 h-5 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
+                          <span>{{ d }}</span>
+                        </li>
+                      }
+                    </ul>
+                    <button class="bg-[#0b1a5c] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#007FFF] transition">
+                      ⬇ Télécharger la checklist (PDF)
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Right column : E-démarche -->
+                <aside class="bg-[#0b1a5c] text-white rounded-2xl p-6 relative overflow-hidden lg:w-80 flex flex-col">
+                  <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#FCD116]/20 rounded-full blur-2xl"></div>
+                  <h4 class="text-lg font-bold mb-3 flex items-center gap-2 relative">
+                    <span><i class="fa-solid fa-laptop" aria-hidden="true"></i></span> E-démarche
+                  </h4>
+                  <p class="text-white/80 text-sm mb-5 leading-relaxed relative">
+                    Initiez votre demande en ligne via un formulaire évolutif et sécurisé. Saisie guidée,
+                    téléversement des documents, accusé de réception automatique.
+                  </p>
+                  <div class="space-y-2 mb-6 relative">
+                    <div class="flex items-center gap-3 text-sm">
+                      <span class="w-6 h-6 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center">1</span>
+                      <span>Informations personnelles</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                      <span class="w-6 h-6 rounded-full bg-white/20 text-white text-xs font-bold flex items-center justify-center">2</span>
+                      <span class="text-white/70">Téléversement documents</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                      <span class="w-6 h-6 rounded-full bg-white/20 text-white text-xs font-bold flex items-center justify-center">3</span>
+                      <span class="text-white/70">Validation & envoi</span>
+                    </div>
+                  </div>
+                  <a [routerLink]="['/services/e-demarche', p.id]"
+                     class="mt-auto inline-block text-center bg-[#FCD116] text-[#0b1a5c] px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#ffd938] transition relative">
+                    Commencer ma démarche →
+                  </a>
+                </aside>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- FAQ -->
+    <div>
+      <h3 class="text-xl font-bold text-[#0b1a5c] mb-5 flex items-center gap-2">
+        <span><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span> Questions fréquentes
+      </h3>
+      <div class="space-y-2">
+        @for (f of faq; track $index) {
+          <div class="border border-gray-200 rounded-xl overflow-hidden">
+            <button (click)="toggleFaq($index)" class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer hover:bg-gray-50 transition">
+              <span class="font-semibold text-[#0b1a5c]">{{ f.question }}</span>
+              <span [class]="'text-[#007FFF] text-xl transition-transform ' + (openFaq() === $index ? 'rotate-45' : '')">+</span>
+            </button>
+            @if (openFaq() === $index) {
+              <div class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4 bg-gray-50">
+                {{ f.answer }}
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
