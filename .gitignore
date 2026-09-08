@@ -40,8 +40,8 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
-instructions/
-GUIDE_UTILISATEUR.md
+../instructions/
+../GUIDE_UTILISATEUR.md
 nginx.conf
 package-lock.json
 .dockerignore
