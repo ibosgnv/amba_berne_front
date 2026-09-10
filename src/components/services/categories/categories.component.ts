@@ -10,14 +10,7 @@ import { RouterLink } from "@angular/router";
 })
 export class ServicesCategoriesComponent {
   protected readonly categories = [
-    {
-      id: "consulaires",
-      icon: "fa-solid fa-receipt",
-      title: "Services consulaires",
-      desc: "Cartes consulaires, état civil, légalisation de documents, visites consulaires. Démarches guidées étape par étape.",
-      fragment: "services-consulaires",
-      color: "from-[#007FFF] to-[#0b1a5c]",
-    },
+
     {
       id: "visas",
       icon: "fa-solid fa-passport",
@@ -27,12 +20,21 @@ export class ServicesCategoriesComponent {
       color: "from-[#007FFF] to-[#0b1a5c]",
     },
     {
+      id: "consulaires",
+      icon: "fa-solid fa-receipt",
+      title: "Services consulaires",
+      desc: "Cartes consulaires, état civil, légalisation de documents, visites consulaires. Démarches guidées étape par étape.",
+      fragment: "services-consulaires",
+      color: "from-[#007FFF] to-[#0b1a5c]",
+    },
+
+    /*{
       id: "accompagnement",
       icon: "fa-solid fa-handshake",
       title: "Accompagnement",
       desc: "Partenariats, aide aux voyageurs, guide des ressortissants, intégration en Suisse. L'Ambassade à vos côtés.",
       fragment: "services-accompagnement",
       color: "from-[#0b1a5c] to-[#007FFF]",
-    },
+    }, */
   ];
 }

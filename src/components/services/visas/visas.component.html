@@ -17,6 +17,61 @@
       </div>
     </div>
 
+    <!-- === PASSEPORTS === -->
+    <div class="flex items-center gap-3 mb-8 pb-4 border-b-2 border-[#FCD116]/40">
+      <div class="w-12 h-12 rounded-xl bg-[#FCD116]/20 flex items-center justify-center text-2xl shrink-0"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></div>
+      <div>
+        <h3 class="text-2xl font-extrabold text-[#0b1a5c]">Passeports</h3>
+        <p class="text-sm text-gray-600">Délivrance et renouvellement des passeports congolais.</p>
+      </div>
+    </div>
+
+    <!-- Procédure passeport : timeline -->
+    <h4 class="text-lg font-bold text-[#0b1a5c] mb-6"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Procédure en 4 étapes</h4>
+    <div class="relative mb-14">
+      <!-- Ligne -->
+      <div class="hidden lg:block absolute top-8 left-8 right-8 h-0.5 bg-gradient-to-r from-[#007FFF] to-[#FCD116]"></div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        @for (s of passportSteps; track s.num) {
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 relative">
+            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#007FFF] to-[#0b1a5c] text-white font-extrabold text-xl flex items-center justify-center mb-4 shadow-lg">
+              {{ s.num }}
+            </div>
+            <h4 class="font-bold text-[#0b1a5c] mb-2">{{ s.title }}</h4>
+            <p class="text-sm text-gray-600 leading-relaxed">{{ s.desc }}</p>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Documents requis passeport -->
+    <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm mb-14">
+      <h4 class="text-lg font-bold text-[#0b1a5c] mb-5 flex items-center gap-2">
+        <span><i class="fa-solid fa-paperclip" aria-hidden="true"></i></span> Documents requis
+      </h4>
+      <ul class="space-y-2.5">
+        @for (d of passportDocs; track d) {
+          <li class="flex items-start gap-3 text-gray-700">
+            <span class="shrink-0 w-5 h-5 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
+            <span>{{ d }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <!-- CTA Passeport -->
+    <div class="bg-gradient-to-r from-[#0b1a5c] to-[#007FFF] rounded-2xl p-8 text-center text-white mb-20">
+      <h3 class="text-2xl font-extrabold mb-2">Besoin d'un passeport ?</h3>
+      <p class="text-white/80 mb-6">Prenez connaissance du communiqué officiel avant d'entamer vos démarches.</p>
+      <a href="/documents/Passeport-Communique_sur_la_procedure.pdf" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2.5 bg-[#FCD116] text-[#0b1a5c] px-8 py-3.5 rounded-full font-bold shadow-lg hover:bg-white transition cursor-pointer">
+        <i class="fa-solid fa-file-pdf text-red-500" aria-hidden="true"></i>
+        Consulter le communiqué officiel
+        <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+      </a>
+    </div>
+
     <!-- === VISAS === -->
     <div class="flex items-center gap-3 mb-8 pb-4 border-b-2 border-[#007FFF]/20">
       <div class="w-12 h-12 rounded-xl bg-[#007FFF]/10 flex items-center justify-center text-2xl shrink-0"><i class="fa-solid fa-passport" aria-hidden="true"></i></div>
@@ -27,12 +82,12 @@
     </div>
 
     <!-- Timeline -->
-    <h4 class="text-lg font-bold text-[#0b1a5c] mb-6"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Procédure en 4 étapes</h4>
+    <h4 class="text-lg font-bold text-[#0b1a5c] mb-6"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Procédure en 3 étapes</h4>
     <div class="relative mb-16">
       <!-- Ligne -->
-      <div class="hidden lg:block absolute top-8 left-8 right-8 h-0.5 bg-gradient-to-r from-[#007FFF] to-[#FCD116]"></div>
+      <div class="hidden sm:block absolute top-8 left-8 right-8 h-0.5 bg-gradient-to-r from-[#007FFF] to-[#FCD116]"></div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+      <div class="grid sm:grid-cols-3 gap-6 relative">
         @for (s of steps; track s.num) {
           <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 relative">
             <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#007FFF] to-[#0b1a5c] text-white font-extrabold text-xl flex items-center justify-center mb-4 shadow-lg">
@@ -73,7 +128,7 @@
     <h4 class="text-lg font-bold text-[#0b1a5c] mb-5"><i class="fa-solid fa-sack-dollar" aria-hidden="true"></i> Tarification</h4>
     <div class="grid lg:grid-cols-[1fr_360px] gap-6 mb-20 items-stretch">
       <div class="overflow-x-auto">
-        <table class="w-full h-full bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200">
+        <table class="w-full bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200">
           <thead class="bg-[#0b1a5c] text-white">
             <tr>
               <th class="px-6 py-4 text-left font-semibold">Durée</th>
@@ -96,11 +151,24 @@
               <span class="font-semibold text-[#0b1a5c]">Traitement express :</span> +30 CHF &nbsp;·&nbsp;
               <span class="font-semibold text-[#0b1a5c]">Photocopie / impression :</span> 0.50 CHF
             </td></tr>
-            <tr><td colspan="3" class="px-6 py-2.5">
-              <a href="documents/Visa%20-%20Conditions%20pour%20la%20demande.pdf" target="_blank" rel="noopener"
+            <tr><td colspan="3" class="px-6 py-4 border-t border-gray-200 text-sm text-gray-600">
+              <span class="font-semibold text-[#0b1a5c]">Pour toute demande par voie postale, prévoir :</span>
+              <ul class="mt-2 space-y-1.5">
+                @for (d of visaPostalDocs; track d) {
+                  <li class="flex items-start gap-2.5">
+                    <span class="shrink-0 w-1.5 h-1.5 rounded-full bg-[#FCD116] mt-1.5"></span>
+                    <span>{{ d }}</span>
+                  </li>
+                }
+              </ul>
+            </td></tr>
+            <tr><td colspan="3" class="px-6 py-2.5 border-t border-gray-200">
+              <a href="/documents/Visa%20-%20Conditions%20pour%20la%20demande.pdf" target="_blank" rel="noopener"
                  class="inline-flex items-center gap-2 text-sm font-bold text-[#007FFF] hover:text-[#0b1a5c] transition">
-                <i class="fa-solid fa-file-pdf text-red-500"></i>
-                Conditions pour la demande de visa (PDF)
+                <i class="fa-solid fa-file-pdf text-red-500" aria-hidden="true"></i>
+                Conditions pour la demande de visa
+                <span class="font-semibold text-gray-500">(PDF · nouvel onglet)</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
               </a>
             </td></tr>
           </tfoot>
@@ -109,7 +177,7 @@
 
       <!-- CTA Visa -->
       <aside class="bg-gradient-to-br from-[#FCD116] to-[#ffd938] rounded-2xl p-8 text-center flex flex-col justify-center gap-4">
-        <h3 class="text-xl font-extrabold text-[#0b1a5c] mb-2">Prêt à entamer votre demande ?</h3>
+        <h3 class="text-xl font-extrabold text-[#0b1a5c]">Prêt à entamer votre demande ?</h3>
         <p class="text-[#0b1a5c]/80 text-sm">Le formulaire s'adapte au type de visa choisi.</p>
         <button
           (click)="openVisaDialog()"
@@ -120,151 +188,82 @@
       </aside>
     </div>
 
-    <!-- === PASSEPORTS === -->
-    <div class="flex items-center gap-3 mb-8 pb-4 border-b-2 border-[#FCD116]/40">
-      <div class="w-12 h-12 rounded-xl bg-[#FCD116]/20 flex items-center justify-center text-2xl shrink-0"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></div>
-      <div>
-        <h3 class="text-2xl font-extrabold text-[#0b1a5c]">Passeports</h3>
-        <p class="text-sm text-gray-600">Délivrance et renouvellement des passeports congolais.</p>
-      </div>
-    </div>
-
-    <!-- Procédure passeport : timeline -->
-    <h4 class="text-lg font-bold text-[#0b1a5c] mb-6"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Procédure en 3 étapes</h4>
-    <div class="relative mb-14">
-      <!-- Ligne -->
-      <div class="hidden sm:block absolute top-8 left-8 right-8 h-0.5 bg-gradient-to-r from-[#007FFF] to-[#FCD116]"></div>
-
-      <div class="grid sm:grid-cols-3 gap-6 relative">
-        @for (s of passportSteps; track s.num) {
-          <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 relative">
-            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#007FFF] to-[#0b1a5c] text-white font-extrabold text-xl flex items-center justify-center mb-4 shadow-lg">
-              {{ s.num }}
-            </div>
-            <h4 class="font-bold text-[#0b1a5c] mb-2">{{ s.title }}</h4>
-            <p class="text-sm text-gray-600 leading-relaxed">{{ s.desc }}</p>
-          </div>
-        }
-      </div>
-    </div>
-
-    <!-- Documents requis passeport -->
-    <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm mb-14">
-      <h4 class="text-lg font-bold text-[#0b1a5c] mb-5 flex items-center gap-2">
-        <span><i class="fa-solid fa-paperclip" aria-hidden="true"></i></span> Documents requis
-      </h4>
-      <ul class="space-y-2.5">
-        @for (d of passportDocs; track d) {
-          <li class="flex items-start gap-3 text-gray-700">
-            <span class="shrink-0 w-5 h-5 rounded-full bg-[#FCD116] text-[#0b1a5c] text-xs font-bold flex items-center justify-center mt-0.5"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
-            <span>{{ d }}</span>
-          </li>
-        }
-      </ul>
-    </div>
-
-    <!-- Types de passeports -->
-    <!--
-    <h4 class="text-lg font-bold text-[#0b1a5c] mb-6"><i class="fa-solid fa-book" aria-hidden="true"></i> Types de passeports</h4>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
-      @for (p of passportTypes; track p.name) {
-        <div class="bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-[#007FFF] hover:shadow-lg transition-all hover:-translate-y-1">
-          <div class="text-4xl mb-4"><i class="{{ p.icon }}" aria-hidden="true"></i></div>
-          <h5 class="font-bold text-[#0b1a5c] text-lg mb-2">{{ p.name }}</h5>
-          <p class="text-sm text-gray-600 mb-4 leading-relaxed">{{ p.desc }}</p>
-          <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-            <span class="text-xl font-extrabold text-[#007FFF]">{{ p.price }}</span>
-            <span class="text-xs text-[#0b1a5c] font-semibold">En savoir plus →</span>
-          </div>
-        </div>
-      }
-    </div> -->
-
-    <!-- CTA Passeport -->
-    <div class="bg-gradient-to-r from-[#0b1a5c] to-[#007FFF] rounded-2xl p-8 text-center text-white">
-      <h3 class="text-2xl font-extrabold mb-2">Besoin d'un passeport ?</h3>
-      <p class="text-white/80 mb-6">Initiez votre demande en ligne ou prenez rendez-vous à l'Ambassade.</p>
-      <a routerLink="/services/demande-passeport"
-         class="inline-block bg-[#FCD116] text-[#0b1a5c] px-8 py-3.5 rounded-full font-bold shadow-lg hover:bg-white transition cursor-pointer">
-        Demander un passeport →
-      </a>
-    </div>
-  </div>
-
-  <!-- Dialog: choix du mode de demande de visa -->
-  @if (visaDialogOpen()) {
-    <div
-      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
-      (click)="closeVisaDialog()"
-    >
+    <!-- Dialog: choix du mode de demande de visa -->
+    @if (visaDialogOpen()) {
       <div
-        class="bg-white rounded-2xl max-w-lg w-full shadow-2xl overflow-hidden"
-        (click)="$event.stopPropagation()"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+        (click)="closeVisaDialog()"
       >
-        <div class="bg-gradient-to-r from-[#0b1a5c] to-[#007FFF] text-white p-6 relative">
-          <button
-            (click)="closeVisaDialog()"
-            class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-lg transition cursor-pointer"
-            aria-label="Fermer"
-          >
-            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-          </button>
-          <h3 class="text-xl font-extrabold mb-1">Comment souhaitez-vous procéder ?</h3>
-          <p class="text-white/80 text-sm">Choisissez l'option qui vous convient le mieux.</p>
-        </div>
+        <div
+          class="bg-white rounded-2xl max-w-lg w-full shadow-2xl overflow-hidden"
+          (click)="$event.stopPropagation()"
+        >
+          <div class="bg-gradient-to-r from-[#0b1a5c] to-[#007FFF] text-white p-6 relative">
+            <button
+              (click)="closeVisaDialog()"
+              class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-lg transition cursor-pointer"
+              aria-label="Fermer"
+            >
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <h3 class="text-xl font-extrabold mb-1">Documents à télécharger</h3>
+            <p class="text-white/80 text-sm">Remplissez-les à l'avance, puis déposez votre dossier complet à l'Ambassade ou envoyez-le par voie postale.</p>
+          </div>
 
-        <div class="p-6 space-y-5">
-          <!-- Option 1 : Télécharger -->
-          <div>
-            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0b1a5c] mb-3">
-              <span class="text-base">⬇</span> Télécharger les formulaires
-            </div>
+          <div class="p-6 space-y-5">
             <div class="space-y-2">
               @for (doc of visaDocuments; track doc.file) {
                 <a
                   [href]="'/documents/' + doc.file"
-                  [attr.download]="doc.file"
-                  target="_blank"
+                  [attr.download]="doc.download ? doc.file : null"
+                  [attr.target]="doc.download ? null : '_blank'"
                   rel="noopener"
                   class="flex items-start gap-4 p-4 rounded-xl border-2 border-gray-200 hover:border-[#FCD116] hover:bg-[#FCD116]/5 transition cursor-pointer group"
                 >
                   <div class="w-10 h-10 rounded-lg bg-[#FCD116]/20 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                    <i class="fa-solid fa-file-pdf text-red-500" aria-hidden="true"></i>
                   </div>
                   <div class="flex-1 min-w-0">
                     <div class="font-bold text-[#0b1a5c] text-sm mb-0.5 truncate">{{ doc.name }}</div>
                     <p class="text-xs text-gray-600">{{ doc.desc }}</p>
+                    <p class="text-xs font-semibold text-[#007FFF] mt-1">
+                      {{ doc.download ? 'PDF · téléchargement' : 'PDF · ouverture dans un nouvel onglet' }}
+                    </p>
                   </div>
-                  <span class="text-[#007FFF] text-lg self-center">⬇</span>
+                  <span class="text-[#007FFF] text-lg self-center shrink-0">
+                    <i [class]="doc.download ? 'fa-solid fa-download' : 'fa-solid fa-arrow-up-right-from-square'" aria-hidden="true"></i>
+                  </span>
                 </a>
               }
             </div>
-          </div>
 
-          <!-- Séparateur -->
-          <div class="flex items-center gap-3">
-            <hr class="flex-1 border-t border-gray-200" />
-            <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">ou</span>
-            <hr class="flex-1 border-t border-gray-200" />
-          </div>
+            <!-- Séparateur -->
+            <!--
+            <div class="flex items-center gap-3">
+              <hr class="flex-1 border-t border-gray-200" />
+              <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">ou</span>
+              <hr class="flex-1 border-t border-gray-200" />
+            </div> -->
 
-          <!-- Option 2 : Remplir en ligne -->
-          <a
-            routerLink="/services/demande-visa"
-            (click)="closeVisaDialog()"
-            class="flex items-start gap-4 p-4 rounded-xl border-2 border-gray-200 hover:border-[#007FFF] hover:bg-[#007FFF]/5 transition cursor-pointer group"
-          >
-            <div class="w-12 h-12 rounded-xl bg-[#007FFF]/10 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition">
-              <i class="fa-solid fa-laptop" aria-hidden="true"></i>
-            </div>
-            <div class="flex-1">
-              <div class="font-bold text-[#0b1a5c] mb-1">Remplir en ligne</div>
-              <p class="text-sm text-gray-600">Formulaire interactif étape par étape avec téléversement des documents.</p>
-            </div>
-            <span class="text-[#007FFF] text-xl self-center">→</span>
-          </a>
+            <!-- Option 2 : Remplir en ligne -->
+            <!--  TODO: à supprimer pour le moment
+            <a
+              routerLink="/services/demande-visa"
+              (click)="closeVisaDialog()"
+              class="flex items-start gap-4 p-4 rounded-xl border-2 border-gray-200 hover:border-[#007FFF] hover:bg-[#007FFF]/5 transition cursor-pointer group"
+            >
+              <div class="w-12 h-12 rounded-xl bg-[#007FFF]/10 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 transition">
+                <i class="fa-solid fa-laptop" aria-hidden="true"></i>
+              </div>
+              <div class="flex-1">
+                <div class="font-bold text-[#0b1a5c] mb-1">Remplir en ligne</div>
+                <p class="text-sm text-gray-600">Formulaire interactif étape par étape avec téléversement des documents.</p>
+              </div>
+              <span class="text-[#007FFF] text-xl self-center">→</span>
+              </a> -->
+          </div>
         </div>
       </div>
-    </div>
-  }
+    }
+  </div>
 </section>

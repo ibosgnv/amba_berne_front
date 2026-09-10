@@ -1,0 +1,19 @@
+<!-- FAQ -->
+<h3 class="text-xl font-bold text-[#0b1a5c] mb-5 flex items-center gap-2">
+  <span><i class="fa-solid fa-circle-question" aria-hidden="true"></i></span> Questions fréquentes
+</h3>
+<div class="space-y-2">
+  @for (f of faq; track $index) {
+    <div class="border border-gray-200 rounded-xl overflow-hidden">
+      <button (click)="toggleFaq($index)" class="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer hover:bg-gray-50 transition">
+        <span class="font-semibold text-[#0b1a5c]">{{ f.question }}</span>
+        <span [class]="'text-[#007FFF] text-xl transition-transform ' + (openFaq() === $index ? 'rotate-45' : '')">+</span>
+      </button>
+      @if (openFaq() === $index) {
+        <div class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4 bg-gray-50 whitespace-pre-line">
+          {{ f.answer }}
+        </div>
+      }
+    </div>
+  }
+</div>
