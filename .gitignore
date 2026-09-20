@@ -49,3 +49,7 @@ netlify.toml
 Dockerfile
 .editorconfig
 .vscode
+
+# Identifiants SMTP du service mailer
+mailer/.env
+mailer/node_modules

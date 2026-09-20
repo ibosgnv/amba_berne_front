@@ -38,6 +38,8 @@ export class ContactFormulaireComponent {
     telephone: [""],
     objet: ["", Validators.required],
     message: ["", [Validators.required, Validators.minLength(10)]],
+    // Piège anti-spam, sans validateur : doit rester vide.
+    site: [""],
   });
 
   hasError(field: string): boolean {
@@ -58,6 +60,7 @@ export class ContactFormulaireComponent {
       telephone: raw.telephone || undefined,
       objet:     raw.objet,
       message:   raw.message,
+      site:      raw.site,
     };
 
     this.sending.set(true);
@@ -71,6 +74,9 @@ export class ContactFormulaireComponent {
       error: (err) => {
         if (err.status === 0) {
           this.errorMessage.set('Impossible de joindre le serveur. Vérifiez votre connexion.');
+        } else if (err.status === 429) {
+          // Limitation de débit : le service renvoie un message explicite.
+          this.errorMessage.set(err.error?.error ?? 'Trop de tentatives. Merci de patienter une minute.');
         } else if (err.status >= 500) {
           this.errorMessage.set('Une erreur est survenue. Veuillez réessayer plus tard.');
         } else {

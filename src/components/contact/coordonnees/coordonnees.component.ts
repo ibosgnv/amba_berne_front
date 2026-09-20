@@ -13,7 +13,7 @@ export class ContactCoordonneesComponent {
 
   constructor(sanitizer: DomSanitizer) {
     this.mapUrl = sanitizer.bypassSecurityTrustResourceUrl(
-      "https://www.google.com/maps?q=Ambassade+RDC+Berne+Suisse&output=embed"
+      "https://www.google.com/maps?q=Sulgenheimweg+21,+3001+Bern&output=embed"
     );
   }
 }

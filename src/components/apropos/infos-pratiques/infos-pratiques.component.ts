@@ -12,11 +12,11 @@ import { RouterLink } from "@angular/router";
 export class AproposInfosPratiquesComponent {
   protected readonly mapUrl: SafeResourceUrl;
   protected readonly mapLink =
-    "https://www.google.com/maps/search/?api=1&query=Ambassade+RDC+Berne+Suisse";
+    "https://www.google.com/maps/search/?api=1&query=Sulgenheimweg+21,+3001+Bern";
 
   constructor(sanitizer: DomSanitizer) {
     this.mapUrl = sanitizer.bypassSecurityTrustResourceUrl(
-      "https://www.google.com/maps?q=Ambassade+RDC+Berne+Suisse&output=embed",
+      "https://www.google.com/maps?q=Sulgenheimweg+21,+3001+Bern&output=embed",
     );
   }
 

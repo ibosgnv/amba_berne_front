@@ -18,8 +18,8 @@
         <div class="w-20 h-20 mx-auto rounded-full bg-green-100 flex items-center justify-center text-4xl mb-5"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></div>
         <h3 class="text-2xl font-extrabold text-[#0b1a5c] mb-3">Demande envoyée avec succès</h3>
         <p class="text-gray-600 mb-6 max-w-lg mx-auto">
-          Merci pour votre message. Une confirmation a été transmise à votre adresse email.
-          Notre équipe vous répondra dans les meilleurs délais.
+          Merci pour votre message, il a bien été transmis à l'Ambassade.
+          Notre équipe vous répondra dans les meilleurs délais à l'adresse que vous avez indiquée.
         </p>
         <button (click)="reset()" class="bg-[#0b1a5c] text-white px-6 py-3 rounded-full font-bold hover:bg-[#007FFF] transition">
           Envoyer une autre demande
@@ -29,6 +29,12 @@
       <!-- Form -->
       <form [formGroup]="form" (ngSubmit)="submit()"
             class="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-6 md:p-10 shadow-sm">
+
+        <!-- Piège anti-spam : hors écran, jamais rempli par un visiteur -->
+        <div class="absolute left-[-9999px] w-px h-px overflow-hidden" aria-hidden="true">
+          <label for="site">Ne pas remplir</label>
+          <input id="site" type="text" formControlName="site" tabindex="-1" autocomplete="off" />
+        </div>
 
         <div class="grid md:grid-cols-2 gap-5">
           <!-- Nom -->
@@ -111,10 +117,18 @@
           </span>
         </p>
 
+        <!-- Erreur d'envoi -->
+        @if (errorMessage()) {
+          <p class="mt-5 flex items-start gap-2 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-3" role="alert">
+            <i class="fa-solid fa-circle-exclamation mt-0.5 shrink-0" aria-hidden="true"></i>
+            <span>{{ errorMessage() }}</span>
+          </p>
+        }
+
         <!-- Submit -->
         <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
           <p class="text-sm text-gray-500">
-            <i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i> Une confirmation vous sera envoyée après l'envoi de votre message.
+            <i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i> Votre message est transmis directement à l'Ambassade.
           </p>
           <button type="submit" [disabled]="sending()"
                   class="inline-flex items-center gap-2 bg-[#FCD116] text-[#0b1a5c] px-7 py-3.5 rounded-full font-bold shadow-md hover:bg-[#ffd938] disabled:opacity-60 disabled:cursor-not-allowed transition">
