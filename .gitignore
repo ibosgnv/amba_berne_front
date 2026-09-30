@@ -53,3 +53,6 @@ Dockerfile
 # Identifiants SMTP du service mailer
 mailer/.env
 mailer/node_modules
+
+
+mailer/.env.example
