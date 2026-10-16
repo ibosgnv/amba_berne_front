@@ -56,3 +56,4 @@ mailer/node_modules
 
 
 mailer/.env.example
+docker-compose.yml

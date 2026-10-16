@@ -33,7 +33,7 @@ export class AproposEquipeComponent {
   protected readonly members: Member[] = [
     {
       initials: 'SM',
-      name: 'S.E. Symphorien Bakafwa Nsenda Mutombo',
+      name: "S.E.Me Symphorien Bakafwa Nsenda Mutombo",
       role: 'Ambassadeur Extraordinaire et Plénipotentiaire',
       photo: 'assets/equipe/amba_mutombo.JPG',
       dept: 'diplomatique',
