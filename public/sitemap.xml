@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Routes publiques du site. Volontairement absentes :
+  - /services/e-demarche/:id, paramétrée et non référençable telle quelle
+  - /services/demande-visa, plus accessible depuis l'interface
+  Pensez à mettre à jour lastmod lors de modifications de contenu.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ambardcberne.ch/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ambardcberne.ch/services</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ambardcberne.ch/services/demande-passeport</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ambardcberne.ch/contact</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ambardcberne.ch/a-propos</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ambardcberne.ch/rdc</loc>
+    <lastmod>2026-10-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+</urlset>
